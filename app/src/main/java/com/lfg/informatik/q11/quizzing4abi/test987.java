@@ -9,5 +9,7 @@ public class test987 {
     {
         return;
     }
-
+    void test2(){
+        return;
+    }
 }
