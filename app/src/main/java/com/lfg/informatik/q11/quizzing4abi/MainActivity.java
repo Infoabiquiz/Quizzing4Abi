@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends ActionBarActivity
 {
@@ -13,6 +14,17 @@ public class MainActivity extends ActionBarActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public void onClick(View view)
+    {
+        int viewID = view.getId();
+
+        switch(viewID)
+        {
+            case R.id.showTestLayout:
+                Test.showTestLayout(this);
+        }
     }
 
     @Override
