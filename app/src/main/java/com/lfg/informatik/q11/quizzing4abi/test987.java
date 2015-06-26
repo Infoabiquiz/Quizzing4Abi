@@ -10,4 +10,9 @@ public class test987 {
         return;
     }
 
+    int test2()
+    {
+        return 42;
+    }
+
 }
