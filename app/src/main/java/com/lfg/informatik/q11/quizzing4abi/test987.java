@@ -14,5 +14,6 @@ public class test987
     void test2()
     {
         return;
+        return;
     }
 }
