@@ -7,7 +7,7 @@ public class test987 {
     // much wow such class k?
     void test()
     {
-        return;
+
     }
 
     int test2()
