@@ -5,6 +5,9 @@ package com.lfg.informatik.q11.quizzing4abi;
  */
 public class test987 {
     // much wow such class k?
-    return;
+    void test()
+    {
+        return;
+    }
 
 }
