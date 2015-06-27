@@ -34,7 +34,7 @@ public class Question
 
     /**
      * Returns the belonging answers.
-     * @return the list pf answers
+     * @return the list of answers
      */
     ArrayList<Answer> getAnswers()
     {

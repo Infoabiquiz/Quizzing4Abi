@@ -21,6 +21,10 @@ public class XMLParser
 
     private Stack<String> tagHierarchy;
 
+    private LinkedList<Answer> tempAnswerList;
+    private LinkedList<Question> tempQuestionList;
+    private LinkedList<Category> tempCategoryList;
+
     XMLParser()
     {
         categories = new ArrayList<>();
@@ -29,6 +33,10 @@ public class XMLParser
         answerCorrectness = new ArrayList<>();
 
         tagHierarchy = new Stack<>();
+
+        tempAnswerList = new LinkedList<>();
+        tempQuestionList = new LinkedList<>();
+        tempCategoryList = new LinkedList<>();
     }
 
     /**
