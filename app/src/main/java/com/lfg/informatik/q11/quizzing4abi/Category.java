@@ -8,20 +8,34 @@ import java.util.ArrayList;
 
 public class Category
 {
+
     private String questionCategory;
     private ArrayList<Question> questions;
 
+    /**
+     * Constructor
+     * @param questionCategory name of category
+     * @param questions list of questions
+     */
     public Category (String questionCategory, ArrayList<Question> questions)
     {
         this.questionCategory = questionCategory;
         this.questions = questions;
     }
 
+    /**
+     * Returns category name
+     * @return name of category
+     */
     String getCategoryName()
     {
         return questionCategory;
     }
 
+    /**
+     * Returns the questions
+     * @return list of questions
+     */
     ArrayList<Question> getQuestions()
     {
         return questions;
