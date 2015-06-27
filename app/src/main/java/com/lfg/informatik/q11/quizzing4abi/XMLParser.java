@@ -8,6 +8,7 @@ import java.util.Stack;
 /**
  * Created by Chris on 27.06.2015.
  * This is the actual parser that deals with the xml document.
+ * It functions as a Builder object for the Category, Question and Answer classes.
  * For every tag in the xml file there has the be one start and one end tag!
  */
 
