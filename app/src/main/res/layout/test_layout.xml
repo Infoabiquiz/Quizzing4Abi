@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:id="@+id/testLayout_linearLayout">
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,7 +19,16 @@
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="66dp"
-        android:background="@mipmap/test_png"
+        android:background="@mipmap/test_image_button"
         android:onClick="onClick"
         android:layout_gravity="center_horizontal"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+    </LinearLayout>
+
 </LinearLayout>

@@ -1,10 +1,13 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 public class MainActivity extends ActionBarActivity
 {
@@ -24,6 +27,7 @@ public class MainActivity extends ActionBarActivity
         {
             case R.id.showTestLayout:
                 Test.showTestLayout(this);
+                ((LinearLayout)findViewById(R.id.testLayout_linearLayout)).setBackgroundColor(Color.LTGRAY);
                 break;
             case R.id.imageButton:
                 setContentView(R.layout.activity_main);
