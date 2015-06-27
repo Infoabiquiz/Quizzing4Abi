@@ -20,7 +20,7 @@ public class Answer
     }
 
     /**
-     * Returns answerText boolean Value
+     * Returns Value of Answers True or False
      * @return True or False
      */
     boolean iscorrect()
@@ -29,7 +29,7 @@ public class Answer
     }
 
     /**
-     * Returns AnswerText
+     * Returns Text of Answers
      * @return String of Answertext
      */
     String getAnswersText()
