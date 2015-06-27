@@ -24,6 +24,10 @@ public class MainActivity extends ActionBarActivity
         {
             case R.id.showTestLayout:
                 Test.showTestLayout(this);
+                break;
+            case R.id.imageButton:
+                setContentView(R.layout.activity_main);
+                break;
         }
     }
 
