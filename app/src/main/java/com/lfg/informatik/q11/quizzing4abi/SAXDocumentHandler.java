@@ -11,15 +11,27 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class SAXDocumentHandler extends DefaultHandler
 {
-    public static XMLParser xmlParser = null; // Strategy pattern
+    public final XMLParser xmlParser; // Strategy pattern
+
+    /**
+     * Constructor.
+     * @param xmlParser a valid XMLParser
+     */
+    SAXDocumentHandler(XMLParser xmlParser)
+    {
+        this.xmlParser = xmlParser;
+    }
 
     @Override
-    // Called at the beginning of an element.
-    // xmlParser must not be null!
-    public void startElement(String uri,        // irrelevant
-                             String localName,  // irrelevant
-                             String qName,      // TagName
-                             Attributes attributes) throws SAXException
+    /**
+     * Called at the beginning of an element.
+     * @param qName tagName
+     */
+    public void startElement(String uri,
+                             String localName,
+                             String qName,
+                             Attributes attributes)
+            throws SAXException
     {
         xmlParser.tagBegin(qName);
 
@@ -33,11 +45,13 @@ public class SAXDocumentHandler extends DefaultHandler
     }
 
     @Override
-    // Called at the end of an element. ( e.g. </end> )
-    // xmlParser must not be null!
+    /**
+     * Called at the end of an element. ( e.g. </end> )
+     * @param qName tagName
+     */
     public void endElement(String uri,
                            String localName,
-                           String qName) // tagName
+                           String qName)
             throws SAXException
     {
         xmlParser.tagEnd(qName);

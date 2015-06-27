@@ -1,5 +1,6 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
@@ -12,34 +13,50 @@ import java.util.Stack;
 
 public class XMLParser
 {
-    // TODO: Convert this class to a Builder for the required C,Q and A.
-    public List<String> categories;
-    public List<String> questions;
-    public List<String> answers;
+    // TODO: Convert this class into a Builder for the required C,Q and A.
+    public ArrayList<String> categories;
+    public ArrayList<String> questions;
+    public ArrayList<String> answers;
+    public ArrayList<Boolean> answerCorrectness;
 
     private Stack<String> tagHierarchy;
 
     XMLParser()
     {
-        categories = new LinkedList<>();
-        questions = new LinkedList<>();
-        answers = new LinkedList<>();
+        categories = new ArrayList<>();
+        questions = new ArrayList<>();
+        answers = new ArrayList<>();
+        answerCorrectness = new ArrayList<>();
 
         tagHierarchy = new Stack<>();
     }
 
+    /**
+     * Gets called at each begin of a new element.
+     * @param tagName name of the starting element
+     */
     public void tagBegin(String tagName)
     {
         tagHierarchy.push(tagName);
     }
 
+    /**
+     * Gets called at each end of an element.
+     * @param tagName name of the ending element
+     */
     public void tagEnd(String tagName)
     {
         if(BuildConfig.DEBUG && !tagHierarchy.peek().equals(tagName)) // tag Names have to be the same
             throw new AssertionError("Assertion on tagName: " + tagName);
+
         tagHierarchy.pop();
     }
 
+    /**
+     * Gets called for each attribute.
+     * @param attributeName name of the attribute
+     * @param content content of the attribute
+     */
     public void attribute(String attributeName, String content)
     {
         if(attributeName.equals("Text"))
@@ -56,6 +73,15 @@ public class XMLParser
             {
                 answers.add(content);
             }
+        }
+        else if(attributeName.equals("Correct") && tagHierarchy.peek().equals("Answer"))
+        {
+            if(content.equals("true"))
+                answerCorrectness.add(true);
+            else if(content.equals("false"))
+                answerCorrectness.add(false);
+            else
+                throw new AssertionError("Correct Tag: invalid value!");
         }
     }
 }
