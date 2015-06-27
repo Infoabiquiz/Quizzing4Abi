@@ -4,13 +4,9 @@
     <Question Text="Here goes the question text.">
       <Answer Correct="false" Text="Here goes the answer text."/>
       <Answer Correct="true" Text="This is a correct answer."/>
-      <etc/>
     </Question>
     <Question Text="$pictureName.png">
       <Answer Text="$picture4Answer.jpeg"/>
-      <etc/>
     </Question>
-    <etc/>
   </Category>
-  <etc/>
 </Data>

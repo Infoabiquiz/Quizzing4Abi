@@ -1,13 +1,13 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
+import org.xml.sax.*;
+import java.io.IOException;
+import javax.xml.parsers.*;
+
 /**
  * Created by Chris on 26.06.2015.
  * for testing purposes...
  */
-
-import org.xml.sax.*;
-import java.io.IOException;
-import javax.xml.parsers.*;
 
 public class Test
 {
@@ -18,17 +18,24 @@ public class Test
         mainActivity.setContentView(R.layout.test_layout);
     }
 
-
     public static void main(String args[]) throws IOException, SAXException, ParserConfigurationException
     {
-        saxParserTest(raw + "question_data.xml");
+        SAXDocumentHandler.xmlParser = new XMLParser();
+        saxParseXMLFile(raw + "question_data.xml");
+
+        for(String category : SAXDocumentHandler.xmlParser.categories)
+            System.out.println("Category: " + category);
+        for(String question : SAXDocumentHandler.xmlParser.questions)
+            System.out.println("Question: " + question);
+        for(String answer : SAXDocumentHandler.xmlParser.answers)
+            System.out.println("Answer: " + answer);
     }
 
-    public static void saxParserTest(String fileName) throws ParserConfigurationException, SAXException, IOException
+    public static void saxParseXMLFile(String fileName) throws ParserConfigurationException, SAXException, IOException
     {
         SAXParserFactory parserFactory = SAXParserFactory.newInstance();
         SAXParser parser = parserFactory.newSAXParser();
-        SAXDocumentHandler exampleHandler = new SAXDocumentHandler();
-        parser.parse(fileName, exampleHandler);
+        SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler();
+        parser.parse(fileName, saxDocumentHandler);
     }
 }

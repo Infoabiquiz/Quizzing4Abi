@@ -1,49 +1,45 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
-/**
- * Created by Chris on 27.06.2015.
- * This class is an example test handler of a SAXParser.
- */
-
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+/**
+ * Created by Chris on 27.06.2015.
+ * This class takes callbacks of a SAXParser and forwards them to the XMLParser by using the Strategy pattern.
+ */
+
 public class SAXDocumentHandler extends DefaultHandler
 {
-    @Override
-    // Called at the end of the xml document.
-    public void startDocument() throws SAXException
-    {
-        System.out.println("Document start");
-    }
-
-    @Override
-    // Called at the end of the xml document.
-    public void endDocument() throws SAXException
-    {
-        System.out.println("Document end");
-    }
+    public static XMLParser xmlParser = null; // Strategy pattern
 
     @Override
     // Called at the beginning of an element.
+    // xmlParser must not be null!
     public void startElement(String uri,        // irrelevant
                              String localName,  // irrelevant
                              String qName,      // TagName
-                             Attributes attributes)
-            throws SAXException
+                             Attributes attributes) throws SAXException
     {
-        String text = attributes.getValue("Text");
-        System.out.println("TagName: " + qName + " Text: " + text);
+        xmlParser.tagBegin(qName);
+
+        for (int i = 0; i < attributes.getLength(); ++i)
+        {
+            String attributeName = attributes.getQName(i);
+            String content = attributes.getValue(i);
+
+            xmlParser.attribute(attributeName, content);
+        }
     }
 
     @Override
     // Called at the end of an element. ( e.g. </end> )
+    // xmlParser must not be null!
     public void endElement(String uri,
                            String localName,
-                           String qName)
+                           String qName) // tagName
             throws SAXException
     {
-        System.out.println("End TagName: " + qName);
+        xmlParser.tagEnd(qName);
     }
 }
