@@ -1,13 +1,13 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
 import android.graphics.Color;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+        import android.support.v7.app.ActionBarActivity;
+        import android.os.Bundle;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.view.View;
+        import android.widget.LinearLayout;
+        import android.widget.RelativeLayout;
 
 public class MainActivity extends ActionBarActivity
 {
