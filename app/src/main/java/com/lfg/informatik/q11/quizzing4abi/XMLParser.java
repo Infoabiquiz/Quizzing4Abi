@@ -13,7 +13,6 @@ import java.util.Stack;
 
 public class XMLParser
 {
-    // TODO: Convert this class into a Builder for the required C,Q and A.
     public ArrayList<String> categories;
     public ArrayList<String> questions;
     public ArrayList<String> answers;
@@ -21,9 +20,12 @@ public class XMLParser
 
     private Stack<String> tagHierarchy;
 
-    private LinkedList<Answer> tempAnswerList;
-    private LinkedList<Question> tempQuestionList;
-    private LinkedList<Category> tempCategoryList;
+    public ArrayList<Category> builtCategories;
+
+    private boolean tempCorrectness;
+    private ArrayList<Answer> tempAnswerList;
+    private ArrayList<Question> tempQuestionList;
+    private ArrayList<Category> tempCategoryList;
 
     /**
      * Constructor.
@@ -37,9 +39,9 @@ public class XMLParser
 
         tagHierarchy = new Stack<>();
 
-        tempAnswerList = new LinkedList<>();
-        tempQuestionList = new LinkedList<>();
-        tempCategoryList = new LinkedList<>();
+        tempAnswerList = new ArrayList<>();
+        tempQuestionList = new ArrayList<>();
+        tempCategoryList = new ArrayList<>();
     }
 
     /**
@@ -61,6 +63,12 @@ public class XMLParser
             throw new AssertionError("Assertion on tagName: " + tagName);
 
         tagHierarchy.pop();
+
+        if(tagName.equals("Data"))
+        {
+            builtCategories = tempCategoryList;
+            tempCategoryList = null;
+        }
     }
 
     /**
@@ -70,29 +78,52 @@ public class XMLParser
      */
     public void attribute(String attributeName, String content)
     {
-        if(attributeName.equals("Text"))
+        switch(tagHierarchy.peek())
         {
-            if (tagHierarchy.peek().equals("Category"))
+            case "Category":
             {
-                categories.add(content);
+                if (attributeName.equals("Text"))
+                {
+                    categories.add(content);
+                    tempCategoryList.add(new Category(content, tempQuestionList));
+                    tempQuestionList.clear();
+                }
+                break;
             }
-            else if (tagHierarchy.peek().equals("Question"))
+            case "Question":
             {
-                questions.add(content);
+                if (attributeName.equals("Text"))
+                {
+                    questions.add(content);
+                    tempQuestionList.add(new Question(content, tempAnswerList));
+                    tempAnswerList.clear();
+                }
+                break;
             }
-            else if (tagHierarchy.peek().equals("Answer"))
+            case "Answer":
             {
-                answers.add(content);
+                if (attributeName.equals("Correct"))
+                {
+                    if (content.equals("true"))
+                    {
+                        answerCorrectness.add(true);
+                        tempCorrectness = true;
+                    }
+                    else if (content.equals("false"))
+                    {
+                        answerCorrectness.add(false);
+                        tempCorrectness = false;
+                    }
+                    else
+                        throw new AssertionError("Correct Tag: invalid value!");
+                }
+                else if (attributeName.equals("Text"))
+                {
+                    answers.add(content);
+                    tempAnswerList.add(new Answer(tempCorrectness, content));
+                }
+                break;
             }
-        }
-        else if(attributeName.equals("Correct") && tagHierarchy.peek().equals("Answer"))
-        {
-            if(content.equals("true"))
-                answerCorrectness.add(true);
-            else if(content.equals("false"))
-                answerCorrectness.add(false);
-            else
-                throw new AssertionError("Correct Tag: invalid value!");
         }
     }
 }

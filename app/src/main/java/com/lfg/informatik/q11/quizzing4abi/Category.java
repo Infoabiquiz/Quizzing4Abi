@@ -8,12 +8,11 @@ import java.util.ArrayList;
 
 public class Category
 {
-
     private String questionCategory;
     private ArrayList<Question> questions;
 
     /**
-     * Constructor
+     * Constructor.
      * @param questionCategory name of category
      * @param questions list of questions
      */
@@ -24,7 +23,7 @@ public class Category
     }
 
     /**
-     * Returns category name
+     * Returns the category name.
      * @return name of category
      */
     String getCategoryName()
@@ -33,7 +32,7 @@ public class Category
     }
 
     /**
-     * Returns the questions
+     * Returns the questions.
      * @return list of questions
      */
     ArrayList<Question> getQuestions()
