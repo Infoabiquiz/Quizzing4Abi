@@ -8,6 +8,11 @@ public class Category {
     String questionCategory;
     ArrayList<Question> questions;
 
+    /**
+     * Constructor
+     * @param questionCategory Name of the category
+     * @param questions list of the questions
+     */
 public Category (String questionCategory,ArrayList<Question> questions )
 {
     this.questionCategory=questionCategory;
@@ -15,8 +20,8 @@ public Category (String questionCategory,ArrayList<Question> questions )
 }
 
     /**
-     *
-     * @return
+     *Return the category name
+     * @return name of category
      */
 
     String getCategoryName()
