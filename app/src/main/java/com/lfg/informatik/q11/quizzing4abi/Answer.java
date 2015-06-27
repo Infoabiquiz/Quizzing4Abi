@@ -3,10 +3,11 @@ package com.lfg.informatik.q11.quizzing4abi;
 /**
  * Created by Tung on 27.06.2015.
  */
+
 public class Answer
 {
-    public boolean correct;
-    public String answerText;
+    private boolean correct;
+    private String answerText;
 
     /**
      * Constructor.

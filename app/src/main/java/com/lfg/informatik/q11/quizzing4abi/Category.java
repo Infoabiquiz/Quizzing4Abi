@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 public class Category
 {
-    String questionCategory;
-    ArrayList<Question> questions;
+    private String questionCategory;
+    private ArrayList<Question> questions;
 
-    public Category (String questionCategory,ArrayList<Question> questions)
+    public Category (String questionCategory, ArrayList<Question> questions)
     {
         this.questionCategory = questionCategory;
         this.questions = questions;

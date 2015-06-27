@@ -25,6 +25,9 @@ public class XMLParser
     private LinkedList<Question> tempQuestionList;
     private LinkedList<Category> tempCategoryList;
 
+    /**
+     * Constructor.
+     */
     XMLParser()
     {
         categories = new ArrayList<>();
