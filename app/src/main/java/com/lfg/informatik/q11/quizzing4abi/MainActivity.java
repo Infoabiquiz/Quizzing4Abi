@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity
         {
             case R.id.showTestLayout:
                 Test.showTestLayout(this);
-                ((LinearLayout)findViewById(R.id.testLayout_linearLayout)).setBackgroundColor(Color.LTGRAY);
+                findViewById(R.id.testLayout_linearLayout).setBackgroundColor(Color.LTGRAY);
                 break;
             case R.id.imageButton:
                 setContentView(R.layout.activity_main);
