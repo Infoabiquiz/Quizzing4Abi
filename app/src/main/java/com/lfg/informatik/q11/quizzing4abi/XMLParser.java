@@ -1,8 +1,6 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Stack;
 
 /**
@@ -11,9 +9,10 @@ import java.util.Stack;
  * It functions as a Builder object for the Category, Question and Answer classes.
  * For every tag in the xml file there has the be one start and one end tag!
  */
-
+// TODO: Rename this class to CQALoader
 public class XMLParser
 {
+    // TODO: Change ArrayList to List
     public ArrayList<String> categories;
     public ArrayList<String> questions;
     public ArrayList<String> answers;
@@ -23,10 +22,12 @@ public class XMLParser
 
     public ArrayList<Category> builtCategories;
 
-    private boolean tempCorrectness;
     private ArrayList<Answer> tempAnswerList;
     private ArrayList<Question> tempQuestionList;
-    private ArrayList<Category> tempCategoryList;
+    private String currentCategory;
+    private String currentQuestion;
+    private String currentAnswer;
+    private boolean currentCorrectness;
 
     /**
      * Constructor.
@@ -40,9 +41,10 @@ public class XMLParser
 
         tagHierarchy = new Stack<>();
 
+        builtCategories = new ArrayList<>();
+
         tempAnswerList = new ArrayList<>();
         tempQuestionList = new ArrayList<>();
-        tempCategoryList = new ArrayList<>();
     }
 
     /**
@@ -60,15 +62,24 @@ public class XMLParser
      */
     public void tagEnd(String tagName)
     {
-        if(BuildConfig.DEBUG && !tagHierarchy.peek().equals(tagName)) // tag Names have to be the same
+        if(BuildConfig.DEBUG && !tagHierarchy.peek().equals(tagName)) // tag names have to be the same
             throw new AssertionError("Assertion on tagName: " + tagName);
 
         tagHierarchy.pop();
 
-        if(tagName.equals("Data"))
+        if(tagName.equals("Category"))
         {
-            builtCategories = tempCategoryList;
-            tempCategoryList = null;
+            builtCategories.add(new Category(currentCategory, tempQuestionList));
+            tempQuestionList = new ArrayList<>();
+        }
+        else if(tagName.equals("Question"))
+        {
+            tempQuestionList.add(new Question(currentQuestion, tempAnswerList));
+            tempAnswerList = new ArrayList<>();
+        }
+        else if(tagName.equals("Answer"))
+        {
+            tempAnswerList.add(new Answer(currentCorrectness, currentAnswer));
         }
     }
 
@@ -86,8 +97,7 @@ public class XMLParser
                 if (attributeName.equals("Text"))
                 {
                     categories.add(content);
-                    tempCategoryList.add(new Category(content, tempQuestionList));
-                    tempQuestionList.clear();
+                    currentCategory = content;
                 }
                 break;
             }
@@ -96,8 +106,7 @@ public class XMLParser
                 if (attributeName.equals("Text"))
                 {
                     questions.add(content);
-                    tempQuestionList.add(new Question(content, tempAnswerList));
-                    tempAnswerList.clear();
+                    currentQuestion = content;
                 }
                 break;
             }
@@ -108,12 +117,12 @@ public class XMLParser
                     if (content.equals("true"))
                     {
                         answerCorrectness.add(true);
-                        tempCorrectness = true;
+                        currentCorrectness = true;
                     }
                     else if (content.equals("false"))
                     {
                         answerCorrectness.add(false);
-                        tempCorrectness = false;
+                        currentCorrectness = false;
                     }
                     else
                         throw new AssertionError("Correct Tag: invalid value!");
@@ -121,7 +130,7 @@ public class XMLParser
                 else if (attributeName.equals("Text"))
                 {
                     answers.add(content);
-                    tempAnswerList.add(new Answer(tempCorrectness, content));
+                    currentAnswer = content;
                 }
                 break;
             }
