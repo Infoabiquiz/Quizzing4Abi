@@ -6,20 +6,20 @@ import org.xml.sax.helpers.DefaultHandler;
 
 /**
  * Created by Chris on 27.06.2015.
- * This class takes callbacks of a SAXParser and forwards them to the XMLParser by using the Strategy pattern.
+ * This class takes callbacks of a SAXParser and forwards them to the CQA_Loader by using the Strategy pattern.
  */
 
 public class SAXDocumentHandler extends DefaultHandler
 {
-    public final XMLParser xmlParser; // Strategy pattern
+    public final CQA_Loader cqa_Loader; // Strategy pattern
 
     /**
      * Constructor.
-     * @param xmlParser a valid XMLParser
+     * @param cqa_Loader a valid CQA_Loader
      */
-    SAXDocumentHandler(XMLParser xmlParser)
+    SAXDocumentHandler(CQA_Loader cqa_Loader)
     {
-        this.xmlParser = xmlParser;
+        this.cqa_Loader = cqa_Loader;
     }
 
     @Override
@@ -33,14 +33,14 @@ public class SAXDocumentHandler extends DefaultHandler
                              Attributes attributes)
             throws SAXException
     {
-        xmlParser.tagBegin(qName);
+        cqa_Loader.tagBegin(qName);
 
         for (int i = 0; i < attributes.getLength(); ++i)
         {
             String attributeName = attributes.getQName(i);
             String content = attributes.getValue(i);
 
-            xmlParser.attribute(attributeName, content);
+            cqa_Loader.attribute(attributeName, content);
         }
     }
 
@@ -54,6 +54,6 @@ public class SAXDocumentHandler extends DefaultHandler
                            String qName)
             throws SAXException
     {
-        xmlParser.tagEnd(qName);
+        cqa_Loader.tagEnd(qName);
     }
 }

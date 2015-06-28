@@ -26,28 +26,28 @@ public class Test
      */
     public static void main(String args[]) throws IOException, SAXException, ParserConfigurationException
     {
-        XMLParser xmlParser = new XMLParser();
-        saxParseXMLFile(raw + "question_data.xml", xmlParser);
+        CQA_Loader cqa_Loader = new CQA_Loader();
+        saxParseXMLFile(raw + "question_data.xml", cqa_Loader);
 
-        for(String category : xmlParser.categories)
+        for(String category : cqa_Loader.categories)
             System.out.println("Category: " + category);
-        for(String question : xmlParser.questions)
+        for(String question : cqa_Loader.questions)
             System.out.println("Question: " + question);
-        for(String answer : xmlParser.answers)
+        for(String answer : cqa_Loader.answers)
             System.out.println("Answer: " + answer);
-        for(boolean correct : xmlParser.answerCorrectness)
+        for(boolean correct : cqa_Loader.answerCorrectness)
             System.out.println("Correct: " + correct);
     }
 
     /**
      * Reads the xml file specified by fileName with SAXParser and forwards
-     * tag and attribute occurrences to the XMLParser.
+     * tag and attribute occurrences to the CQA_Loader.
      */
-    public static void saxParseXMLFile(String fileName, XMLParser xmlParser)
+    public static void saxParseXMLFile(String fileName, CQA_Loader cqa_Loader)
             throws ParserConfigurationException, SAXException, IOException
     {
         SAXParser saxParser = SAXParserFactory.newInstance().newSAXParser();
-        SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(xmlParser);
+        SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(cqa_Loader);
         saxParser.parse(fileName, saxDocumentHandler);
     }
 }

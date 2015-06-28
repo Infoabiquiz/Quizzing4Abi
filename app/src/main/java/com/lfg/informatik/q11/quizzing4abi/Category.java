@@ -1,6 +1,5 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
