@@ -2,6 +2,7 @@ package com.lfg.informatik.q11.quizzing4abi;
 
 import org.xml.sax.*;
 import java.io.IOException;
+import java.util.List;
 import javax.xml.parsers.*;
 
 /**
@@ -37,6 +38,31 @@ public class Test
             System.out.println("Answer: " + answer);
         for(boolean correct : cqa_Loader.answerCorrectness)
             System.out.println("Correct: " + correct);
+
+        traverseBuiltCategories(cqa_Loader.builtCategories);
+    }
+
+    /**
+     * Traverses a list of Categories and outputs the content of the components.
+     * @param categoryList list of Categories
+     */
+    public static void traverseBuiltCategories(List<Category> categoryList)
+    {
+        for(Category category : categoryList)
+        {
+            System.out.println("Category: " + category.getCategoryName());
+
+            for(Question question : category.getQuestions())
+            {
+                System.out.println("Question: " + question.getQuestionText());
+
+                for(Answer answer : question.getAnswers())
+                {
+                    System.out.println("Answer: " + answer.getAnswersText()
+                    + " Correct: " + answer.isCorrect());
+                }
+            }
+        }
     }
 
     /**
