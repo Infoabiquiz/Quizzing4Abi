@@ -1,22 +1,27 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by Adrian on 27.06.2015.
+ * Reviewed.
+ * This class represents a Category for the quiz (= school subject).
+ * It contains the relevant Questions with the Answers.
  */
 
 public class Category
 {
     private String questionCategory;
-    private ArrayList<Question> questions;
+    private List<Question> questions;
 
     /**
      * Constructor.
      * @param questionCategory name of category
      * @param questions list of questions
      */
-    public Category (String questionCategory, ArrayList<Question> questions)
+    public Category (String questionCategory, List<Question> questions)
     {
         this.questionCategory = questionCategory;
         this.questions = questions;
@@ -32,11 +37,11 @@ public class Category
     }
 
     /**
-     * Returns the questions.
-     * @return list of questions
+     * Returns the questions as readonly.
+     * @return the unmodifiable list of questions
      */
-    ArrayList<Question> getQuestions()
+    List<Question> getQuestions()
     {
-        return questions;
+        return Collections.unmodifiableList(questions);
     }
 }

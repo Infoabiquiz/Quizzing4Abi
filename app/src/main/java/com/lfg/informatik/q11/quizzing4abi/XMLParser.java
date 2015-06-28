@@ -1,6 +1,7 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -12,15 +13,15 @@ import java.util.Stack;
 // TODO: Rename this class to CQALoader
 public class XMLParser
 {
-    // TODO: Change ArrayList to List
-    public ArrayList<String> categories;
-    public ArrayList<String> questions;
-    public ArrayList<String> answers;
-    public ArrayList<Boolean> answerCorrectness;
+    // TODO: Change ArrayLists to Lists
+    public List<String> categories;
+    public List<String> questions;
+    public List<String> answers;
+    public List<Boolean> answerCorrectness;
 
     private Stack<String> tagHierarchy;
 
-    public ArrayList<Category> builtCategories;
+    public List<Category> builtCategories;
 
     private ArrayList<Answer> tempAnswerList;
     private ArrayList<Question> tempQuestionList;

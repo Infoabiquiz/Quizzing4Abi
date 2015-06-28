@@ -1,23 +1,25 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by Chris on 27.06.2015.
- * This class represents a Question with the Answer for the Quiz.
+ * Reviewed.
+ * This class represents a Question with the Answers for the Quiz.
  */
 
 public class Question
 {
     private String questionText;
-    private ArrayList<Answer> answers;
+    private List<Answer> answers;
 
     /**
      * Constructor.
-     * @param questionText text of the question or image path
+     * @param questionText text of the question or image name
      * @param answers list of the answer objects belonging to the Question
      */
-    public Question(String questionText, ArrayList<Answer> answers)
+    public Question(String questionText, List<Answer> answers)
     {
         this.questionText = questionText;
         this.answers = answers;
@@ -25,7 +27,7 @@ public class Question
 
     /**
      * Returns the question text.
-     * @return text of question or image path
+     * @return text of question or image name
      */
     String getQuestionText()
     {
@@ -33,11 +35,11 @@ public class Question
     }
 
     /**
-     * Returns the belonging answers.
-     * @return the list of answers
+     * Returns the belonging answers as readonly.
+     * @return the unmodifiable list of answers
      */
-    ArrayList<Answer> getAnswers()
+    List<Answer> getAnswers()
     {
-        return answers;
+        return Collections.unmodifiableList(answers);
     }
 }
