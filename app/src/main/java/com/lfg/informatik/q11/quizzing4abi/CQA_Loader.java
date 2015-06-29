@@ -20,6 +20,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 public class CQA_Loader
 {
+    // TODO: Check for possible garbage content.
     private Stack<String> tagHierarchy;
     private List<Category> builtCategories;
     private List<Question> tempQuestionList;
@@ -28,6 +29,7 @@ public class CQA_Loader
     private String currentQuestion;
     private String currentAnswer;
     private boolean currentCorrectness;
+    private List<String> requiredCategories;
 
     /**
      * Constructor.
@@ -41,18 +43,23 @@ public class CQA_Loader
     }
 
     /**
-     * This function starts the actual build process.
+     * This function creates builds the List of categories.
+     * If only specific Categories are required, pass the specification List.
      * It uses the SAX Parser to traverse the xml file.
      * @param filename name of the xml file
+     * @param requiredCategories list of specific required Categories
      * @throws IOException
      * @throws SAXException
      * @throws ParserConfigurationException
      */
-    public void parseXMLFile(String filename)
+    public void buildCategories(String filename, List<String> requiredCategories)
             throws IOException, SAXException, ParserConfigurationException
     {
+        this.requiredCategories = requiredCategories;
+
         SAXParser saxParser = SAXParserFactory.newInstance().newSAXParser();
         SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(this);
+
         saxParser.parse(filename, saxDocumentHandler);
     }
 
@@ -89,6 +96,10 @@ public class CQA_Loader
 
         tagHierarchy.pop();
 
+        // Ignore non required Categories, Question and Answers.
+        if(requiredCategories != null && !requiredCategories.contains(currentCategory))
+            return;
+
         if(tagName.equals("Category"))
         {
             builtCategories.add(new Category(currentCategory, tempQuestionList));
@@ -113,35 +124,34 @@ public class CQA_Loader
      */
     public void attribute(String attributeName, String content)
     {
-        switch(tagHierarchy.peek())
+        if(tagHierarchy.peek().equals("Category"))
         {
-            case "Category":
+            if (attributeName.equals("Text"))
+                currentCategory = content;
+        }
+
+        // Ignore non required Categories, Question and Answers.
+        if(requiredCategories != null && !requiredCategories.contains(currentCategory))
+            return;
+
+        if(tagHierarchy.peek().equals("Question"))
+        {
+            if (attributeName.equals("Text"))
+                currentQuestion = content;
+        }
+        else if(tagHierarchy.peek().equals("Answer"))
+        {
+            if (attributeName.equals("Correct"))
             {
-                if (attributeName.equals("Text"))
-                    currentCategory = content;
-                break;
+                if (content.equals("true"))
+                    currentCorrectness = true;
+                else if (content.equals("false"))
+                    currentCorrectness = false;
+                else
+                    throw new AssertionError("Correct Tag: invalid value!");
             }
-            case "Question":
-            {
-                if (attributeName.equals("Text"))
-                    currentQuestion = content;
-                break;
-            }
-            case "Answer":
-            {
-                if (attributeName.equals("Correct"))
-                {
-                    if (content.equals("true"))
-                        currentCorrectness = true;
-                    else if (content.equals("false"))
-                        currentCorrectness = false;
-                    else
-                        throw new AssertionError("Correct Tag: invalid value!");
-                }
-                else if (attributeName.equals("Text"))
-                    currentAnswer = content;
-                break;
-            }
+            else if (attributeName.equals("Text"))
+                currentAnswer = content;
         }
     }
 }

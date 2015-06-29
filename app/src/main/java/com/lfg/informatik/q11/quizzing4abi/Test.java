@@ -28,7 +28,7 @@ public class Test
     public static void main(String args[]) throws IOException, SAXException, ParserConfigurationException
     {
         CQA_Loader cqa_Loader = new CQA_Loader();
-        cqa_Loader.parseXMLFile(raw + "question_data.xml");
+        cqa_Loader.buildCategories(raw + "question_data.xml");
 
         traverseBuiltCategories(cqa_Loader.takeBuiltCategories());
     }
