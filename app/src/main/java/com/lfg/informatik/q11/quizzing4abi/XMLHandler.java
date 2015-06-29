@@ -26,7 +26,7 @@ public interface XMLHandler
     /**
      * Has to be called for each attribute.
      * @param attributeName name of the attribute
-     * @param content content of the attribute
+     * @param content       content of the attribute
      */
     void attribute(String attributeName, String content);
 }

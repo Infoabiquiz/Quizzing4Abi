@@ -17,7 +17,7 @@ public class Question
     /**
      * Constructor.
      * @param questionText text of the question or image name
-     * @param answers list of the answer objects belonging to the Question
+     * @param answers      list of the answer objects belonging to the Question
      */
     public Question(String questionText, List<Answer> answers)
     {

@@ -34,6 +34,12 @@ public class Test
         List<Category> categories = cqa_Loader.loadCategories(raw + "question_data.xml", requiredCategories);
 
         traverseBuiltCategories(categories);
+
+        System.out.println("\n");
+
+        List<String> categoryNames = cqa_Loader.getAllCategoyNames(raw + "question_data.xml");
+        for(String name : categoryNames)
+            System.out.println("CategoryName: " + name);
     }
 
     /**

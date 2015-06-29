@@ -18,7 +18,7 @@ public class Category
     /**
      * Constructor.
      * @param questionCategory name of category
-     * @param questions list of questions
+     * @param questions        list of questions
      */
     public Category (String questionCategory, List<Question> questions)
     {

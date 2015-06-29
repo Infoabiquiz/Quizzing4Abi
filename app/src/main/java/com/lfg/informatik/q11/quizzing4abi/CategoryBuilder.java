@@ -96,7 +96,7 @@ public class CategoryBuilder implements XMLHandler
      * Has to be called for each attribute.
      * Fills the "current" fields with the appropriate content.
      * @param attributeName name of the attribute
-     * @param content content of the attribute
+     * @param content       content of the attribute
      */
     @Override
     public void attribute(String attributeName, String content)

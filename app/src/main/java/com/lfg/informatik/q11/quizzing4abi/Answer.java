@@ -13,7 +13,7 @@ public class Answer
 
     /**
      * Constructor.
-     * @param isCorrect correctness of this answer
+     * @param isCorrect  correctness of this answer
      * @param answerText contains the text of the Answer or the image name
      */
     public Answer(boolean isCorrect, String answerText)
