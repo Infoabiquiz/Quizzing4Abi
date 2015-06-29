@@ -1,7 +1,8 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
-import org.xml.sax.*;
+import org.xml.sax.SAXException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.xml.parsers.*;
 
@@ -28,9 +29,11 @@ public class Test
     public static void main(String args[]) throws IOException, SAXException, ParserConfigurationException
     {
         CQA_Loader cqa_Loader = new CQA_Loader();
-        cqa_Loader.buildCategories(raw + "question_data.xml");
+        List<String> requiredCategories = new ArrayList<>();
+        requiredCategories.add("Informatik");
+        List<Category> categories = cqa_Loader.loadCategories(raw + "question_data.xml", requiredCategories);
 
-        traverseBuiltCategories(cqa_Loader.takeBuiltCategories());
+        traverseBuiltCategories(categories);
     }
 
     /**
