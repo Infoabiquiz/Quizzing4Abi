@@ -29,7 +29,7 @@ public class Question
      * Returns the question text.
      * @return text of question or image name
      */
-    String getQuestionText()
+    public String getQuestionText()
     {
         return questionText;
     }
@@ -38,7 +38,7 @@ public class Question
      * Returns the belonging answers as readonly.
      * @return the unmodifiable list of answers
      */
-    List<Answer> getAnswers()
+    public List<Answer> getAnswers()
     {
         return Collections.unmodifiableList(answers);
     }

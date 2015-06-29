@@ -30,7 +30,7 @@ public class Category
      * Returns the category name.
      * @return name of category
      */
-    String getCategoryName()
+    public String getCategoryName()
     {
         return questionCategory;
     }
@@ -39,7 +39,7 @@ public class Category
      * Returns the questions as readonly.
      * @return the unmodifiable list of questions
      */
-    List<Question> getQuestions()
+    public List<Question> getQuestions()
     {
         return Collections.unmodifiableList(questions);
     }

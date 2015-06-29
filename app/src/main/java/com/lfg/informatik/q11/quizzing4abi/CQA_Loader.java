@@ -1,8 +1,15 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
+import org.xml.sax.SAXException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 /**
  * Created by Chris on 27.06.2015.
@@ -13,17 +20,10 @@ import java.util.Stack;
 
 public class CQA_Loader
 {
-    public List<String> categories;
-    public List<String> questions;
-    public List<String> answers;
-    public List<Boolean> answerCorrectness;
-
     private Stack<String> tagHierarchy;
-
-    public List<Category> builtCategories;
-
-    private List<Answer> tempAnswerList;
+    private List<Category> builtCategories;
     private List<Question> tempQuestionList;
+    private List<Answer> tempAnswerList;
     private String currentCategory;
     private String currentQuestion;
     private String currentAnswer;
@@ -34,17 +34,38 @@ public class CQA_Loader
      */
     CQA_Loader()
     {
-        categories = new ArrayList<>();
-        questions = new ArrayList<>();
-        answers = new ArrayList<>();
-        answerCorrectness = new ArrayList<>();
-
         tagHierarchy = new Stack<>();
-
         builtCategories = new ArrayList<>();
-
         tempAnswerList = new ArrayList<>();
         tempQuestionList = new ArrayList<>();
+    }
+
+    /**
+     * This function starts the actual build process.
+     * It uses the SAX Parser to traverse the xml file.
+     * @param filename name of the xml file
+     * @throws IOException
+     * @throws SAXException
+     * @throws ParserConfigurationException
+     */
+    public void parseXMLFile(String filename)
+            throws IOException, SAXException, ParserConfigurationException
+    {
+        SAXParser saxParser = SAXParserFactory.newInstance().newSAXParser();
+        SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(this);
+        saxParser.parse(filename, saxDocumentHandler);
+    }
+
+    /**
+     * After the build process has finished, calling this method will return the List of built
+     * Categories and transfer ownership to the caller.
+     * @return List of built Categories
+     */
+    public List<Category> takeBuiltCategories()
+    {
+        List<Category> temp = builtCategories;
+        builtCategories = new ArrayList<>();
+        return temp;
     }
 
     /**
@@ -58,6 +79,7 @@ public class CQA_Loader
 
     /**
      * Gets called at each end of an element.
+     * Constructs a new C,Q or A based on the ending tag.
      * @param tagName name of the ending element
      */
     public void tagEnd(String tagName)
@@ -85,6 +107,7 @@ public class CQA_Loader
 
     /**
      * Gets called for each attribute.
+     * Fills the "current" fields with the appropriate content.
      * @param attributeName name of the attribute
      * @param content content of the attribute
      */
@@ -95,19 +118,13 @@ public class CQA_Loader
             case "Category":
             {
                 if (attributeName.equals("Text"))
-                {
-                    categories.add(content);
                     currentCategory = content;
-                }
                 break;
             }
             case "Question":
             {
                 if (attributeName.equals("Text"))
-                {
-                    questions.add(content);
                     currentQuestion = content;
-                }
                 break;
             }
             case "Answer":
@@ -115,23 +132,14 @@ public class CQA_Loader
                 if (attributeName.equals("Correct"))
                 {
                     if (content.equals("true"))
-                    {
-                        answerCorrectness.add(true);
                         currentCorrectness = true;
-                    }
                     else if (content.equals("false"))
-                    {
-                        answerCorrectness.add(false);
                         currentCorrectness = false;
-                    }
                     else
                         throw new AssertionError("Correct Tag: invalid value!");
                 }
                 else if (attributeName.equals("Text"))
-                {
-                    answers.add(content);
                     currentAnswer = content;
-                }
                 break;
             }
         }

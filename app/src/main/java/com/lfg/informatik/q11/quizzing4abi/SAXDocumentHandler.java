@@ -6,12 +6,13 @@ import org.xml.sax.helpers.DefaultHandler;
 
 /**
  * Created by Chris on 27.06.2015.
+ * Reviewed.
  * This class takes callbacks of a SAXParser and forwards them to the CQA_Loader by using the Strategy pattern.
  */
 
 public class SAXDocumentHandler extends DefaultHandler
 {
-    public final CQA_Loader cqa_Loader; // Strategy pattern
+    private CQA_Loader cqa_Loader; // Strategy pattern
 
     /**
      * Constructor.
@@ -26,6 +27,7 @@ public class SAXDocumentHandler extends DefaultHandler
     /**
      * Called at the beginning of an element.
      * @param qName tagName
+     * @throws SAXException
      */
     public void startElement(String uri,
                              String localName,
@@ -48,6 +50,7 @@ public class SAXDocumentHandler extends DefaultHandler
     /**
      * Called at the end of an element. ( e.g. </end> )
      * @param qName tagName
+     * @throws SAXException
      */
     public void endElement(String uri,
                            String localName,
