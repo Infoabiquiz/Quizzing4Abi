@@ -7,5 +7,12 @@ package com.lfg.informatik.q11.quizzing4abi;
 
 public class AppState
 {
+    private Application application;
+
+    public AppState(Application application)
+    {
+        this.application = application;
+    }
+
 
 }
