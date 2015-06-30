@@ -24,7 +24,7 @@ public class AppState
     }
 
     /**
-     * Handles user events. More specific click events.
+     * Handles user click events.
      * @param view the click source (e.g. android button)
      */
     public void onClick(View view)
