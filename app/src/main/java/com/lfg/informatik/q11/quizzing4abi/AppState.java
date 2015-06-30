@@ -9,13 +9,24 @@ import android.view.View;
 
 public class AppState
 {
-    private Application application;
+    protected Application application;
 
+    /**
+     * Constructor.
+     * @param application a valid Application
+     */
     public AppState(Application application)
     {
+        if(application == null)
+            throw new IllegalArgumentException("Null not allowed");
+
         this.application = application;
     }
 
+    /**
+     * Handles user events. More specific click events.
+     * @param view the click source (e.g. android button)
+     */
     public void onClick(View view)
     {
 
