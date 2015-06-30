@@ -28,16 +28,15 @@ public class Test
      */
     public static void main(String args[]) throws IOException, SAXException, ParserConfigurationException
     {
-        CQA_Loader cqa_Loader = new CQA_Loader();
         List<String> requiredCategories = new ArrayList<>();
         requiredCategories.add("Informatik");
-        List<Category> categories = cqa_Loader.loadCategories(raw + "question_data.xml", requiredCategories);
+        List<Category> categories = CQA_Loader.loadCategories(requiredCategories);
 
         traverseBuiltCategories(categories);
 
         System.out.println("\n");
 
-        List<String> categoryNames = cqa_Loader.getAllCategoyNames(raw + "question_data.xml");
+        List<String> categoryNames = CQA_Loader.getAllCategoryNames();
         for(String name : categoryNames)
             System.out.println("CategoryName: " + name);
     }
