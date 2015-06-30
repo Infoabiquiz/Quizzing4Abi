@@ -3,54 +3,51 @@ package com.lfg.informatik.q11.quizzing4abi;
 import android.view.View;
 
 /**
- * Created by Chris on 30.06.2015.
- *
+ * Created by Adrian on 30.06.2015.
+ * This class manages the current state of the app and handles all user events.
  */
 
 public class Application
 {
+    AppState currentAppState;
+    MainActivity mainActivity;
 
-    AppState CurrentAppState;
-    MainActivity Activity;
-
+    // TODO: Hardcode first app state (loading screen).
     /**
-     *Constructor
-     * @param CurrentAppState current state of app
-     * @param Activity activity
+     * Constructor.
+     * @param currentAppState current state of app
+     * @param mainActivity main activity
      */
-
-   public Application(AppState CurrentAppState, MainActivity Activity)
+   public Application(AppState currentAppState, MainActivity mainActivity)
     {
-        this.CurrentAppState=CurrentAppState;
-        this.Activity=Activity;
+        this.currentAppState = currentAppState;
+        this.mainActivity = mainActivity;
     }
 
     /**
-     * Sets CurrentAppSate to new AppState
-     * @param AppState new AppState
+     * Changes the State.
+     * @param AppState new state of the app
      */
     public void setState(AppState AppState)
     {
-        CurrentAppState=AppState;
+        currentAppState = AppState;
     }
 
     /**
-     * Calls method setContentView in MainActivity
-     * @param layoutID ID of layout
+     * Changes the current layout on the screen.
+     * @param layoutID ID of the new layout
      */
-    public void setLayout(int layoutID )
+    public void setLayout(int layoutID)
     {
-        Activity.setContentView(layoutID);
+        mainActivity.setContentView(layoutID);
     }
 
     /**
-     * Calls method onClick in MainActivity
-     * @param view from View
+     * Forwards user click events to the current app state.
+     * @param view the click source (e.g. android button)
      */
     public void onClick(View view)
     {
-        Activity.onClick(view);
+        currentAppState.onClick(view);
     }
-
-
 }

@@ -11,7 +11,7 @@ import android.graphics.Color;
 
 public class MainActivity extends ActionBarActivity
 {
-
+    // TODO: Integrate Application class
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
