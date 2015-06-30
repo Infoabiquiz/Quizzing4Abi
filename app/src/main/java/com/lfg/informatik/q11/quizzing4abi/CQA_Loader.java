@@ -13,7 +13,6 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class CQA_Loader
 {
-    // TODO: Facade as Singleton or static?
     private static final String questionDataFilename = "app\\src\\main\\res\\raw\\question_data.xml";
 
     /**
@@ -24,7 +23,7 @@ public class CQA_Loader
      * @throws SAXException
      * @throws ParserConfigurationException
      */
-    public List<Category> loadCategories(List<String> requiredCategories)
+    static public List<Category> loadCategories(List<String> requiredCategories)
             throws IOException, SAXException, ParserConfigurationException
     {
         CategoryBuilder categoryBuilder = new CategoryBuilder(requiredCategories);
@@ -42,7 +41,7 @@ public class CQA_Loader
      * @throws SAXException
      * @throws ParserConfigurationException
      */
-    public List<String> getAllCategoryNames()
+    static public List<String> getAllCategoryNames()
             throws IOException, SAXException, ParserConfigurationException
     {
         CategoryNameLoader categoryNameLoader = new CategoryNameLoader();
