@@ -5,9 +5,11 @@ import android.view.View;
 /**
  * Created by Chris on 30.06.2015.
  * Base class for all app states. The State pattern is applied.
+ * Creation of subclasses change the current layout instantly, so be aware
+ * and change the current state of the application afterwards!
  */
 
-public class AppState
+public abstract class AppState
 {
     protected Application application;
 
@@ -15,7 +17,7 @@ public class AppState
      * Constructor.
      * @param application a valid Application
      */
-    public AppState(Application application)
+    protected AppState(Application application)
     {
         if(application == null)
             throw new IllegalArgumentException("Null not allowed");
@@ -24,7 +26,7 @@ public class AppState
     }
 
     /**
-     * Handles user click events.
+     * Handles user click events. Functionality implemented in sub classes.
      * @param view the click source (e.g. android button)
      */
     public void onClick(View view)
