@@ -12,15 +12,15 @@ public class Application
     AppState currentAppState;
     MainActivity mainActivity;
 
-    // TODO: Hardcode first app state (loading screen).
+    // TODO: Hardcode first app state (loading screen)?
     /**
      * Constructor.
-     * @param currentAppState current state of app
+     * @param firstAppState first state of the app
      * @param mainActivity main activity
      */
-   public Application(AppState currentAppState, MainActivity mainActivity)
+   public Application(AppState firstAppState, MainActivity mainActivity)
     {
-        this.currentAppState = currentAppState;
+        this.currentAppState = firstAppState;
         this.mainActivity = mainActivity;
     }
 

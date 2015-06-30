@@ -9,19 +9,31 @@ import android.view.View;
 
 public class MainActivity extends ActionBarActivity
 {
-    // TODO: Integrate Application class
+    private Application application;
+
+    /**
+     * MAIN FUNCTION
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        // TODO: Edit if fully functional:
+        // application = new Application(new AppStartState(), this);
         setContentView(R.layout.activity_main);
     }
 
+    /**
+     * Receives all click events.
+     * @param view the clicked view
+     */
     public void onClick(View view)
     {
-        int viewID = view.getId();
+        // TODO: Edit method if fully functional:
+        // application.onClick(view);
 
-        switch(viewID)
+        switch(view.getId())
         {
             case R.id.showTestLayout:
                 Test.showTestLayout(this);
