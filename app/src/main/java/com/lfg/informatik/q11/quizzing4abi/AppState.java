@@ -12,6 +12,7 @@ public class AppState
     public AppState(Application application)
     {
         this.application = application;
+
     }
 
 
