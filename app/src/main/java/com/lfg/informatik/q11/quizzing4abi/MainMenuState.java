@@ -22,11 +22,11 @@ public class MainMenuState extends AppState
 
     /**
      * Handles user click events.
-     * @param view the click source (e.g. android button)
+     * @param view the click source (e.g. button)
      */
     @Override
     public void onClick(View view)
     {
-        // TODO: add functionality
+        // TODO: Add functionality
     }
 }

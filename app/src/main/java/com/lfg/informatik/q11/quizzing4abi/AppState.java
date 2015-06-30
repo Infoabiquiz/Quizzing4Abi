@@ -27,7 +27,7 @@ public abstract class AppState
 
     /**
      * Handles user click events. Functionality implemented in sub classes.
-     * @param view the click source (e.g. android button)
+     * @param view the click source (e.g. button)
      */
     public void onClick(View view)
     {

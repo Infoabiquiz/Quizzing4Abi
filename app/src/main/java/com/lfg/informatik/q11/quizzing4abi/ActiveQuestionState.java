@@ -4,27 +4,29 @@ import android.view.View;
 
 /**
  * Created by Chris on 30.06.2015.
- * Base class for all game states.
+ * The state of an active question.
  */
 
-public abstract class GameState extends AppState
+public class ActiveQuestionState extends GameState
 {
     /**
      * Constructor.
      * @param application a valid Application
      */
-    protected GameState(Application application)
+    public ActiveQuestionState(Application application)
     {
         super(application);
+
+        application.setLayout(R.layout.active_question);
     }
 
     /**
-     * Handles user click events. Functionality implemented in sub classes.
+     * Handles user click events.
      * @param view the click source (e.g. button)
      */
     @Override
     public void onClick(View view)
     {
-
+        // TODO: Add functionality
     }
 }
