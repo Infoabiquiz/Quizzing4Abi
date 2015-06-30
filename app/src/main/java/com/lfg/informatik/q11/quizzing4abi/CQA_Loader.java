@@ -20,7 +20,6 @@ public class CQA_Loader
 
     /**
      * This function loads all or just the required Categories.
-     * (It uses the SAX Parser to read the file).
      * @param filename           name of the xml file containing the question data
      * @param requiredCategories list of specific required Categories or null
      * @return List of loaded Categories
@@ -31,11 +30,10 @@ public class CQA_Loader
     public List<Category> loadCategories(String filename, List<String> requiredCategories)
             throws IOException, SAXException, ParserConfigurationException
     {
-        SAXParser saxParser = SAXParserFactory.newInstance().newSAXParser();
         CategoryBuilder categoryBuilder = new CategoryBuilder(requiredCategories);
         SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(categoryBuilder);
 
-        saxParser.parse(filename, saxDocumentHandler);
+        saxDocumentHandler.parse(filename);
 
         return categoryBuilder.takeBuiltCategories();
     }
@@ -44,15 +42,17 @@ public class CQA_Loader
      * Loads and returns all names of the available Categories.
      * @param filename name of the xml file containing the question data
      * @return List of all available Category names
+     * @throws IOException
+     * @throws SAXException
+     * @throws ParserConfigurationException
      */
-    public List<String> getAllCategoyNames(String filename)
+    public List<String> getAllCategoryNames(String filename)
             throws IOException, SAXException, ParserConfigurationException
     {
-        SAXParser saxParser = SAXParserFactory.newInstance().newSAXParser();
         CategoryNameLoader categoryNameLoader = new CategoryNameLoader();
         SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(categoryNameLoader);
 
-        saxParser.parse(filename, saxDocumentHandler);
+        saxDocumentHandler.parse(filename);
 
         return categoryNameLoader.takeLoadedCategoryNames();
     }

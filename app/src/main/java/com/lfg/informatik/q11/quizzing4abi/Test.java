@@ -37,7 +37,7 @@ public class Test
 
         System.out.println("\n");
 
-        List<String> categoryNames = cqa_Loader.getAllCategoyNames(raw + "question_data.xml");
+        List<String> categoryNames = cqa_Loader.getAllCategoryNames(raw + "question_data.xml");
         for(String name : categoryNames)
             System.out.println("CategoryName: " + name);
     }
