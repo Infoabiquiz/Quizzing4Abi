@@ -6,7 +6,6 @@ import org.xml.sax.helpers.DefaultHandler;
 
 /**
  * Created by Chris on 27.06.2015.
- * Reviewed.
  * This class takes callbacks of a SAXParser and forwards them to a XMLHandler by using the Strategy pattern.
  */
 

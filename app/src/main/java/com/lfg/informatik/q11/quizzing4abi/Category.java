@@ -5,7 +5,6 @@ import java.util.List;
 
 /**
  * Created by Adrian on 27.06.2015.
- * Reviewed.
  * This class represents a Category for the quiz (= school subject).
  * It contains the relevant Questions with the Answers.
  */

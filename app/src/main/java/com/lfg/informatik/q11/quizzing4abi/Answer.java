@@ -2,7 +2,6 @@ package com.lfg.informatik.q11.quizzing4abi;
 
 /**
  * Created by Tung on 27.06.2015.
- * Reviewed.
  * This class represents an Answer to a Question.
  */
 

@@ -5,7 +5,6 @@ import java.util.List;
 
 /**
  * Created by Chris on 27.06.2015.
- * Reviewed.
  * This class represents a Question with the Answers for the Quiz.
  */
 
