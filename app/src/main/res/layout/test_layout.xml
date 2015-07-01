@@ -19,7 +19,7 @@
         android:layout_below="@+id/active_question_difficulty"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="66dp"
-        android:background="@mipmap/test_image_button"
+        android:background="@drawable/test_image_button"
         android:onClick="onClick"
         android:layout_gravity="center_horizontal"/>
 
