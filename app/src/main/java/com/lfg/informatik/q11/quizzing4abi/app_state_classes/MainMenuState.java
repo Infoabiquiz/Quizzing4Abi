@@ -1,6 +1,8 @@
-package com.lfg.informatik.q11.quizzing4abi;
+package com.lfg.informatik.q11.quizzing4abi.app_state_classes;
 
 import android.view.View;
+import com.lfg.informatik.q11.quizzing4abi.Application;
+import com.lfg.informatik.q11.quizzing4abi.R;
 
 /**
  * Created by Aleksandar on 30.06.2015.

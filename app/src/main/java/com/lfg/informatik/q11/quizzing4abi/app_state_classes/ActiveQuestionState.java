@@ -1,23 +1,25 @@
-package com.lfg.informatik.q11.quizzing4abi;
+package com.lfg.informatik.q11.quizzing4abi.app_state_classes;
 
 import android.view.View;
+import com.lfg.informatik.q11.quizzing4abi.Application;
+import com.lfg.informatik.q11.quizzing4abi.R;
 
 /**
  * Created by Chris on 30.06.2015.
- * The first state of the app after starting it.
+ * The state of an active question.
  */
 
-public class AppStartState extends AppState
+public class ActiveQuestionState extends GameState
 {
     /**
      * Constructor.
      * @param application a valid Application
      */
-    public AppStartState(Application application)
+    public ActiveQuestionState(Application application)
     {
         super(application);
 
-        // TODO: application.setLayout(R.layout.app_start);
+        application.setLayout(R.layout.active_question);
     }
 
     /**

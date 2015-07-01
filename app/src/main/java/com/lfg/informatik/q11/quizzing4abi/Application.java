@@ -2,6 +2,8 @@ package com.lfg.informatik.q11.quizzing4abi;
 
 import android.view.View;
 
+import com.lfg.informatik.q11.quizzing4abi.app_state_classes.AppState;
+
 /**
  * Created by Adrian on 30.06.2015.
  * This class manages the current state of the app and handles all user events.
