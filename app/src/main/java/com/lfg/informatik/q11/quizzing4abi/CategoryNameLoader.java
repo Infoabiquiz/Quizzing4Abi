@@ -48,7 +48,7 @@ public class CategoryNameLoader implements XMLHandler
     @Override
     public void tagEnd(String tagName)
     {
-
+        //return null;
     }
 
     /**
