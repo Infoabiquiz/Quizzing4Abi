@@ -20,7 +20,8 @@ public class ScoreboardState extends AppState
     {
         super(application);
 
-        application.setLayout(R.layout.main_menu);
+
+       // TODO: application.setLayout(R.layout.scoreboard);
     }
 
     /**
