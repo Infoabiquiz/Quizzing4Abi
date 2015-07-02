@@ -28,11 +28,11 @@ public class Application
 
     /**
      * Changes the State.
-     * @param AppState new state of the app
+     * @param appState new state of the app
      */
-    public void setState(AppState AppState)
+    public void setState(AppState appState)
     {
-        currentAppState = AppState;
+        currentAppState = appState;
     }
 
     /**
