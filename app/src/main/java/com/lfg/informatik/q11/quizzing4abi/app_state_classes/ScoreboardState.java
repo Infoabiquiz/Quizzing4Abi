@@ -7,7 +7,7 @@ import com.lfg.informatik.q11.quizzing4abi.R;
 
 /**
  * Created by Dominik on 02.07.2015.
- * State of the Scoreboard.
+ * The state of the Scoreboard. It shows the scoreboard.
  */
 
 public class ScoreboardState extends AppState
@@ -20,8 +20,7 @@ public class ScoreboardState extends AppState
     {
         super(application);
 
-
-       // TODO: application.setLayout(R.layout.scoreboard);
+        // TODO: application.setLayout(R.layout.scoreboard);
     }
 
     /**

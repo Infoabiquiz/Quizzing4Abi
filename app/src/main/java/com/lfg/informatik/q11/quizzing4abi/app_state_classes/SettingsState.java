@@ -6,7 +6,7 @@ import com.lfg.informatik.q11.quizzing4abi.Application;
 
 /**
  * Created by Dominik on 02.07.2015.
- * State of the Settings.
+ * The state of the Settings window / user preferences.
  */
 
 public class SettingsState extends AppState
@@ -19,8 +19,7 @@ public class SettingsState extends AppState
     {
         super(application);
 
-
-       // TODO: application.setLayout(R.layout.settings);
+        // TODO: application.setLayout(R.layout.settings);
     }
 
     /**
