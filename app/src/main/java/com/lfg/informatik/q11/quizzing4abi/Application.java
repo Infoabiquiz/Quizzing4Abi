@@ -2,6 +2,7 @@ package com.lfg.informatik.q11.quizzing4abi;
 
 import android.view.View;
 
+import com.lfg.informatik.q11.quizzing4abi.app_state_classes.AppStartState;
 import com.lfg.informatik.q11.quizzing4abi.app_state_classes.AppState;
 
 /**
@@ -14,15 +15,13 @@ public class Application
     AppState currentAppState;
     MainActivity mainActivity;
 
-    // TODO: Hardcode first app state (loading screen)
     /**
      * Constructor.
-     * @param firstAppState first state of the app
      * @param mainActivity main activity
      */
-   public Application(AppState firstAppState, MainActivity mainActivity)
+   public Application(MainActivity mainActivity)
     {
-        this.currentAppState = firstAppState;
+        this.currentAppState = new AppStartState(this);
         this.mainActivity = mainActivity;
     }
 

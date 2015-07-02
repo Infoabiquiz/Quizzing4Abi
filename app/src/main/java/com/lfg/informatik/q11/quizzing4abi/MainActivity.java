@@ -1,6 +1,5 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
-import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,9 +18,7 @@ public class MainActivity extends ActionBarActivity
     {
         super.onCreate(savedInstanceState);
 
-        // TODO: Edit if fully functional:
-        // application = new Application(new AppStartState(), this);
-        setContentView(R.layout.activity_main);
+        application = new Application(this);
     }
 
     /**
@@ -30,7 +27,7 @@ public class MainActivity extends ActionBarActivity
      */
     public void onClick(View view)
     {
-        // TODO: Uncomment: application.onClick(view);
+        application.onClick(view);
     }
 
     @Override
