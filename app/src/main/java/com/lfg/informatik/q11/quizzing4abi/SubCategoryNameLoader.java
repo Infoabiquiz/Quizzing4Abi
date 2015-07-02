@@ -6,32 +6,36 @@ import java.util.List;
 
 /**
  * Created by Chris on 29.06.2015.
- * This XMLHandler implementation finds all available Category names and
- * saves them in a List.
+ * This XMLHandler implementation finds all available SubCategory names for
+ * a specific Category and saves them in a List.
  */
 
-public class CategoryNameLoader implements XMLHandler
+public class SubCategoryNameLoader implements XMLHandler
 {
-    private List<String> categoryNames;
+    private List<String> subCategoryNames;
+    private String categoryName;
+    private String currentCategory;
     private String currentTag;
 
     /**
      * Constructor.
+     * @param categoryName name of the Category containing the required SubCategories
      */
-    public CategoryNameLoader()
+    public SubCategoryNameLoader(String categoryName)
     {
-        categoryNames = new LinkedList<>();
+        subCategoryNames = new LinkedList<>();
+        this.categoryName = categoryName;
     }
 
     /**
      * After the loading process has finished, calling this method will return the List of
-     * the Categories names and transfer ownership to the caller.
-     * @return List of loaded Category names
+     * the SubCategories names and transfer ownership to the caller.
+     * @return List of loaded SubCategory names
      */
-    public List<String> takeLoadedCategoryNames()
+    public List<String> takeLoadedSubCategoryNames()
     {
-        List<String> temp = new ArrayList<>(categoryNames);
-        categoryNames = new LinkedList<>();
+        List<String> temp = new ArrayList<>(subCategoryNames);
+        subCategoryNames = new LinkedList<>();
         return temp;
     }
 
@@ -65,8 +69,13 @@ public class CategoryNameLoader implements XMLHandler
     {
         if(currentTag.equals("Category") && attributeName.equals("Text"))
         {
-            if(!categoryNames.contains(content))
-                categoryNames.add(content);
+            currentCategory = content;
+        }
+        else if(currentTag.equals("SubCategory") && attributeName.equals("Text")
+                && categoryName.equals(currentCategory))
+        {
+            if(!subCategoryNames.contains(content))
+                subCategoryNames.add(content);
         }
     }
 }

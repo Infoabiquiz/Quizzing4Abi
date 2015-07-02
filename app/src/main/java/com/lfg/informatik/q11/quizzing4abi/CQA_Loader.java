@@ -8,7 +8,7 @@ import javax.xml.parsers.ParserConfigurationException;
 /**
  * Created by Chris on 27.06.2015.
  * This Loader represents a Facade object, that manages the parsing and building
- * process of the Categories, Questions and Answers.
+ * process of the Categories, SubCategories, Questions and Answers.
  */
 
 public class CQA_Loader
@@ -17,7 +17,7 @@ public class CQA_Loader
 
     /**
      * This function loads all or just the required Categories.
-     * @param requiredCategories list of specific required Categories or null
+     * @param requiredCategories list of names of specific required Categories or null
      * @return List of loaded Categories
      * @throws IOException
      * @throws SAXException
@@ -50,5 +50,24 @@ public class CQA_Loader
         saxDocumentHandler.parse(questionDataFilename);
 
         return categoryNameLoader.takeLoadedCategoryNames();
+    }
+
+    /**
+     * Loads and returns all names of the available SubCategories of one Category.
+     * @param categoryName name of the Category containing the required SubCategories
+     * @return List of all available SubCategory names
+     * @throws IOException
+     * @throws SAXException
+     * @throws ParserConfigurationException
+     */
+    static public List<String> getAllSubCategoryNames(String categoryName)
+            throws IOException, SAXException, ParserConfigurationException
+    {
+        SubCategoryNameLoader subCategoryNameLoader = new SubCategoryNameLoader(categoryName);
+        SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(subCategoryNameLoader);
+
+        saxDocumentHandler.parse(questionDataFilename);
+
+        return subCategoryNameLoader.takeLoadedSubCategoryNames();
     }
 }
