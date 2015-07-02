@@ -11,28 +11,22 @@
         android:layout_gravity="right"
         android:layout_weight="0.18"
         android:background="@mipmap/ic_launcher"
-        android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/main_menu_settings"
         android:layout_alignEnd="@+id/main_menu_settings"
-        android:layout_marginTop="44dp"/>
+        android:layout_alignParentTop="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/main_menu_play"
-        android:layout_marginTop="115dp"
-        android:layout_marginLeft="110dp"
-        android:layout_below="@+id/main_menu_logo"
-        android:layout_alignParentLeft="true" />
+        android:background="@drawable/play_button"
+        android:layout_above="@+id/main_menu_speaker" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/main_menu_scoreboard"
-        android:layout_alignBottom="@+id/main_menu_play"
-        android:layout_toLeftOf="@+id/main_menu_logo"
-        android:layout_toStartOf="@+id/main_menu_logo"
-        android:layout_marginBottom="48dp"/>
+        android:layout_toStartOf="@+id/main_menu_logo" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -47,16 +41,21 @@
         android:layout_height="wrap_content"
         android:id="@+id/main_menu_settings"
         android:background="@drawable/gearwheel"
-        android:layout_alignTop="@+id/main_menu_statistics"
-        android:layout_toRightOf="@+id/main_menu_statistics"
-        android:layout_toEndOf="@+id/main_menu_statistics"/>
+        android:layout_marginRight="67dp"
+        android:layout_marginEnd="67dp"
+        android:layout_above="@+id/main_menu_speaker"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/main_menu_speaker"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="28dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/main_menu_statistics"
-        android:layout_marginBottom="26dp" />
+        android:layout_toRightOf="@+id/main_menu_statistics"
+        android:layout_toEndOf="@+id/main_menu_statistics" />
 
 </RelativeLayout>
