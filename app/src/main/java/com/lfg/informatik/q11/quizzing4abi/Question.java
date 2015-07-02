@@ -12,6 +12,7 @@ public class Question
 {
     private String questionText;
     private List<Answer> answers;
+    // TODO: Add difficulty
 
     /**
      * Constructor.
