@@ -25,6 +25,7 @@ public class CategoryBuilder implements XMLHandler
     private String currentAnswer;
     private boolean currentCorrectness;
     private List<String> requiredCategories;
+    // TODO: Make it possible to load only specific subCategories for each Category.
 
     /**
      * Constructor.

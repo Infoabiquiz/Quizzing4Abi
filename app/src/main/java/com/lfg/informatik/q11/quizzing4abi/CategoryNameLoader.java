@@ -1,6 +1,7 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,10 +14,11 @@ public class CategoryNameLoader implements XMLHandler
 {
     private List<String> categoryNames;
     private String currentTag;
+    // TODO: Make it possible to load all SubCategoryNames for a Category.
 
     public CategoryNameLoader()
     {
-        categoryNames = new ArrayList<>();
+        categoryNames = new LinkedList<>();
     }
 
     /**
@@ -26,13 +28,13 @@ public class CategoryNameLoader implements XMLHandler
      */
     public List<String> takeLoadedCategoryNames()
     {
-        List<String> temp = categoryNames;
-        categoryNames = new ArrayList<>();
+        List<String> temp = new ArrayList<>(categoryNames);
+        categoryNames = new LinkedList<>();
         return temp;
     }
 
     /**
-     * Has to be called at the occurrence of a each beginning tag.
+     * Has to be called at the occurrence of each beginning tag.
      * @param tagName the name of the tag
      */
     @Override
@@ -42,7 +44,7 @@ public class CategoryNameLoader implements XMLHandler
     }
 
     /**
-     * Has to be called at the each ending tag.
+     * Has to be called for each ending tag.
      * @param tagName the name of the tag
      */
     @Override

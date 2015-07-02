@@ -16,14 +16,6 @@ public class Test
     public final static String raw = "app\\src\\main\\res\\raw\\";
 
     /**
-     * -> MainActivity::setContentView is public.
-     */
-    public static void showTestLayout(MainActivity mainActivity)
-    {
-        mainActivity.setContentView(R.layout.test_layout);
-    }
-
-    /**
      * Test main
      */
     public static void main(String args[]) throws IOException, SAXException, ParserConfigurationException
