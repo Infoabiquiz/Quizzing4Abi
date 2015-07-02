@@ -14,7 +14,7 @@ public class Application
     AppState currentAppState;
     MainActivity mainActivity;
 
-    // TODO: Hardcode first app state (loading screen)?
+    // TODO: Hardcode first app state (loading screen)
     /**
      * Constructor.
      * @param firstAppState first state of the app

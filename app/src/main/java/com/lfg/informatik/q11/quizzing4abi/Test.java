@@ -51,14 +51,18 @@ public class Test
         {
             System.out.println("Category: " + category.getCategoryName());
 
-            for(Question question : category.getQuestions())
+            for(SubCategory subCategory : category.getSubCategories())
             {
-                System.out.println("Question: " + question.getQuestionText());
+                System.out.println("SubCategory: " + subCategory.getSubCategoryName());
 
-                for(Answer answer : question.getAnswers())
+                for (Question question : subCategory.getQuestions())
                 {
-                    System.out.println("Answer: " + answer.getAnswersText()
-                    + " Correct: " + answer.isCorrect());
+                    System.out.println("Question: " + question.getQuestionText());
+
+                    for (Answer answer : question.getAnswers())
+                    {
+                        System.out.println("Answer: " + answer.getAnswersText() + " Correct: " + answer.isCorrect());
+                    }
                 }
             }
         }

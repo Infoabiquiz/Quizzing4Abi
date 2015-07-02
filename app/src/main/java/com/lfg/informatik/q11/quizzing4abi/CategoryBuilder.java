@@ -1,6 +1,7 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -8,16 +9,18 @@ import java.util.Stack;
  * Created by Chris on 29.06.2015.
  * This XMLHandler implementation processes the whole xml file and builds all
  * or only the required Categories.
- * It functions as a Builder object for the Category, Question and Answer classes.
+ * It functions as a Builder object for the Category, SubCategory, Question and Answer classes.
  */
 
 public class CategoryBuilder implements XMLHandler
 {
     private Stack<String> tagHierarchy;
     private List<Category> builtCategories;
+    private List<SubCategory> tempSubCategories;
     private List<Question> tempQuestionList;
     private List<Answer> tempAnswerList;
     private String currentCategory;
+    private String currentSubCategory;
     private String currentQuestion;
     private String currentAnswer;
     private boolean currentCorrectness;
@@ -29,9 +32,11 @@ public class CategoryBuilder implements XMLHandler
     public CategoryBuilder(List<String> requiredCategories)
     {
         tagHierarchy = new Stack<>();
-        builtCategories = new ArrayList<>();
-        tempAnswerList = new ArrayList<>();
-        tempQuestionList = new ArrayList<>();
+        builtCategories = new LinkedList<>();
+        tempSubCategories = new LinkedList<>();
+        tempQuestionList = new LinkedList<>();
+        tempAnswerList = new LinkedList<>();
+
         this.requiredCategories = requiredCategories;
     }
 
@@ -42,8 +47,9 @@ public class CategoryBuilder implements XMLHandler
      */
     public List<Category> takeBuiltCategories()
     {
-        List<Category> temp = builtCategories;
-        builtCategories = new ArrayList<>();
+        List<Category> temp = new ArrayList<>(builtCategories);
+        builtCategories = new LinkedList<>();
+        tempSubCategories.clear();
         tempQuestionList.clear();
         tempAnswerList.clear();
         return temp;
@@ -61,7 +67,7 @@ public class CategoryBuilder implements XMLHandler
 
     /**
      * Has to be called at the each ending tag.
-     * Constructs a new C,Q or A based on the ending tag.
+     * Constructs a new C, SubC, Q or A based on the ending tag.
      * @param tagName name of the ending element
      */
     @Override
@@ -78,13 +84,18 @@ public class CategoryBuilder implements XMLHandler
 
         if(tagName.equals("Category"))
         {
-            builtCategories.add(new Category(currentCategory, tempQuestionList));
-            tempQuestionList = new ArrayList<>();
+            builtCategories.add(new Category(currentCategory, tempSubCategories));
+            tempQuestionList = new LinkedList<>();
+        }
+        else if(tagName.equals("SubCategory"))
+        {
+            tempSubCategories.add(new SubCategory(currentSubCategory, tempQuestionList));
+            tempQuestionList = new LinkedList<>();
         }
         else if(tagName.equals("Question"))
         {
             tempQuestionList.add(new Question(currentQuestion, tempAnswerList));
-            tempAnswerList = new ArrayList<>();
+            tempAnswerList = new LinkedList<>();
         }
         else if(tagName.equals("Answer"))
         {
@@ -111,7 +122,12 @@ public class CategoryBuilder implements XMLHandler
         if(requiredCategories != null && !requiredCategories.contains(currentCategory))
             return;
 
-        if(tagHierarchy.peek().equals("Question"))
+        if(tagHierarchy.peek().equals("SubCategory"))
+        {
+            if (attributeName.equals("Text"))
+                currentSubCategory = content;
+        }
+        else if(tagHierarchy.peek().equals("Question"))
         {
             if (attributeName.equals("Text"))
                 currentQuestion = content;

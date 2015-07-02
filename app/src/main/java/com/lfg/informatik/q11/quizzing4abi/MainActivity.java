@@ -30,19 +30,7 @@ public class MainActivity extends ActionBarActivity
      */
     public void onClick(View view)
     {
-        // TODO: Edit method if fully functional:
-        // application.onClick(view);
-
-        switch(view.getId())
-        {
-            case R.id.showTestLayout:
-                Test.showTestLayout(this);
-                findViewById(R.id.testLayout_linearLayout).setBackgroundColor(Color.LTGRAY);
-                break;
-            case R.id.imageButton:
-                setContentView(R.layout.activity_main);
-                break;
-        }
+        // TODO: Uncomment: application.onClick(view);
     }
 
     @Override
