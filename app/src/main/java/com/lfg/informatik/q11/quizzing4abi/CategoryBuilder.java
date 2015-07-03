@@ -86,7 +86,7 @@ public class CategoryBuilder implements XMLHandler
         if(tagName.equals("Category"))
         {
             builtCategories.add(new Category(currentCategory, tempSubCategories));
-            tempQuestionList = new LinkedList<>();
+            tempSubCategories = new LinkedList<>();
         }
         else if(tagName.equals("SubCategory"))
         {
