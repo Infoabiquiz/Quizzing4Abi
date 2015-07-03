@@ -31,6 +31,12 @@ public class Test
         List<String> categoryNames = CQA_Loader.getAllCategoryNames();
         for(String name : categoryNames)
             System.out.println("CategoryName: " + name);
+
+        List<String> requiredSubCategories = new ArrayList<>();
+        requiredSubCategories.add("Q11/1");
+        List<SubCategory> subCategories = CQA_Loader.loadSubCategories("Informatik", requiredSubCategories);
+        for(SubCategory subCategory : subCategories)
+            System.out.println("SubCategory of Informatik: " + subCategory.getSubCategoryName());
     }
 
     /**

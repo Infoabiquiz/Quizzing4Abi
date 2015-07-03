@@ -16,7 +16,7 @@ public class CQA_Loader
     private static final String questionDataFilename = "app\\src\\main\\res\\raw\\question_data.xml";
 
     /**
-     * This function loads all or just the required Categories.
+     * Loads all or just required Categories.
      * @param requiredCategories list of names of specific required Categories or null
      * @return List of loaded Categories
      * @throws IOException
@@ -32,6 +32,27 @@ public class CQA_Loader
         saxDocumentHandler.parse(questionDataFilename);
 
         return categoryBuilder.takeBuiltCategories();
+    }
+
+    /**
+     * Loads all or just required SubCategories of one Category.
+     * @param categoryName          name of the Category containing the SubCategories
+     * @param requiredSubCategories list of names of required SubCategories or null
+     * @return List of loaded SubCategories
+     * @throws IOException
+     * @throws SAXException
+     * @throws ParserConfigurationException
+     */
+    static public List<SubCategory> loadSubCategories(String categoryName,
+                                                      List<String> requiredSubCategories)
+            throws IOException, SAXException, ParserConfigurationException
+    {
+        SubCategoryBuilder subCategoryBuilder = new SubCategoryBuilder(categoryName, requiredSubCategories);
+        SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(subCategoryBuilder);
+
+        saxDocumentHandler.parse(questionDataFilename);
+
+        return subCategoryBuilder.takeBuiltSubCategories();
     }
 
     /**
