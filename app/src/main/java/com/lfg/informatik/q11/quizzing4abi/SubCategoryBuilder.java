@@ -88,7 +88,7 @@ public class SubCategoryBuilder implements XMLHandler
         else if(requiredSubCategories != null && !requiredSubCategories.contains(currentSubCategory))
             return;
 
-        else if(tagName.equals("SubCategory"))
+        if(tagName.equals("SubCategory"))
         {
             builtSubCategories.add(new SubCategory(currentSubCategory, tempQuestionList));
             tempQuestionList = new LinkedList<>();
