@@ -25,7 +25,7 @@ public class Test
         testWriter();
     }
 
-    // TODO: Catch all parser specific exceptions and find another way of error handling
+    // TODO: Catch all specific exceptions and find another way of error handling
 
     /**
      * Tests the loading process of the CQA_Loader
@@ -57,17 +57,16 @@ public class Test
             System.out.println("SubCategory of Informatik: " + subCategory.getSubCategoryName());
     }
 
-    static void testWriter() throws ParserConfigurationException, TransformerException
+    static void testWriter()
+            throws ParserConfigurationException, TransformerException, IOException, SAXException
     {
-        XMLWriter xmlWriter = new XMLWriter();
+        SettingsManager.setBackgroundColor("Cyan");
 
-        xmlWriter.elementBegin("Settings");
+        System.out.println("Background Color: " + SettingsManager.getBackgroundColor());
 
-        xmlWriter.elementBegin("BackgroundColor");
+        SettingsManager.setBackgroundColor("White");
 
-        xmlWriter.setAttribute(null, "Cyan");
-
-        xmlWriter.saveTo("app\\src\\main\\res\\raw\\settings.xml");
+        System.out.println("Background Color: " + SettingsManager.getBackgroundColor());
     }
 
     /**
