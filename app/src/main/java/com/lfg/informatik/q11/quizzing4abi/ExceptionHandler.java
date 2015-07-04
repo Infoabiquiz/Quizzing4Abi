@@ -9,7 +9,7 @@ import android.content.Context;
  * If no context is set, then the exception message will be printed to the console.
  */
 
-// TODO: Integrate it into the MainActivity and the other classes.
+// TODO: Integrate it into the other classes.
 
 public class ExceptionHandler
 {

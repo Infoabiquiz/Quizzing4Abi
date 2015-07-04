@@ -66,6 +66,5 @@ public class SettingsManager
         {
             ExceptionHandler.showAlertDialog("Saving settings failed. Error: " + e.getMessage());
         }
-        // TODO: Test on running android device and on console
     }
 }
