@@ -1,8 +1,5 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
-import android.app.AlertDialog;
-import android.content.Context;
-
 import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,15 +14,13 @@ import javax.xml.transform.TransformerException;
 
 public class Test
 {
-    public final static String raw = "app\\src\\main\\res\\raw\\";
-
     /**
      * Test main
      */
     public static void main(String args[]) throws IOException, SAXException,
             ParserConfigurationException, TransformerException
     {
-        exceptionAlertTest(null);
+
     }
 
     /**
@@ -68,18 +63,6 @@ public class Test
         SettingsManager.setBackgroundColor("White");
 
         System.out.println("Background Color: " + SettingsManager.getBackgroundColor());
-    }
-
-    public static void exceptionAlertTest(Context context)
-    {
-        try
-        {
-            throw new IOException("Exception message test");
-        }
-        catch (IOException e)
-        {
-            ExceptionHandler.handleException(e);
-        }
     }
 
     /**

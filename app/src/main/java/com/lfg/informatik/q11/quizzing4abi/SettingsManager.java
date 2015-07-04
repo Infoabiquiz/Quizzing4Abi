@@ -46,19 +46,26 @@ public class SettingsManager
      * @param backgroundColor the background color
      */
     public static void setBackgroundColor(String backgroundColor)
-            throws ParserConfigurationException, TransformerException
     {
         if(backgroundColor == null || backgroundColor.isEmpty())
             throw new IllegalArgumentException("Background color mustn´t be null or empty!");
 
-        XMLWriter xmlWriter = new XMLWriter();
+        try
+        {
+            XMLWriter xmlWriter = new XMLWriter();
 
-        xmlWriter.elementBegin("Settings");
-        xmlWriter.elementBegin("BackgroundColor");
-        xmlWriter.setAttribute(null, backgroundColor);
+            xmlWriter.elementBegin("Settings");
+            xmlWriter.elementBegin("BackgroundColor");
+            xmlWriter.setAttribute(null, backgroundColor);
 
-        xmlWriter.saveTo(settingsFilename);
+            xmlWriter.saveTo(settingsFilename);
 
-        SettingsManager.backgroundColor = backgroundColor;
+            SettingsManager.backgroundColor = backgroundColor;
+        }
+        catch(ParserConfigurationException | TransformerException e)
+        {
+            ExceptionHandler.showAlertDialog("Saving settings failed. Error: " + e.getMessage());
+        }
+        // TODO: Test on running android device and on console
     }
 }

@@ -16,7 +16,8 @@ public class ExceptionHandler
     private static Context context = null;
 
     /**
-     * Shows an alert, if context isn´t null. Otherwise the exception message will be printed
+     * Shows an alert dialog of an exception message, if context isn´t null.
+     * Otherwise the exception message will be printed
      * to the console (used for debugging and testing purposes).
      * @param throwable exception
      */
@@ -30,6 +31,26 @@ public class ExceptionHandler
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setMessage(throwable.getMessage());
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
+    }
+
+    /**
+     * Shows an alert dialog, if a context is specified. Otherwise the message will be
+     * printed to the console.
+     * @param message the message text
+     */
+    public static void showAlertDialog(String message)
+    {
+        if(context == null)
+        {
+            System.out.println(message);
+        }
+        else
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setMessage(message);
             AlertDialog alert = builder.create();
             alert.show();
         }

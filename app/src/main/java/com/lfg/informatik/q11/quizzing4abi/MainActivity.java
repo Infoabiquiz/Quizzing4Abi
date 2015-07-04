@@ -11,12 +11,14 @@ public class MainActivity extends ActionBarActivity
     private Application application;
 
     /**
-     * MAIN FUNCTION
+     * ANDROID MAIN FUNCTION
      */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        ExceptionHandler.setContext(this);
 
         application = new Application(this);
     }
