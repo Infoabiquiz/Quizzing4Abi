@@ -67,10 +67,6 @@ public class Test
 
         xmlWriter.setAttribute(null, "Cyan");
 
-        xmlWriter.elementEnd(); // TODO: Make this function calls omissible
-
-        xmlWriter.elementEnd();
-
         xmlWriter.saveTo("app\\src\\main\\res\\raw\\settings.xml");
     }
 

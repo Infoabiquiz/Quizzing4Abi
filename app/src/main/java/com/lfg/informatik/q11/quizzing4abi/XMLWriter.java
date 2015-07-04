@@ -51,6 +51,15 @@ public class XMLWriter
 
     /**
      * Call this function at the closing tag of each element.
+     * You can omit to call this function for the very last closing tags,
+     * if no new elements begin or attributes are set.
+     * Example:
+     * ...
+     * elementEnd // has to be called due to following begin or attribute function calls
+     * ...
+     * elementBegin/setAttribute
+     * elementEnd // can be omitted
+     * elementEnd // can be omitted
      */
     public void elementEnd()
     {
@@ -82,6 +91,8 @@ public class XMLWriter
      */
     public void saveTo(String filename) throws TransformerException
     {
+        generateLastClosingTags();
+
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
 
         Transformer transformer = transformerFactory.newTransformer();
@@ -95,5 +106,17 @@ public class XMLWriter
         StreamResult result = new StreamResult(new File(filename));
 
         transformer.transform(source, result);
+    }
+
+    /**
+     * Generates the omitted closing tags, if any.
+     * Thereby the xml document gets finished and can be saved.
+     */
+    private void generateLastClosingTags()
+    {
+        while(!nodeStack.isEmpty())
+        {
+            elementEnd();
+        }
     }
 }
