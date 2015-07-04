@@ -57,7 +57,7 @@ public class CategoryNameLoader implements XMLHandler
 
     /**
      * Has to be called for each attribute.
-     * @param attributeName name of the attribute
+     * @param attributeName name of the attribute or null/"" for a text node
      * @param content       content of the attribute
      */
     @Override

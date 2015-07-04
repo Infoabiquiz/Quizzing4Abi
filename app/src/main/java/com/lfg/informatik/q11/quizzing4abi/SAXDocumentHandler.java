@@ -14,11 +14,13 @@ import javax.xml.parsers.SAXParserFactory;
  * Created by Chris on 27.06.2015.
  * This class parses an xml file by taking callbacks of a SAXParser
  * and forwards them to a XMLHandler by using the Strategy pattern.
+ * Note: Maximum text-node size currently 256 characters!
  */
 
 public class SAXDocumentHandler extends DefaultHandler
 {
     private XMLHandler xmlHandler;
+    private StringBuffer stringBuffer;
 
     /**
      * Constructor.
@@ -44,12 +46,12 @@ public class SAXDocumentHandler extends DefaultHandler
         saxParser.parse(filename, this);
     }
 
-    @Override
     /**
      * Called at the beginning of an element.
      * @param qName tagName
      * @throws SAXException
      */
+    @Override
     public void startElement(String uri,
                              String localName,
                              String qName,
@@ -67,17 +69,35 @@ public class SAXDocumentHandler extends DefaultHandler
         }
     }
 
+    /**
+     * Called for each text node.
+     * @param ch content
+     * @throws SAXException
+     */
     @Override
+    public void characters (char ch[], int start, int length) throws SAXException
+    {
+        stringBuffer = new StringBuffer(256);
+        stringBuffer.append(ch, start, length);
+    }
+
     /**
      * Called at the end of an element. ( e.g. </end> )
      * @param qName tagName
      * @throws SAXException
      */
+    @Override
     public void endElement(String uri,
                            String localName,
                            String qName)
             throws SAXException
     {
-        xmlHandler.tagEnd(qName);
+        if(stringBuffer == null)
+            xmlHandler.tagEnd(qName);
+        else
+        {
+            xmlHandler.attribute(null, qName);
+            stringBuffer = null;
+        }
     }
 }

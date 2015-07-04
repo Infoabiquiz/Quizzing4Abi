@@ -109,7 +109,7 @@ public class CategoryBuilder implements XMLHandler
     /**
      * Has to be called for each attribute.
      * Fills the "current" fields with the appropriate content.
-     * @param attributeName name of the attribute
+     * @param attributeName name of the attribute or null/"" for a text node
      * @param content       content of the attribute
      */
     @Override
