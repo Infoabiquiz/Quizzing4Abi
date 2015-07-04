@@ -54,7 +54,6 @@ public class Test
     }
 
     public static void testWriter()
-            throws ParserConfigurationException, TransformerException, IOException, SAXException
     {
         SettingsManager.setBackgroundColor("Cyan");
 

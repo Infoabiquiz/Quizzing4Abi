@@ -21,21 +21,26 @@ public class SettingsManager
     /**
      * Loads the settings, if they aren´t loaded, and returns the background color.
      * @return the background color
-     * @throws IOException
-     * @throws SAXException
-     * @throws ParserConfigurationException
      */
     public static String getBackgroundColor()
-            throws IOException, SAXException, ParserConfigurationException
     {
-        if(backgroundColor == null) // load it
+        if(backgroundColor == null) // then load it
         {
-            SettingsLoader settingsLoader = new SettingsLoader();
-            SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(settingsLoader);
+            try
+            {
+                SettingsLoader settingsLoader = new SettingsLoader();
+                SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(settingsLoader);
 
-            saxDocumentHandler.parse(settingsFilename);
+                saxDocumentHandler.parse(settingsFilename);
 
-            backgroundColor = settingsLoader.getBackgroundColor();
+                backgroundColor = settingsLoader.getBackgroundColor();
+            }
+            catch(ParserConfigurationException | SAXException | IOException e)
+            {
+                ExceptionHandler.showAlertDialog("Loading settings failed. Error: "
+                        + e.getMessage());
+                return "White"; // then return the default color
+            }
         }
 
         return backgroundColor;
