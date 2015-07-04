@@ -44,8 +44,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Placeholder Name 1"
-        android:id="@+id/scoreboard_2"
+        android:text="Placeholder FIRST"
+        android:id="@+id/scoreboard_first"
         android:layout_alignTop="@+id/scoreboard_icon_1"
         android:layout_toRightOf="@+id/scoreboard_icon_1"
         android:layout_toEndOf="@+id/scoreboard_icon_1" />
@@ -54,19 +54,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Placeholder Name 2"
-        android:id="@+id/scoreboard_2"
+        android:text="Placeholder SECOND"
+        android:id="@+id/scoreboard_second"
         android:layout_below="@+id/scoreboard_icon_1"
-        android:layout_centerHorizontal="true" />
+        android:layout_toRightOf="@+id/scoreboard_icon_1"
+        android:layout_toEndOf="@+id/scoreboard_icon_1" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Placeholder Name 3"
-        android:id="@+id/scoreboard_3"
-        android:layout_alignTop="@+id/scoreboard_icon_3"
-        android:layout_alignLeft="@+id/scoreboard_2"
-        android:layout_alignStart="@+id/scoreboard_2" />
+        android:text="Placeholder THIRD"
+        android:id="@+id/scoreboard_third"
+        android:layout_below="@+id/scoreboard_icon_2"
+        android:layout_toRightOf="@+id/scoreboard_icon_2"
+        android:layout_toEndOf="@+id/scoreboard_icon_2" />
 
 </RelativeLayout>
