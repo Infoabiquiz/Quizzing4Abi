@@ -1,5 +1,8 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
+import android.app.AlertDialog;
+import android.content.Context;
+
 import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,10 +25,8 @@ public class Test
     public static void main(String args[]) throws IOException, SAXException,
             ParserConfigurationException, TransformerException
     {
-        testWriter();
+        exceptionAlertTest(null);
     }
-
-    // TODO: Catch all specific exceptions and find another way of error handling
 
     /**
      * Tests the loading process of the CQA_Loader
@@ -33,7 +34,7 @@ public class Test
      * @throws SAXException
      * @throws IOException
      */
-    static void testCQA() throws ParserConfigurationException, SAXException, IOException
+    public static void testCQA() throws ParserConfigurationException, SAXException, IOException
     {
         List<String> requiredCategories = new ArrayList<>();
         requiredCategories.add("Informatik");
@@ -57,7 +58,7 @@ public class Test
             System.out.println("SubCategory of Informatik: " + subCategory.getSubCategoryName());
     }
 
-    static void testWriter()
+    public static void testWriter()
             throws ParserConfigurationException, TransformerException, IOException, SAXException
     {
         SettingsManager.setBackgroundColor("Cyan");
@@ -67,6 +68,18 @@ public class Test
         SettingsManager.setBackgroundColor("White");
 
         System.out.println("Background Color: " + SettingsManager.getBackgroundColor());
+    }
+
+    public static void exceptionAlertTest(Context context)
+    {
+        try
+        {
+            throw new IOException("Exception message test");
+        }
+        catch (IOException e)
+        {
+            ExceptionHandler.handleException(e);
+        }
     }
 
     /**
