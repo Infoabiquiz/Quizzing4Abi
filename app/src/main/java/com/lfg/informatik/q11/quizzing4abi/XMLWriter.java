@@ -23,30 +23,16 @@ import javax.xml.transform.stream.StreamResult;
  * and the setAttribute function for each attribute of an element.
  */
 
-public class XMLWriter // TODO: Finish class
+public class XMLWriter
 {
-    private static Document doc;
-    private static Stack<Element> nodeStack;
+    private Document doc;
+    private Stack<Element> nodeStack;
 
-    public static void main(String args[])
-            throws ParserConfigurationException, TransformerException
-    {
-        init();
-
-        elementBegin("Settings");
-
-        elementBegin("BackgroundColor");
-
-        setAttribute(null, "Cyan");
-
-        elementEnd(); // TODO: Make this function calls omissible
-
-        elementEnd();
-
-        save("app\\src\\main\\res\\raw\\settings.xml");
-    }
-
-    public static void init() throws ParserConfigurationException
+    /**
+     * Constructor.
+     * @throws ParserConfigurationException
+     */
+    public XMLWriter() throws ParserConfigurationException
     {
         DocumentBuilder docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
@@ -54,12 +40,19 @@ public class XMLWriter // TODO: Finish class
         nodeStack = new Stack<>();
     }
 
-    public static void elementBegin(String elementName)
+    /**
+     * Call this function at the beginning of each element.
+     * @param elementName name of the element/tag
+     */
+    public void elementBegin(String elementName)
     {
         nodeStack.push(doc.createElement(elementName));
     }
 
-    public static void elementEnd()
+    /**
+     * Call this function at the closing tag of each element.
+     */
+    public void elementEnd()
     {
         Element element = nodeStack.pop();
 
@@ -69,7 +62,12 @@ public class XMLWriter // TODO: Finish class
             doc.appendChild(element);
     }
 
-    public static void setAttribute(String attributeName, String content)
+    /**
+     * Call this function for each attribute or text node.
+     * @param attributeName name of the attribute or null/"" for a text node
+     * @param content content of the attribute or the text node
+     */
+    public void setAttribute(String attributeName, String content)
     {
         if(attributeName == null || attributeName.isEmpty())
             nodeStack.peek().appendChild(doc.createTextNode(content));
@@ -77,7 +75,12 @@ public class XMLWriter // TODO: Finish class
             nodeStack.peek().setAttribute(attributeName, content);
     }
 
-    public static void save(String filename) throws TransformerException
+    /**
+     * Saves the generated document to the xml file specified by filename.
+     * @param filename filename of the target xml file
+     * @throws TransformerException
+     */
+    public void saveTo(String filename) throws TransformerException
     {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
 
