@@ -29,6 +29,6 @@ public class ActiveQuestionState extends GameState
     @Override
     public void onClick(View view)
     {
-        // TODO: Add functionality
+
     }
 }
