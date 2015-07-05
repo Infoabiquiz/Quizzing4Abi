@@ -2,10 +2,9 @@ package com.lfg.informatik.q11.quizzing4abi;
 
 /**
  * Created by Chris on 29.06.2015.
- * This interface provides basic functions for processing an xml file.
+ * This interface provides basic functions for reading an xml file.
  * The actual parsing takes place in another class, which then can forward the events
  * to this handler.
- * Note: For every tag in the xml file there has the be one start and one end tag!
  */
 
 public interface XMLHandler
@@ -22,10 +21,9 @@ public interface XMLHandler
      */
     void tagEnd(String tagName);
 
-
     /**
      * Has to be called for each attribute.
-     * @param attributeName name of the attribute
+     * @param attributeName name of the attribute or null/"" for a text node
      * @param content       content of the attribute
      */
     void attribute(String attributeName, String content);

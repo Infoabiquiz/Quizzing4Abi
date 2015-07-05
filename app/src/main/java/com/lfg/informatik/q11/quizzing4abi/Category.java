@@ -6,40 +6,40 @@ import java.util.List;
 /**
  * Created by Adrian on 27.06.2015.
  * This class represents a Category for the quiz (= school subject).
- * It contains the relevant Questions with the Answers.
+ * It contains the relevant SubCategories and Questions with the Answers.
  */
 
 public class Category
 {
-    private String questionCategory;
-    private List<Question> questions;
+    private String categoryName;
+    private List<SubCategory> subCategories;
 
     /**
      * Constructor.
-     * @param questionCategory name of category
-     * @param questions        list of questions
+     * @param categoryName name of this category
+     * @param subCategories        list of Questions
      */
-    public Category (String questionCategory, List<Question> questions)
+    public Category(String categoryName, List<SubCategory> subCategories)
     {
-        this.questionCategory = questionCategory;
-        this.questions = questions;
+        this.categoryName = categoryName;
+        this.subCategories = subCategories;
     }
 
     /**
      * Returns the category name.
-     * @return name of category
+     * @return name of this Category
      */
     public String getCategoryName()
     {
-        return questionCategory;
+        return categoryName;
     }
 
     /**
-     * Returns the questions as readonly.
-     * @return the unmodifiable list of questions
+     * Returns the SubCategories as readonly.
+     * @return the unmodifiable list of SubCategories
      */
-    public List<Question> getQuestions()
+    public List<SubCategory> getSubCategories()
     {
-        return Collections.unmodifiableList(questions);
+        return Collections.unmodifiableList(subCategories);
     }
 }

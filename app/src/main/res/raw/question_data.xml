@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Data>
   <Category Text="Informatik">
-    <Question Text="Here goes the question text.">
-      <Answer Correct="false" Text="Here goes the answer text."/>
-      <Answer Correct="true" Text="This is a correct answer."/>
-    </Question>
-    <Question Text="$pictureName.png">
-      <Answer Text="$picture4Answer.jpeg"/>
-    </Question>
+    <SubCategory Text="Q11/1">
+      <Question Text="$pictureName.png">
+        <Answer Text="$picture4Answer.jpeg"/>
+      </Question>
+      <Question Text="Here goes the question text.">
+        <Answer Correct="false" Text="Here goes the answer text."/>
+        <Answer Correct="true" Text="This is a correct answer."/>
+      </Question>
+    </SubCategory>
   </Category>
-  <Category Text="Mathe">
-  </Category>
+  <Category Text="Mathe"/>
 </Data>
