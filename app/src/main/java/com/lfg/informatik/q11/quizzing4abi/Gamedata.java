@@ -17,13 +17,13 @@ public class Gamedata
 
     /**
      * Contructor.
-     * @param questionspool List of questions
-     * @param answeredQuestions       List of answered Questions
+     * @param questionPool List of questions
+     * @param answeredQusetsions       List of answered Questions
      */
     public Gamedata(List<Category> questionPool, List<AnsweredQuestion> answeredQusetsions)
     {
-        this.List<Category> questionPool =  questionPool;
-        this.List<AnsweredQuestion> answeredQusetsions = List<AnsweredQuestion> answeredQusetsions;
+        this.questionPool =  questionPool;
+        this.answeredQusetsions = answeredQusetsions;
         randomGenerator = new Random();
     }
 
@@ -41,15 +41,15 @@ public class Gamedata
         SubCategory sub = subcat.get(subcatIndex);
 
         List<Question>  quest = sub.getQuestions();
-        int questIndex = randomGenerator.nextInt(quest.size()));
+        int questIndex = randomGenerator.nextInt(quest.size());
         Question randomQuestion = quest.get(questIndex);
         if (this.compare(randomQuestion)){
-            this.addAnsweredQuestions(randomQuestions);
+            this.addAnsweredQuestions(randomQuestion);
             return randomQuestion;
 
         }
         else {
-            this.getRandomUnansweredQuestion();
+            return(this.getRandomUnansweredQuestion());
         }
     }
 
@@ -64,6 +64,14 @@ public class Gamedata
 
     public boolean compare(Question comapreQuestion){
 
-        for (AnsweredQusetsion temp)
+        for (AnsweredQuestion temp:  answeredQusetsions)
+        {
+            if (temp == comapreQuestion){
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
     }
 }
