@@ -70,4 +70,13 @@
         android:layout_toRightOf="@+id/scoreboard_icon_2"
         android:layout_toEndOf="@+id/scoreboard_icon_2" />
 
+    <ImageButton
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:id="@+id/scoreboard_menu"
+        android:background="@drawable/logo"
+        android:layout_alignBottom="@+id/scoreboard_podium"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
