@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Richtigsrate :"
+        android:text="Mysteriöse Zahl :"
         android:id="@+id/statistics_label_correctness"
         android:layout_above="@+id/statistics_label_timeplayed"
         android:layout_alignParentLeft="true"
