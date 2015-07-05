@@ -64,7 +64,7 @@ public class Gamedata
 
     public boolean compare(Question comapreQuestion){
 
-        boolean answered;
+        boolean answered= false;
         for (Question temp:  answeredQusetsions)
         {
             if (temp == comapreQuestion){
