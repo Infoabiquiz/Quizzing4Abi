@@ -10,6 +10,7 @@ public class AnsweredQuestion {
     boolean correctanswered;
     long duration;
 
+
     /**
      * Constructor
      * @param question the question
@@ -41,5 +42,9 @@ public class AnsweredQuestion {
      * @return duration
      */
     public long getDuration() {        return duration;    }
+
+
+
+
 }
 

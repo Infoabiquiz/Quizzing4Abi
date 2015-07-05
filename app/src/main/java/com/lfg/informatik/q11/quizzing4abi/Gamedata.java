@@ -12,7 +12,7 @@ import java.util.Random;
 public class Gamedata
 {
     private List<Category> questionPool;
-    private List<AnsweredQuestions> answeredQusetsions;
+    private List<AnsweredQuestion> answeredQusetsions;
     private Random randomGenerator;
 
     /**
@@ -20,10 +20,10 @@ public class Gamedata
      * @param questionspool List of questions
      * @param answeredQuestions       List of answered Questions
      */
-    public Gamedata(List<Category> questionPool, List<AnsweredQuestions> answeredQusetsions)
+    public Gamedata(List<Category> questionPool, List<AnsweredQuestion> answeredQusetsions)
     {
         this.List<Category> questionPool =  questionPool;
-        this.List<AnsweredQuestions> answeredQusetsions = List<AnsweredQuestions> answeredQusetsions;
+        this.List<AnsweredQuestion> answeredQusetsions = List<AnsweredQuestion> answeredQusetsions;
         randomGenerator = new Random();
     }
 
@@ -31,7 +31,7 @@ public class Gamedata
      *
      *
      */
-    public getRandomUnansweredQuestion()
+    public Question getRandomUnansweredQuestion()
     {
         int index = randomGenerator.nextInt(questionPool.size());
         Category item = questionPool.get(index);
@@ -43,20 +43,27 @@ public class Gamedata
         List<Question>  quest = sub.getQuestions();
         int questIndex = randomGenerator.nextInt(quest.size()));
         Question randomQuestion = quest.get(questIndex);
-        if (AnsweredQuestion.compare(randomQuestion)){
+        if (this.compare(randomQuestion)){
             this.addAnsweredQuestions(randomQuestions);
             return randomQuestion;
+
         }
         else {
-            this.getrandomquestion();
+            this.getRandomUnansweredQuestion();
         }
+    }
 
     /**
      *
      *
      */
-    public addAnsweredQuestions(answeredQuestions)()
+    public void addAnsweredQuestions( Question givenQuestions)
     {
+        answeredQusetsions.add(givenQuestions) ;
+    }
 
+    public boolean compare(Question comapreQuestion){
+
+        for (AnsweredQusetsion temp)
     }
 }
