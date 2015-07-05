@@ -40,9 +40,9 @@ public class Application
      */
     public void setLayout(int layoutID)
     {
+
         mainActivity.setContentView(layoutID);
-        SettingsManager.setBackgroundColor(Color.parseColor());
-        mainActivity.findViewById(layoutID).setBackgroundColor();
+        mainActivity.findViewById(layoutID).setBackgroundColor(SettingsManager.setBackgroundColor(""));
     }
 
     /**
