@@ -30,5 +30,14 @@ public class MainMenuState extends AppState
     public void onClick(View view)
     {
         // TODO: Add functionality
+
+        switch(view.getId())
+        {
+            case R.id.main_menu_play:
+            {
+                application.setState(new GameProperties1State(application));
+                break;
+            }
+        }
     }
 }
