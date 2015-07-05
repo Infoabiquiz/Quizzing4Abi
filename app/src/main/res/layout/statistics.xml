@@ -88,7 +88,9 @@
         android:layout_alignBaseline="@+id/statistics_label_correctness"
         android:layout_alignBottom="@+id/statistics_label_correctness"
         android:layout_alignRight="@+id/statistics_display_timeplayed"
-        android:layout_alignEnd="@+id/statistics_display_timeplayed" />
+        android:layout_alignEnd="@+id/statistics_display_timeplayed"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -109,5 +111,15 @@
         android:layout_below="@+id/statistics_label_statistics"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="genaue Zahl"
+        android:id="@+id/statistcs_display_difficulty_correct"
+        android:layout_below="@+id/statistics_difficulty_rating"
+        android:layout_toRightOf="@+id/statistics_label_difficulty"
+        android:layout_toEndOf="@+id/statistics_label_difficulty" />
 
 </RelativeLayout>
