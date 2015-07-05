@@ -38,6 +38,24 @@ public class MainMenuState extends AppState
                 application.setState(new GameProperties1State(application));
                 break;
             }
+            case R.id.main_menu_scoreboard:
+            {
+                application.setState(new ScoreboardState(application));
+                break;
+            }
+            case R.id.main_menu_settings:
+            {
+                application.setState(new SettingsState(application));
+            }
+            case R.id.main_menu_speaker:
+            {
+                // TODO: Add functionality
+            }
+            case R.id.main_menu_statistics:
+            {
+                // TODO: Add funtionality
+                //application.setState()
+            }
         }
     }
 }
