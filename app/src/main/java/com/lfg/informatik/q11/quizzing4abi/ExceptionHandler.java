@@ -7,9 +7,8 @@ import android.content.Context;
  * Created by Chris on 04.07.2015.
  * Global exception handler, which could log an exception or show an alert.
  * If no context is set, then the exception message will be printed to the console.
+ * Usage example: Use this class to handle all subsystem specific exceptions at boundary classes.
  */
-
-// TODO: Integrate it into the other classes.
 
 public class ExceptionHandler
 {

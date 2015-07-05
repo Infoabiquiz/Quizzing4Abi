@@ -32,6 +32,7 @@ public class Test
         System.out.println("\n");
 
         List<String> categoryNames = CQA_Loader.getAllCategoryNames();
+        assert categoryNames != null;
         for(String name : categoryNames)
             System.out.println("CategoryName: " + name);
 
@@ -41,6 +42,7 @@ public class Test
         List<SubCategory> subCategories = CQA_Loader.loadSubCategories("Informatik",
                 requiredSubCategories);
 
+        assert subCategories != null;
         for(SubCategory subCategory : subCategories)
             System.out.println("SubCategory of Informatik: " + subCategory.getSubCategoryName());
     }
