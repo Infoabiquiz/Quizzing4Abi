@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/main_menu_play"
         android:background="@drawable/play"
-        android:layout_above="@+id/main_menu_scoreboard"
+        android:layout_above="@+id/main_menu_statistics"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
