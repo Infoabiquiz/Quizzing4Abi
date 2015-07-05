@@ -1,50 +1,54 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
-import java.util.Timer;
-
 /**
  * Created by Adrian on 05.07.2015.
+ * // TODO: Comment
  */
-public class AnsweredQuestion {
-    Question question;
-    boolean correctanswered;
-    long duration;
 
+public class AnsweredQuestion
+{
+    private Question question;
+    private boolean correctAnswered;
+    private long duration;
 
     /**
-     * Constructor
-     * @param question the question
-     * @param correctanswered true or false answered
+     * Constructor.
+     * @param question the answered question
+     * @param correctAnswered true or false answered
      * @param duration time taken to answer the question
      */
-
-    AnsweredQuestion(Question question, boolean correctanswered, long duration)
+    AnsweredQuestion(Question question, boolean correctAnswered, long duration)
     {
-        this.question=question;
-        this.correctanswered=correctanswered;
-        this.duration=duration;
+        this.question = question;
+        this.correctAnswered = correctAnswered;
+        this.duration = duration;
     }
 
     /**
-     * gets question
-     * @return question
+     * Returns the answered Question.
+     * @return the answered Question
      */
-    public Question getQuestion() {        return question;    }
+    public Question getQuestion()
+    {
+        return question;
+    }
 
     /**
-     * Returns boolean of correctanswered
-     * @return correctanswered
+     * Returns true if the Question was answered correctly.
+     * @return true if answered correctly
      */
-    public boolean isCorrectAnswered() {        return correctanswered;    }
+    public boolean isCorrectAnswered()
+    {
+        return correctAnswered;
+    }
 
     /**
-     * Returns the time
+     * Returns the time taken to answer the Question.
      * @return duration
      */
-    public long getDuration() {        return duration;    }
-
-
-
-
+    public long getDuration()
+    {
+        return duration;
+    }
 }
 
