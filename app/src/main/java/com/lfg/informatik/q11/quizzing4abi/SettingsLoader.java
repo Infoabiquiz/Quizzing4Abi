@@ -1,9 +1,5 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * Created by Chris on 29.06.2015.
  * This XMLHandler implementation loads the settings.

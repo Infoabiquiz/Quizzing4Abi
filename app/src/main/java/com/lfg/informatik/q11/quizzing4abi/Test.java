@@ -1,11 +1,7 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
-import org.xml.sax.SAXException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.parsers.*;
-import javax.xml.transform.TransformerException;
 
 /**
  * Created by Chris on 26.06.2015.
@@ -17,19 +13,15 @@ public class Test
     /**
      * Test main
      */
-    public static void main(String args[]) throws IOException, SAXException,
-            ParserConfigurationException, TransformerException
+    public static void main(String args[])
     {
         testWriter();
     }
 
     /**
      * Tests the loading process of the CQA_Loader
-     * @throws ParserConfigurationException
-     * @throws SAXException
-     * @throws IOException
      */
-    public static void testCQA() throws ParserConfigurationException, SAXException, IOException
+    public static void testCQA()
     {
         List<String> requiredCategories = new ArrayList<>();
         requiredCategories.add("Informatik");

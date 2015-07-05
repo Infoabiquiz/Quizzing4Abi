@@ -20,7 +20,7 @@ public class SettingsManager
 
     /**
      * Loads the settings, if they aren´t loaded, and returns the background color.
-     * @return the background color
+     * @return the background color or "" if loading the color failed
      */
     public static String getBackgroundColor()
     {
@@ -39,7 +39,7 @@ public class SettingsManager
             {
                 ExceptionHandler.showAlertDialog("Loading settings failed. Error: "
                         + e.getMessage());
-                return "White"; // then return the default color
+                return "";
             }
         }
 
@@ -49,8 +49,9 @@ public class SettingsManager
     /**
      * Saves the new background color and changes the stored one.
      * @param backgroundColor the background color
+     * @return false if saving background color failed
      */
-    public static void setBackgroundColor(String backgroundColor)
+    public static boolean setBackgroundColor(String backgroundColor)
     {
         if(backgroundColor == null || backgroundColor.isEmpty())
             throw new IllegalArgumentException("Background color mustn´t be null or empty!");
@@ -70,6 +71,9 @@ public class SettingsManager
         catch(ParserConfigurationException | TransformerException e)
         {
             ExceptionHandler.showAlertDialog("Saving settings failed. Error: " + e.getMessage());
+            return false;
         }
+
+        return true;
     }
 }
