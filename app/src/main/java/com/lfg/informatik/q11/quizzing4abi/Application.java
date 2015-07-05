@@ -41,6 +41,7 @@ public class Application
     public void setLayout(int layoutID)
     {
         mainActivity.setContentView(layoutID);
+        mainActivity.findViewById(layoutID).setBackgroundColor(android.R.color.holo_red_dark);
     }
 
     /**
