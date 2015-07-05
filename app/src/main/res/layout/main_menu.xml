@@ -22,17 +22,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/main_menu_scoreboard"
         android:background="@drawable/podium"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/main_menu_settings"
+        android:layout_toLeftOf="@+id/main_menu_play"
+        android:layout_toStartOf="@+id/main_menu_play" />
 
     <ImageButton
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/main_menu_statistics"
         android:focusable="true"
         android:background="@drawable/statistics"
-        android:layout_above="@+id/main_menu_scoreboard"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/main_menu_scoreboard"
+        android:layout_alignRight="@+id/main_menu_logo"
+        android:layout_alignEnd="@+id/main_menu_logo" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -58,7 +60,7 @@
         android:id="@+id/main_menu_play"
         android:background="@drawable/play"
         android:layout_above="@+id/main_menu_statistics"
-        android:layout_alignRight="@+id/main_menu_scoreboard"
-        android:layout_alignEnd="@+id/main_menu_scoreboard" />
+        android:layout_toLeftOf="@+id/main_menu_statistics"
+        android:layout_toStartOf="@+id/main_menu_statistics" />
 
 </RelativeLayout>
