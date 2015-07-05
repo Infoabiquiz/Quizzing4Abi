@@ -18,12 +18,12 @@ public class Gamedata
     /**
      * Contructor.
      * @param questionPool List of questions
-     * @param answeredQusetsions       List of answered Questions
+     * @param answeredQuestions       List of answered Questions
      */
-    public Gamedata(List<Category> questionPool, List<Question> answeredQusetsions)
+    public Gamedata(List<Category> questionPool, List<Question> answeredQuestions)
     {
         this.questionPool =  questionPool;
-        this.answeredQuestions = answeredQusetsions;
+        this.answeredQuestions = answeredQuestions;
         randomGenerator = new Random();
     }
 
