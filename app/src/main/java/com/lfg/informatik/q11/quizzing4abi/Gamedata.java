@@ -74,5 +74,6 @@ public class Gamedata
                 answered =  true;
             }
         }
+        return answered;
     }
 }
