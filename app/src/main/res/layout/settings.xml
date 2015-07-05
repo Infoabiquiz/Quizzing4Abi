@@ -76,4 +76,13 @@
         android:layout_toEndOf="@+id/settings_pickcolor_blue"
         android:background="#ffeeeeee" />
 
+    <ImageView
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:id="@+id/settings_menu"
+        android:background="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
