@@ -1,6 +1,5 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
-import android.graphics.Color;
 import android.view.View;
 import com.lfg.informatik.q11.quizzing4abi.app_state_classes.AppStartState;
 import com.lfg.informatik.q11.quizzing4abi.app_state_classes.AppState;
