@@ -13,7 +13,8 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class CQA_Loader
 {
-    private static final String questionDataFilename = "app\\src\\main\\res\\raw\\question_data.xml";
+    private static final String questionDataFilename =
+            "app\\src\\main\\res\\raw\\question_data.xml";
 
     /**
      * Loads all or just required Categories.
@@ -49,7 +50,8 @@ public class CQA_Loader
     static public List<SubCategory> loadSubCategories(String categoryName,
                                                       List<String> requiredSubCategories)
     {
-        SubCategoryBuilder subCategoryBuilder = new SubCategoryBuilder(categoryName, requiredSubCategories);
+        SubCategoryBuilder subCategoryBuilder = new SubCategoryBuilder(categoryName,
+                requiredSubCategories);
         SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(subCategoryBuilder);
 
         try

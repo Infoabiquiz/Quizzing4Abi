@@ -11,7 +11,6 @@ import com.lfg.informatik.q11.quizzing4abi.R;
  * The state of an active question.
  */
 
-
 public class ActiveQuestionState extends GameState
 {
     /**
