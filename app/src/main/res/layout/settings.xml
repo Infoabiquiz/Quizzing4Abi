@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/settings_pickcolor_cyan"
-        android:background="@android:color/holo_blue_light"
+        android:background="#ff80f3ff"
         android:layout_alignTop="@+id/settings_pickcolor_purple"
         android:layout_toRightOf="@+id/settings_pickcolor_brown"
         android:layout_toEndOf="@+id/settings_pickcolor_brown" />

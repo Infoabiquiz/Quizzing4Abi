@@ -1,7 +1,7 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
+import android.graphics.Color;
 import android.view.View;
-
 import com.lfg.informatik.q11.quizzing4abi.app_state_classes.AppStartState;
 import com.lfg.informatik.q11.quizzing4abi.app_state_classes.AppState;
 
@@ -41,7 +41,8 @@ public class Application
     public void setLayout(int layoutID)
     {
         mainActivity.setContentView(layoutID);
-        mainActivity.findViewById(layoutID).setBackgroundColor(android.R.color.holo_red_dark);
+        SettingsManager.setBackgroundColor(Color.parseColor());
+        mainActivity.findViewById(layoutID).setBackgroundColor();
     }
 
     /**
