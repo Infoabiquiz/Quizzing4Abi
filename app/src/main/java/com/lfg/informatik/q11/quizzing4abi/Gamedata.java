@@ -12,7 +12,7 @@ import java.util.Random;
 public class Gamedata
 {
     private List<Category> questionPool;
-    private List<AnsweredQuestion> answeredQusetsions;
+    private List<Question> answeredQusetsions;
     private Random randomGenerator;
 
     /**
@@ -20,7 +20,7 @@ public class Gamedata
      * @param questionPool List of questions
      * @param answeredQusetsions       List of answered Questions
      */
-    public Gamedata(List<Category> questionPool, List<AnsweredQuestion> answeredQusetsions)
+    public Gamedata(List<Category> questionPool, List<Question> answeredQusetsions)
     {
         this.questionPool =  questionPool;
         this.answeredQusetsions = answeredQusetsions;
@@ -65,7 +65,7 @@ public class Gamedata
     public boolean compare(Question comapreQuestion){
 
         boolean answered;
-        for (AnsweredQuestion temp:  answeredQusetsions)
+        for (Question temp:  answeredQusetsions)
         {
             if (temp == comapreQuestion){
                 answered= false;
