@@ -12,18 +12,18 @@ import java.util.Random;
 public class Gamedata
 {
     private List<Category> questionPool;
-    private List<AnsweredQuestion> answeredQusetsions;
+    private List<Question> answeredQuestions;
     private Random randomGenerator;
 
     /**
      * Contructor.
-     * @param questionspool List of questions
-     * @param answeredQuestions       List of answered Questions
+     * @param questionPool List of questions
+     * @param answeredQusetsions       List of answered Questions
      */
-    public Gamedata(List<Category> questionPool, List<AnsweredQuestion> answeredQusetsions)
+    public Gamedata(List<Category> questionPool, List<Question> answeredQusetsions)
     {
-        this.List<Category> questionPool =  questionPool;
-        this.List<AnsweredQuestion> answeredQusetsions = List<AnsweredQuestion> answeredQusetsions;
+        this.questionPool =  questionPool;
+        this.answeredQuestions = answeredQusetsions;
         randomGenerator = new Random();
     }
 
@@ -41,15 +41,15 @@ public class Gamedata
         SubCategory sub = subcat.get(subcatIndex);
 
         List<Question>  quest = sub.getQuestions();
-        int questIndex = randomGenerator.nextInt(quest.size()));
+        int questIndex = randomGenerator.nextInt(quest.size());
         Question randomQuestion = quest.get(questIndex);
         if (this.compare(randomQuestion)){
-            this.addAnsweredQuestions(randomQuestions);
+            this.addAnsweredQuestions(randomQuestion);
             return randomQuestion;
 
         }
         else {
-            this.getRandomUnansweredQuestion();
+            return(this.getRandomUnansweredQuestion());
         }
     }
 
@@ -59,11 +59,21 @@ public class Gamedata
      */
     public void addAnsweredQuestions( Question givenQuestions)
     {
-        answeredQusetsions.add(givenQuestions) ;
+        answeredQuestions.add(givenQuestions) ;
     }
 
     public boolean compare(Question comapreQuestion){
 
-        for (AnsweredQusetsion temp)
+        boolean answered= false;
+        for (Question temp:  answeredQuestions)
+        {
+            if (temp == comapreQuestion){
+                answered= false;
+            }
+            else{
+                answered =  true;
+            }
+        }
+        return answered;
     }
 }
