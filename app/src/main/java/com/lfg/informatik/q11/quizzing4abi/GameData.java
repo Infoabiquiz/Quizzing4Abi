@@ -1,67 +1,76 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
 /**
- * Created by Dominik 05.07.2015.
- * // TODO: Comment
+ * Created by Dominik 05.07.2015. Rewritten by Chris.
+ * Saves all game relevant information and provides access and an add functionality to it.
  */
 
 public class GameData
 {
-    private List<Category> questionPool;
+    private List<Category> categories;
+    private List<Question> questionPool;
     private List<AnsweredQuestion> answeredQuestions;
-    private Random randomGenerator;
 
     /**
      * Constructor.
-     * @param questionPool List of Categories to choose Questions from
+     * Saves the passed Categories and constructs the question pool.
+     * @param categories List of Categories to choose Questions from
      */
-    public GameData(List<Category> questionPool)
+    public GameData(List<Category> categories)
     {
-        this.questionPool =  questionPool;
+        this.categories =  categories;
+        questionPool = new LinkedList<>();
+
+        for(Category category : categories)
+        {
+            questionPool.addAll(category.getQuestionPool());
+        }
+
         answeredQuestions = new LinkedList<>();
-        randomGenerator = new Random();
     }
 
-    // TODO: Comment
+    /**
+     * Returns a random Question out of the question-pool
+     * and removes it from the pool.
+     * @return the random unanswered Question or null if no Questions are remaining
+     */
     public Question getRandomUnansweredQuestion()
     {
-       // TODO: Check if there are any unanswered questions:
-       // if(answeredQuestions.size() >= )
+        if(questionPool.isEmpty())
+            return null;
 
-        while(true)
-        {
-            Category randomCategory =
-                    questionPool.get(randomGenerator.nextInt(questionPool.size()));
-
-            List<SubCategory> subCategories = randomCategory.getSubCategories();
-            SubCategory randomSubCategory =
-                    subCategories.get(randomGenerator.nextInt(subCategories.size()));
-
-            List<Question> questions = randomSubCategory.getQuestions();
-            Question randomQuestion = questions.get(randomGenerator.nextInt(questions.size()));
-
-            boolean matchFound = false;
-            for(AnsweredQuestion answeredQuestion : answeredQuestions)
-            {
-                if(answeredQuestion.getQuestion() == randomQuestion)
-                {
-                    matchFound = true;
-                    break;
-                }
-            }
-
-            if(!matchFound)
-                return randomQuestion;
-        }
+        return questionPool.remove(new Random().nextInt(questionPool.size()));
     }
 
-    // TODO: Comment
+    /**
+     * Adds an AnsweredQuestion to the answeredQuestion history.
+     * @param answeredQuestion the just answered question
+     */
     public void addAnsweredQuestions(AnsweredQuestion answeredQuestion)
     {
         answeredQuestions.add(answeredQuestion);
+    }
+
+    /**
+     * Returns the list of Categories as read only.
+     * @return the list of Categories
+     */
+    public List<Category> getCategories()
+    {
+        return Collections.unmodifiableList(categories);
+    }
+
+    /**
+     * Returns the list of AnsweredQuestions as read only.
+     * @return the list of AnsweredQuestions
+     */
+    public List<AnsweredQuestion> getAnsweredQuestions()
+    {
+        return Collections.unmodifiableList(answeredQuestions);
     }
 }
