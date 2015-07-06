@@ -15,7 +15,7 @@ public class ExceptionHandler
     private static Context context = null;
 
     /**
-     * Shows an alert dialog of an exception message, if context isn´t null.
+     * Shows an alert dialog of an exception message, if context isnÂ´t null.
      * Otherwise the exception message will be printed
      * to the console (used for debugging and testing purposes).
      * @param throwable exception
@@ -57,7 +57,7 @@ public class ExceptionHandler
 
     /**
      * Sets the android context, on which the exception should be handled.
-     * If you set a context, you won´t be able to switch back to the console.
+     * If you set a context, you wonÂ´t be able to switch back to the console.
      * @param context an android context
      */
     public static void setContext(Context context)
