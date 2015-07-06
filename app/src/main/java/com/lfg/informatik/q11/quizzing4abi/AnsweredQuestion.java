@@ -2,7 +2,8 @@ package com.lfg.informatik.q11.quizzing4abi;
 
 /**
  * Created by Adrian on 05.07.2015.
- * // TODO: Comment
+ * This class saves data about an answered Question. More detailed the Question, if it
+ * was answered correctly and the time taken to answer it.
  */
 
 public class AnsweredQuestion
