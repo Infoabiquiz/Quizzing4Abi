@@ -29,8 +29,6 @@ public class MainMenuState extends AppState
     @Override
     public void onClick(View view)
     {
-        // TODO: Add functionality
-
         switch(view.getId())
         {
             case R.id.main_menu_play:

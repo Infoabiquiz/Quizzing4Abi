@@ -28,16 +28,16 @@ public class SettingsState extends AppState
     @Override
     public void onClick(View view)
     {
+        // TODO: Add functionality
+
         switch(view.getId())
         {
             case R.id.settings_pickcolor_blue:
             {
-
                 break;
             }
             case R.id.settings_pickcolor_brown:
             {
-
                 break;
             }
             case R.id.settings_pickcolor_cyan:
@@ -54,7 +54,6 @@ public class SettingsState extends AppState
             }
             case R.id.settings_pickcolor_purple:
             {
-
                 break;
             }
         }

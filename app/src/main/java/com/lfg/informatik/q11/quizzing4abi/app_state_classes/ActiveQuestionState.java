@@ -36,26 +36,21 @@ public class ActiveQuestionState extends GameState
             case R.id.active_question_answer1:
             {
                 // TODO: Add functionality
-
-                application.setState(new ActiveQuestionState(application));
                 break;
             }
             case R.id.active_question_answer2:
             {
                 // TODO: Add functionality
-                application.setState(new ActiveQuestionState(application));
                 break;
             }
             case R.id.active_question_answer3:
             {
                 // TODO: Add functionality
-                application.setState(new ActiveQuestionState(application));
                 break;
             }
             case R.id.active_question_answer4:
             {
                 // TODO: Add functionality
-                application.setState(new ActiveQuestionState(application));
                 break;
             }
 

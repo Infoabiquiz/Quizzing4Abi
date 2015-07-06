@@ -17,7 +17,7 @@ public class AnsweredQuestion
      * @param correctAnswered true or false answered
      * @param duration time taken to answer the question
      */
-    AnsweredQuestion(Question question, boolean correctAnswered, long duration)
+    public AnsweredQuestion(Question question, boolean correctAnswered, long duration)
     {
         this.question = question;
         this.correctAnswered = correctAnswered;

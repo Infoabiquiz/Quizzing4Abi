@@ -1,79 +1,67 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
-import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
 /**
  * Created by Dominik 05.07.2015.
- *
+ * // TODO: Comment
  */
 
 public class Gamedata
 {
     private List<Category> questionPool;
-    private List<Question> answeredQuestions;
+    private List<AnsweredQuestion> answeredQuestions;
     private Random randomGenerator;
 
     /**
-     * Contructor.
-     * @param questionPool List of questions
-     * @param answeredQuestions       List of answered Questions
+     * Constructor.
+     * @param questionPool List of Categories to choose Questions from
      */
-    public Gamedata(List<Category> questionPool, List<Question> answeredQuestions)
+    public Gamedata(List<Category> questionPool)
     {
         this.questionPool =  questionPool;
-        this.answeredQuestions = answeredQuestions;
+        answeredQuestions = new LinkedList<>();
         randomGenerator = new Random();
     }
 
-    /**
-     *
-     *
-     */
+    // TODO: Comment
     public Question getRandomUnansweredQuestion()
     {
-        int index = randomGenerator.nextInt(questionPool.size());
-        Category item = questionPool.get(index);
+       // TODO: Check if there are any unanswered questions:
+       // if(answeredQuestions.size() >= )
 
-        List<SubCategory> subcat = item.getSubCategories();
-        int subcatIndex = randomGenerator.nextInt(subcat.size());
-        SubCategory sub = subcat.get(subcatIndex);
-
-        List<Question>  quest = sub.getQuestions();
-        int questIndex = randomGenerator.nextInt(quest.size());
-        Question randomQuestion = quest.get(questIndex);
-        if (this.compare(randomQuestion)){
-            this.addAnsweredQuestions(randomQuestion);
-            return randomQuestion;
-
-        }
-        else {
-            return(this.getRandomUnansweredQuestion());
-        }
-    }
-
-    /**
-     *
-     *
-     */
-    public void addAnsweredQuestions( Question givenQuestions)
-    {
-        answeredQuestions.add(givenQuestions) ;
-    }
-
-    public boolean compare(Question comapreQuestion){
-
-        boolean answered= false;
-        for (Question temp:  answeredQuestions)
+        while(true)
         {
-            if (temp == comapreQuestion){
-                answered= false;
+            Category randomCategory =
+                    questionPool.get(randomGenerator.nextInt(questionPool.size()));
+
+            List<SubCategory> subCategories = randomCategory.getSubCategories();
+            SubCategory randomSubCategory =
+                    subCategories.get(randomGenerator.nextInt(subCategories.size()));
+
+            List<Question> questions = randomSubCategory.getQuestions();
+            Question randomQuestion = questions.get(randomGenerator.nextInt(questions.size()));
+
+            boolean matchFound = false;
+            for(AnsweredQuestion answeredQuestion : answeredQuestions)
+            {
+                if(answeredQuestion.getQuestion() == randomQuestion)
+                {
+                    matchFound = true;
+                    break;
+                }
             }
-            else{
-                answered =  true;
-            }
+
+            if(!matchFound)
+                return randomQuestion;
         }
-        return answered;
+    }
+
+    // TODO: Comment
+    public void addAnsweredQuestions(AnsweredQuestion answeredQuestion)
+    {
+        answeredQuestions.add(answeredQuestion);
     }
 }
