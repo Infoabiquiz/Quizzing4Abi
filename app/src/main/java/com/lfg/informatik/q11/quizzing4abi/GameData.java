@@ -9,7 +9,7 @@ import java.util.Random;
  * // TODO: Comment
  */
 
-public class Gamedata
+public class GameData
 {
     private List<Category> questionPool;
     private List<AnsweredQuestion> answeredQuestions;
@@ -19,7 +19,7 @@ public class Gamedata
      * Constructor.
      * @param questionPool List of Categories to choose Questions from
      */
-    public Gamedata(List<Category> questionPool)
+    public GameData(List<Category> questionPool)
     {
         this.questionPool =  questionPool;
         answeredQuestions = new LinkedList<>();
