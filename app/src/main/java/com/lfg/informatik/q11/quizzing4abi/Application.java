@@ -20,8 +20,8 @@ public class Application
      */
    public Application(MainActivity mainActivity)
     {
-        this.currentAppState = new AppStartState(this);
         this.mainActivity = mainActivity;
+        this.currentAppState = new AppStartState(this);
     }
 
     /**

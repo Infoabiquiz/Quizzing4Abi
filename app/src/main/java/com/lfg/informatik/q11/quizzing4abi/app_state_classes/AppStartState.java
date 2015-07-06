@@ -1,7 +1,7 @@
 package com.lfg.informatik.q11.quizzing4abi.app_state_classes;
 
-import android.view.View;
 import com.lfg.informatik.q11.quizzing4abi.Application;
+import com.lfg.informatik.q11.quizzing4abi.R;
 
 /**
  * Created by Chris on 30.06.2015.
@@ -18,16 +18,10 @@ public class AppStartState extends AppState
     {
         super(application);
 
-        // TODO: application.setLayout(R.layout.app_start);
-    }
+        application.setLayout(R.layout.app_start);
 
-    /**
-     * Handles user click events.
-     * @param view the click source (e.g. button)
-     */
-    @Override
-    public void onClick(View view)
-    {
-        // TODO: Add functionality
+        // TODO: Load relevant data here
+
+        application.setState(new MainMenuState(application));
     }
 }
