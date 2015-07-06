@@ -77,6 +77,7 @@
         android:background="@drawable/logo"
         android:layout_alignBottom="@+id/scoreboard_podium"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="onClick"/>
 
 </RelativeLayout>

@@ -44,15 +44,17 @@ public class MainMenuState extends AppState
             case R.id.main_menu_settings:
             {
                 application.setState(new SettingsState(application));
+                break;
             }
             case R.id.main_menu_speaker:
             {
-                // TODO: Add functionality
+                // TODO: Add functionality (sound required to turn it off and on)
+                break;
             }
             case R.id.main_menu_statistics:
             {
-                // TODO: Add funtionality
-                //application.setState()
+                application.setState(new ScoreboardState(application));
+                break;
             }
         }
     }

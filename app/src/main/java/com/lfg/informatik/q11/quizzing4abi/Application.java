@@ -21,7 +21,7 @@ public class Application
    public Application(MainActivity mainActivity)
     {
         this.mainActivity = mainActivity;
-        this.currentAppState = new AppStartState(this);
+        new AppStartState(this); // current state assignment left out for bug prevention!
     }
 
     /**

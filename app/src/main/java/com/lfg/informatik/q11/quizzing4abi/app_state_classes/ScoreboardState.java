@@ -20,7 +20,9 @@ public class ScoreboardState extends AppState
     {
         super(application);
 
-        // TODO: application.setLayout(R.layout.scoreboard);
+        application.setLayout(R.layout.scoreboard);
+
+        // TODO: Add functionality
     }
 
     /**
@@ -31,5 +33,14 @@ public class ScoreboardState extends AppState
     public void onClick(View view)
     {
         // TODO: Add functionality
+
+        switch (view.getId())
+        {
+            case R.id.scoreboard_menu:
+            {
+                application.setState(new MainMenuState(application));
+                break;
+            }
+        }
     }
 }

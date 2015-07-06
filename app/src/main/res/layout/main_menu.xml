@@ -3,7 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:id="@+id/main_menu_relative_layout">
+    android:id="@+id/main_menu_relative_layout"
+    >
 
     <ImageView
         android:layout_width="300dp"
@@ -19,7 +20,8 @@
         android:id="@+id/main_menu_play"
         android:background="@drawable/play"
         android:layout_below="@+id/main_menu_logo"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="onClick"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -28,7 +30,8 @@
         android:background="@drawable/podium"
         android:layout_below="@+id/main_menu_play"
         android:layout_toLeftOf="@+id/main_menu_play"
-        android:layout_toStartOf="@+id/main_menu_play" />
+        android:layout_toStartOf="@+id/main_menu_play"
+        android:onClick="onClick"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -37,7 +40,8 @@
         android:background="@drawable/speaker"
         android:layout_alignTop="@+id/main_menu_scoreboard"
         android:layout_toRightOf="@+id/main_menu_play"
-        android:layout_toEndOf="@+id/main_menu_play" />
+        android:layout_toEndOf="@+id/main_menu_play"
+        android:onClick="onClick"/>
 
     <ImageButton
         android:layout_width="100dp"
@@ -46,7 +50,8 @@
         android:background="@drawable/statistics"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/main_menu_logo"
-        android:layout_alignStart="@+id/main_menu_logo" />
+        android:layout_alignStart="@+id/main_menu_logo"
+        android:onClick="onClick"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -55,5 +60,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/main_menu_speaker"
         android:layout_alignStart="@+id/main_menu_speaker"
-        android:background="@drawable/gearwheel" />
+        android:background="@drawable/gearwheel"
+        android:onClick="onClick"/>
 </RelativeLayout>
