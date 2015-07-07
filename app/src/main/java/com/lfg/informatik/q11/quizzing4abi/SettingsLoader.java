@@ -12,11 +12,11 @@ public class SettingsLoader implements XMLHandler
 
     /**
      * After the loading process has finished, this method returns the background color.
-     * @return background color as String
+     * @return background color as int
      */
-    public String getBackgroundColor()
+    public int getBackgroundColor()
     {
-        return backgroundColor;
+        return Integer.getInteger(backgroundColor);
     }
 
     /**

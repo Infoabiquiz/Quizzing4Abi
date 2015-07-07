@@ -16,15 +16,16 @@ public class SettingsManager
 {
     private static final String settingsFilename = "app\\src\\main\\res\\raw\\settings.xml";
 
-    private static String backgroundColor = null;
+    private static int backgroundColor = 0xFFFFFFFF;
+    private static boolean settingsLoaded = false;
 
     /**
      * Loads the settings, if they aren´t loaded, and returns the background color.
-     * @return the background color or "" if loading the color failed
+     * @return the background color or 0 if loading the color failed
      */
-    public static String getBackgroundColor()
+    public static int getBackgroundColor()
     {
-        if(backgroundColor == null) // then load it
+        if(!settingsLoaded)
         {
             try
             {
@@ -34,12 +35,14 @@ public class SettingsManager
                 saxDocumentHandler.parse(settingsFilename);
 
                 backgroundColor = settingsLoader.getBackgroundColor();
+
+                settingsLoaded = true;
             }
             catch(ParserConfigurationException | SAXException | IOException e)
             {
                 ExceptionHandler.showAlertDialog("Loading settings failed. Error: "
                         + e.getMessage());
-                return "";
+                return 0;
             }
         }
 
@@ -51,18 +54,15 @@ public class SettingsManager
      * @param backgroundColor the background color
      * @return false if saving background color failed
      */
-    public static boolean setBackgroundColor(String backgroundColor)
+    public static boolean setBackgroundColor(int backgroundColor)
     {
-        if(backgroundColor == null || backgroundColor.isEmpty())
-            throw new IllegalArgumentException("Background color mustn´t be null or empty!");
-
         try
         {
             XMLWriter xmlWriter = new XMLWriter();
 
             xmlWriter.elementBegin("Settings");
             xmlWriter.elementBegin("BackgroundColor");
-            xmlWriter.setAttribute(null, backgroundColor);
+            xmlWriter.setAttribute(null, String.valueOf(backgroundColor));
 
             xmlWriter.saveTo(settingsFilename);
 
