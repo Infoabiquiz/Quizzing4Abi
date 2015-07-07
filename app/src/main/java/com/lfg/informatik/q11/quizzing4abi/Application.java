@@ -40,9 +40,8 @@ public class Application
     public void setLayout(int layoutID)
     {
         mainActivity.setContentView(layoutID);
-        // TODO: Color as String, hex or int ?
-        /*mainActivity.findViewById(layoutID).setBackgroundColor(
-                SettingsManager.getBackgroundColor());*/
+        mainActivity.findViewById(layoutID).setBackgroundColor(
+                SettingsManager.getBackgroundColor());
     }
 
     /**

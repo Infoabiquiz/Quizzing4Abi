@@ -16,7 +16,8 @@ public class SettingsLoader implements XMLHandler
      */
     public int getBackgroundColor()
     {
-        return Integer.getInteger(backgroundColor);
+        // TODO: Fix this bug
+        return Integer.parseInt(backgroundColor);
     }
 
     /**
