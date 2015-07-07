@@ -1,5 +1,12 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Locale;
+
 /**
  * Created by Chris on 29.06.2015.
  * This XMLHandler implementation loads the global game statistics.
@@ -9,6 +16,30 @@ public class StatisticsLoader implements XMLHandler
 {
     private String currentTag;
     private String datePlayed;
+    private String secondsPlayed;
+    private String correctnessRate;
+    private String averageDifficulty;
+    private List<GameStatistics> allGameStatistics;
+
+    /**
+     * Constructor.
+     */
+    public StatisticsLoader()
+    {
+        allGameStatistics = new LinkedList<>();
+    }
+
+    /**
+     * After the building process has finished, calling this method will return the List of built
+     * GameStatistics and transfer ownership to the caller.
+     * @return List of built GameStatistics
+     */
+    public List<GameStatistics> takeAllGameStatistics()
+    {
+        List<GameStatistics> temp = new LinkedList<>(allGameStatistics);
+        allGameStatistics = new LinkedList<>();
+        return temp;
+    }
 
     /**
      * Has to be called at the occurrence of each beginning tag.
@@ -27,7 +58,23 @@ public class StatisticsLoader implements XMLHandler
     @Override
     public void tagEnd(String tagName)
     {
+        if(tagName.equals("GameStatistics"))
+        {
+            try
+            {
+                Date date = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss",
+                        Locale.getDefault()).parse(datePlayed);
 
+                allGameStatistics.add(new GameStatistics(date,
+                        Long.valueOf(secondsPlayed).longValue(),
+                        Float.valueOf(correctnessRate).floatValue(),
+                        Float.valueOf(averageDifficulty).floatValue()));
+            }
+            catch (ParseException e)
+            {
+                ExceptionHandler.showAlertDialog(e.getMessage());
+            }
+        }
     }
 
     /**
@@ -38,7 +85,20 @@ public class StatisticsLoader implements XMLHandler
     @Override
     public void attribute(String attributeName, String content)
     {
-        if(currentTag.equals("Date"))
-            datePlayed = content;
+        switch (currentTag)
+        {
+            case "Date":
+                datePlayed = content;
+                break;
+            case "Duration":
+                secondsPlayed = content;
+                break;
+            case "CorrectnessRate":
+                correctnessRate = content;
+                break;
+            case "AverageDifficulty":
+                averageDifficulty = content;
+                break;
+        }
     }
 }

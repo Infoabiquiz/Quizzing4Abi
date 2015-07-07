@@ -9,10 +9,10 @@ import java.util.Date;
 
 public class GameStatistics
 {
-    Date datePlayed;
-    long secondsPlayed;
-    float correctnessRate;
-    float averageDifficulty;
+    private Date datePlayed;
+    private long secondsPlayed;
+    private float correctnessRate;
+    private float averageDifficulty;
 
     /**
      * Constructor.
@@ -21,11 +21,11 @@ public class GameStatistics
      * @param correctnessRate the percentage of correct answered Questions
      * @param averageDifficulty the average Question difficulty
      */
-    public GameStatistics(long secondsPlayed, Date datePlayed, float correctnessRate,
+    public GameStatistics(Date datePlayed, long secondsPlayed, float correctnessRate,
                           float averageDifficulty)
     {
-        this.secondsPlayed = secondsPlayed;
         this.datePlayed = datePlayed;
+        this.secondsPlayed = secondsPlayed;
         this.correctnessRate = correctnessRate;
         this.averageDifficulty = averageDifficulty;
     }

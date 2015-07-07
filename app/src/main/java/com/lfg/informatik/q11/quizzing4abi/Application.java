@@ -11,8 +11,8 @@ import com.lfg.informatik.q11.quizzing4abi.app_state_classes.AppState;
 
 public class Application
 {
-    AppState currentAppState;
-    MainActivity mainActivity;
+    private AppState currentAppState;
+    private MainActivity mainActivity;
 
     /**
      * Constructor.
