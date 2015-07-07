@@ -46,6 +46,16 @@ public class Application
     }
 
     /**
+     * Returns the View object with the given ID.
+     * @param viewID the ID of the required View
+     * @return the required View
+     */
+    public View getViewByID(int viewID)
+    {
+        return mainActivity.findViewById(viewID);
+    }
+
+    /**
      * Forwards user click events to the current app state.
      * @param view the click source (e.g. android button)
      */

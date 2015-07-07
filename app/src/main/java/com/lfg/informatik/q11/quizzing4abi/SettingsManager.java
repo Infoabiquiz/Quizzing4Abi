@@ -19,7 +19,7 @@ public class SettingsManager
     private static String backgroundColor = null;
 
     /**
-     * Loads the settings, if they aren´t loaded, and returns the background color.
+     * Loads the settings, if they arenÂ´t loaded, and returns the background color.
      * @return the background color or "" if loading the color failed
      */
     public static String getBackgroundColor()
@@ -54,7 +54,7 @@ public class SettingsManager
     public static boolean setBackgroundColor(String backgroundColor)
     {
         if(backgroundColor == null || backgroundColor.isEmpty())
-            throw new IllegalArgumentException("Background color mustn´t be null or empty!");
+            throw new IllegalArgumentException("Background color mustnÂ´t be null or empty!");
 
         try
         {

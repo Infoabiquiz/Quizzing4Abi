@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Statistics>
+    <GameStatistics>
+        <Date>dd.MM.yyyy HH.mm.ss</Date>
+        <Duration>600</Duration>
+        <CorretnessRate>0.500000</CorretnessRate>
+        <AverageDifficulty>1.500000</AverageDifficulty>
+    </GameStatistics>
+    <GameStatistics>
+        <Date>dd.MM.yyyy HH.mm.ss</Date>
+        <Duration>300</Duration>
+        <CorretnessRate>0.420000</CorretnessRate>
+        <AverageDifficulty>1.800000</AverageDifficulty>
+    </GameStatistics>
+</Statistics>

@@ -19,6 +19,8 @@ public class SettingsState extends AppState
         super(application);
 
         application.setLayout(R.layout.settings);
+
+
     }
 
     /**
