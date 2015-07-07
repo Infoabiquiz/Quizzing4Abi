@@ -1,8 +1,11 @@
 package com.lfg.informatik.q11.quizzing4abi.app_state_classes;
 
+import android.graphics.Color;
 import android.view.View;
 import com.lfg.informatik.q11.quizzing4abi.Application;
 import com.lfg.informatik.q11.quizzing4abi.R;
+import com.lfg.informatik.q11.quizzing4abi.SettingsManager;
+
 /**
  * Created by Dominik on 02.07.2015.
  * The state of the Settings window / user preferences.
@@ -19,7 +22,7 @@ public class SettingsState extends AppState
         super(application);
 
         application.setLayout(R.layout.settings);
-
+        application.getViewByID();
 
     }
 
@@ -36,26 +39,32 @@ public class SettingsState extends AppState
         {
             case R.id.settings_pickcolor_blue:
             {
-                break;
-            }
-            case R.id.settings_pickcolor_brown:
-            {
+                SettingsManager.setBackgroundColor(Color.BLUE);
                 break;
             }
             case R.id.settings_pickcolor_cyan:
             {
+                SettingsManager.setBackgroundColor(Color.CYAN);
                 break;
             }
-            case R.id.settings_pickcolor_default:
+            case R.id.settings_pickcolor_white:
             {
+                SettingsManager.setBackgroundColor(Color.WHITE);
                 break;
             }
-            case R.id.settings_pickcolor_orange:
+            case R.id.settings_pickcolor_red:
             {
+                SettingsManager.setBackgroundColor(Color.RED);
                 break;
             }
-            case R.id.settings_pickcolor_purple:
+            case R.id.settings_pickcolor_green:
             {
+                SettingsManager.setBackgroundColor(Color.GREEN);
+                break;
+            }
+            case R.id.settings_pickcolor_yellow:
+            {
+                SettingsManager.setBackgroundColor(Color.YELLOW);
                 break;
             }
         }
