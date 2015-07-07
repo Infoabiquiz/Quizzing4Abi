@@ -46,5 +46,5 @@ public class StatisticsManager
         return allGameStatistics;
     }
 
-    // TODO: Implement add methode
+    // TODO: Implement add method
 }
