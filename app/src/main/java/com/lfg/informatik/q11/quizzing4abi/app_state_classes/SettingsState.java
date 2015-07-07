@@ -1,6 +1,7 @@
 package com.lfg.informatik.q11.quizzing4abi.app_state_classes;
 
 import android.graphics.Color;
+import android.text.style.BackgroundColorSpan;
 import android.view.View;
 import com.lfg.informatik.q11.quizzing4abi.Application;
 import com.lfg.informatik.q11.quizzing4abi.R;
