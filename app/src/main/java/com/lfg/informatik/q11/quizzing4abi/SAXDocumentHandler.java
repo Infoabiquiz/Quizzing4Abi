@@ -96,7 +96,7 @@ public class SAXDocumentHandler extends DefaultHandler
             xmlHandler.tagEnd(qName);
         else
         {
-            xmlHandler.attribute(null, qName);
+            xmlHandler.attribute(null, new String(stringBuffer));
             stringBuffer = null;
         }
     }

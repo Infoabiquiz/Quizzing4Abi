@@ -1,5 +1,7 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
+import android.graphics.Color;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ public class Test
      */
     public static void main(String args[])
     {
-        testDateFormatting();
+        testWriter();
     }
 
     /**
@@ -75,11 +77,11 @@ public class Test
 
     public static void testWriter()
     {
-        SettingsManager.setBackgroundColor("Cyan");
+        SettingsManager.setBackgroundColor(Color.CYAN);
 
         System.out.println("Background Color: " + SettingsManager.getBackgroundColor());
 
-        SettingsManager.setBackgroundColor("White");
+        SettingsManager.setBackgroundColor(Color.WHITE);
 
         System.out.println("Background Color: " + SettingsManager.getBackgroundColor());
     }
