@@ -59,6 +59,7 @@ public class SAXDocumentHandler extends DefaultHandler
             throws SAXException
     {
         xmlHandler.tagBegin(qName);
+        stringBuffer = new StringBuffer(256);
 
         for (int i = 0; i < attributes.getLength(); ++i)
         {
@@ -77,8 +78,8 @@ public class SAXDocumentHandler extends DefaultHandler
     @Override
     public void characters (char ch[], int start, int length) throws SAXException
     {
-        stringBuffer = new StringBuffer(256);
-        stringBuffer.append(ch, start, length);
+        if(stringBuffer != null)
+            stringBuffer.append(ch, start, length);
     }
 
     /**
@@ -95,9 +96,8 @@ public class SAXDocumentHandler extends DefaultHandler
         if(stringBuffer == null)
             xmlHandler.tagEnd(qName);
         else
-        {
             xmlHandler.attribute(null, new String(stringBuffer));
-            stringBuffer = null;
-        }
+
+        stringBuffer = null;
     }
 }

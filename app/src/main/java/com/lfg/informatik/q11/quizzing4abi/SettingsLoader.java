@@ -1,5 +1,7 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
+import android.graphics.Color;
+
 /**
  * Created by Chris on 29.06.2015.
  * This XMLHandler implementation loads the settings.
@@ -16,8 +18,7 @@ public class SettingsLoader implements XMLHandler
      */
     public int getBackgroundColor()
     {
-        // TODO: Fix this bug
-        return Integer.parseInt(backgroundColor);
+        return Long.decode(backgroundColor).intValue();
     }
 
     /**
@@ -37,7 +38,7 @@ public class SettingsLoader implements XMLHandler
     @Override
     public void tagEnd(String tagName)
     {
-
+        currentTag = "";
     }
 
     /**

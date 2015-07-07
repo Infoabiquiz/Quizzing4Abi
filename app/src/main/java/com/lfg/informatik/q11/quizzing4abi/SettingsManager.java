@@ -62,7 +62,8 @@ public class SettingsManager
 
             xmlWriter.elementBegin("Settings");
             xmlWriter.elementBegin("BackgroundColor");
-            xmlWriter.setAttribute(null, String.valueOf(backgroundColor));
+
+            xmlWriter.setAttribute(null, '#' + Integer.toHexString(backgroundColor).toUpperCase());
 
             xmlWriter.saveTo(settingsFilename);
 
