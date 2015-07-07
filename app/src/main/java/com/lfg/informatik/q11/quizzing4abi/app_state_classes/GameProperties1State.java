@@ -5,6 +5,8 @@ import android.view.View;
 import com.lfg.informatik.q11.quizzing4abi.Application;
 import com.lfg.informatik.q11.quizzing4abi.R;
 
+import java.text.SimpleDateFormat;
+
 /**
  * Created by Chris on 01.07.2015.
  * The first state if a new Game is started. It shows the available Categories,
@@ -22,6 +24,8 @@ public class GameProperties1State extends GameState
         super(application);
 
         application.setLayout(R.layout.game_properties1);
+
+        // TODO: Add buttons dynamically
     }
 
     /**

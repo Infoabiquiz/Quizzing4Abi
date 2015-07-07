@@ -16,7 +16,7 @@ public class AnsweredQuestion
      * Constructor.
      * @param question the answered question
      * @param correctAnswered true or false answered
-     * @param duration time taken to answer the question
+     * @param duration time taken to answer the question in seconds
      */
     public AnsweredQuestion(Question question, boolean correctAnswered, long duration)
     {
@@ -45,7 +45,7 @@ public class AnsweredQuestion
 
     /**
      * Returns the time taken to answer the Question.
-     * @return duration
+     * @return duration in seconds
      */
     public long getDuration()
     {

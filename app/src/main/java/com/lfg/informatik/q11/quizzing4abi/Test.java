@@ -1,7 +1,11 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Chris on 26.06.2015.
@@ -15,7 +19,29 @@ public class Test
      */
     public static void main(String args[])
     {
-        testWriter();
+        testDateFormatting();
+    }
+
+    /**
+     * Tested a way to convert Date to String.
+     */
+    public static void testDateFormatting()
+    {
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat =
+                new SimpleDateFormat("dd.MM.yyyy HH:mm:ss", Locale.getDefault());
+        String dateAsString = simpleDateFormat.format(date);
+
+        System.out.println("Current date: " + dateAsString);
+
+        try
+        {
+            date = simpleDateFormat.parse(dateAsString);
+        }
+        catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     /**
