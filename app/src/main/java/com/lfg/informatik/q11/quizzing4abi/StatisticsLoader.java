@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Created by Chris on 29.06.2015.
+ * Created by Chris on 07.07.2015.
  * This XMLHandler implementation loads the global game statistics.
  */
 
@@ -72,7 +72,8 @@ public class StatisticsLoader implements XMLHandler
             }
             catch (ParseException e)
             {
-                ExceptionHandler.showAlertDialog(e.getMessage());
+                ExceptionHandler.showAlertDialog("Loading GameStatistics failed. Error: "
+                        + e.getMessage());
             }
         }
     }
