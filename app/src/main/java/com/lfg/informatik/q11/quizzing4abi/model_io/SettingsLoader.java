@@ -1,6 +1,4 @@
-package com.lfg.informatik.q11.quizzing4abi;
-
-import android.graphics.Color;
+package com.lfg.informatik.q11.quizzing4abi.model_io;
 
 /**
  * Created by Chris on 29.06.2015.

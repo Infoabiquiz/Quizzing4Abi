@@ -1,4 +1,7 @@
-package com.lfg.informatik.q11.quizzing4abi;
+package com.lfg.informatik.q11.quizzing4abi.model_io;
+
+import com.lfg.informatik.q11.quizzing4abi.ExceptionHandler;
+import com.lfg.informatik.q11.quizzing4abi.GameStatistics;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -72,8 +75,7 @@ public class StatisticsLoader implements XMLHandler
             }
             catch (ParseException e)
             {
-                ExceptionHandler.showAlertDialog("Loading GameStatistics failed. Error: "
-                        + e.getMessage());
+                ExceptionHandler.showAlertDialog("Loading GameStatistics failed. Error: " + e.getMessage());
             }
         }
     }

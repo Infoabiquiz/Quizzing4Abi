@@ -1,4 +1,10 @@
-package com.lfg.informatik.q11.quizzing4abi;
+package com.lfg.informatik.q11.quizzing4abi.model_io;
+
+import com.lfg.informatik.q11.quizzing4abi.Answer;
+import com.lfg.informatik.q11.quizzing4abi.BuildConfig;
+import com.lfg.informatik.q11.quizzing4abi.Category;
+import com.lfg.informatik.q11.quizzing4abi.Question;
+import com.lfg.informatik.q11.quizzing4abi.SubCategory;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -6,16 +12,17 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * Created by Chris on 03.07.2015.
+ * Created by Chris on 29.06.2015.
  * This XMLHandler implementation processes the whole xml file and builds all
- * or only SubCategories from one Category.
- * It functions as a Builder object for the SubCategory, Question and Answer classes.
+ * or only the required Categories.
+ * It functions as a Builder object for the Category, SubCategory, Question and Answer classes.
  */
 
-public class SubCategoryBuilder implements XMLHandler
+public class CategoryBuilder implements XMLHandler
 {
     private Stack<String> tagHierarchy;
-    private List<SubCategory> builtSubCategories;
+    private List<Category> builtCategories;
+    private List<SubCategory> tempSubCategories;
     private List<Question> tempQuestionList;
     private List<Answer> tempAnswerList;
 
@@ -25,34 +32,33 @@ public class SubCategoryBuilder implements XMLHandler
     private String currentAnswer;
     private boolean currentCorrectness;
 
-    private String categoryName;
-    private List<String> requiredSubCategories;
+    private List<String> requiredCategories;
 
     /**
      * Constructor.
-     * @param categoryName          name of the Category containing the required SubCategories
-     * @param requiredSubCategories List of names of the required SubCategories or null for all
+     * @param requiredCategories List of names of the required Category or null for all
      */
-    public SubCategoryBuilder(String categoryName, List<String> requiredSubCategories)
+    public CategoryBuilder(List<String> requiredCategories)
     {
         tagHierarchy = new Stack<>();
-        builtSubCategories = new LinkedList<>();
+        builtCategories = new LinkedList<>();
+        tempSubCategories = new LinkedList<>();
         tempQuestionList = new LinkedList<>();
         tempAnswerList = new LinkedList<>();
 
-        this.categoryName = categoryName;
-        this.requiredSubCategories = requiredSubCategories;
+        this.requiredCategories = requiredCategories;
     }
 
     /**
      * After the building process has finished, calling this method will return the List of built
-     * SubCategories and transfer ownership to the caller.
-     * @return List of built SubCategories
+     * Categories and transfer ownership to the caller.
+     * @return List of built Categories
      */
-    public List<SubCategory> takeBuiltSubCategories()
+    public List<Category> takeBuiltCategories()
     {
-        List<SubCategory> temp = new ArrayList<>(builtSubCategories);
-        builtSubCategories = new LinkedList<>();
+        List<Category> temp = new ArrayList<>(builtCategories);
+        builtCategories = new LinkedList<>();
+        tempSubCategories.clear();
         tempQuestionList.clear();
         tempAnswerList.clear();
         return temp;
@@ -70,7 +76,7 @@ public class SubCategoryBuilder implements XMLHandler
 
     /**
      * Has to be called at the each ending tag.
-     * Constructs a new SubC, Q or A based on the ending tag.
+     * Constructs a new C, SubC, Q or A based on the ending tag.
      * @param tagName name of the ending element
      */
     @Override
@@ -81,16 +87,18 @@ public class SubCategoryBuilder implements XMLHandler
 
         tagHierarchy.pop();
 
-        // Ignore all other Categories but the required one.
-        if(!currentCategory.equals(categoryName))
-            return;
-        // Ignore non required SubCategories.
-        else if(requiredSubCategories != null && !requiredSubCategories.contains(currentSubCategory))
+        // Ignore non required Categories, Question and Answers.
+        if(requiredCategories != null && !requiredCategories.contains(currentCategory))
             return;
 
-        if(tagName.equals("SubCategory"))
+        if(tagName.equals("Category"))
         {
-            builtSubCategories.add(new SubCategory(currentSubCategory, tempQuestionList));
+            builtCategories.add(new Category(currentCategory, tempSubCategories));
+            tempSubCategories = new LinkedList<>();
+        }
+        else if(tagName.equals("SubCategory"))
+        {
+            tempSubCategories.add(new SubCategory(currentSubCategory, tempQuestionList));
             tempQuestionList = new LinkedList<>();
         }
         else if(tagName.equals("Question"))
@@ -119,8 +127,8 @@ public class SubCategoryBuilder implements XMLHandler
                 currentCategory = content;
         }
 
-        // Ignore all other Categories but the required one.
-        if(!currentCategory.equals(categoryName))
+        // Ignore non required Categories, Question and Answers.
+        if(requiredCategories != null && !requiredCategories.contains(currentCategory))
             return;
 
         if(tagHierarchy.peek().equals("SubCategory"))
@@ -128,12 +136,7 @@ public class SubCategoryBuilder implements XMLHandler
             if (attributeName.equals("Text"))
                 currentSubCategory = content;
         }
-
-        // Ignore non required SubCategories.
-        if(requiredSubCategories != null && !requiredSubCategories.contains(currentSubCategory))
-            return;
-
-        if(tagHierarchy.peek().equals("Question"))
+        else if(tagHierarchy.peek().equals("Question"))
         {
             if (attributeName.equals("Text"))
                 currentQuestion = content;

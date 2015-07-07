@@ -1,4 +1,4 @@
-package com.lfg.informatik.q11.quizzing4abi;
+package com.lfg.informatik.q11.quizzing4abi.model_io;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
