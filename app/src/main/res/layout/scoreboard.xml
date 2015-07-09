@@ -71,8 +71,8 @@
         android:layout_toEndOf="@+id/scoreboard_icon_2" />
 
     <ImageButton
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/scoreboard_menu"
         android:background="@drawable/logo"
         android:layout_alignBottom="@+id/scoreboard_podium"
