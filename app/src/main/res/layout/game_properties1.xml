@@ -17,8 +17,8 @@
         android:layout_marginTop="0dp" />
 
     <ImageButton
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/game_properties1_menu"
         android:layout_gravity="right"
         android:background="@drawable/logo"

@@ -1,6 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/layout_game_results">
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:text="Du hast "
+        android:id="@+id/game_results_label_seconds_played_one"
+        android:layout_below="@+id/game_results_smiley"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="48dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0000000"
+        android:id="@+id/game_results_display_seconds_played"
+        android:layout_alignTop="@+id/game_results_label_seconds_played_one"
+        android:layout_toRightOf="@+id/game_results_label_seconds_played_one"
+        android:layout_toEndOf="@+id/game_results_label_seconds_played_one" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="s lang gespielt"
+        android:id="@+id/textVigame_results_label_seconds_played_two"
+        android:layout_alignTop="@+id/game_results_display_seconds_played"
+        android:layout_toRightOf="@+id/game_results_display_seconds_played"
+        android:layout_toEndOf="@+id/game_results_display_seconds_played" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/game_results_smiley"
+        android:background="@drawable/gg"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/game_reults_label_avergae_difficulty_one"
+        android:layout_alignEnd="@+id/game_reults_label_avergae_difficulty_one" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Anteil richtiger Antworten :"
+        android:id="@+id/game_results_label_correctness_one"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0"
+        android:id="@+id/game_results_display_correctnesrate"
+        android:layout_alignTop="@+id/game_results_label_correctness_one"
+        android:layout_toRightOf="@+id/game_results_label_correctness_one"
+        android:layout_toEndOf="@+id/game_results_label_correctness_one" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Durchsch. Schwierigkeit"
+        android:id="@+id/game_reults_label_avergae_difficulty_one"
+        android:layout_below="@+id/game_results_label_correctness_one"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="62dp" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:layout_alignTop="@+id/game_reults_label_avergae_difficulty_one"
+        android:layout_toRightOf="@+id/game_results_smiley"
+        android:layout_toEndOf="@+id/game_results_smiley"
+        android:numStars="3"
+        android:rating="3" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/game_results_menu"
+        android:background="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

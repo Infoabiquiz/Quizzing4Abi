@@ -84,8 +84,8 @@
         android:layout_above="@+id/active_question_answer1" />
 
     <ImageView
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/active_question_menu"
         android:background="@drawable/logo"
         android:layout_alignParentTop="true"
