@@ -41,7 +41,8 @@
         android:id="@+id/game_results_smiley"
         android:background="@drawable/gg"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/game_reults_label_avergae_difficulty_one"
+        android:layout_alignEnd="@+id/game_reults_label_avergae_difficulty_one" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,5 +84,14 @@
         android:layout_toEndOf="@+id/game_results_smiley"
         android:numStars="3"
         android:rating="3" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/game_results_menu"
+        android:background="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
