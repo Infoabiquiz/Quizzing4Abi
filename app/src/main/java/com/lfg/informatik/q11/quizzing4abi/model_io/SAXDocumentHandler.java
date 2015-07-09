@@ -26,7 +26,7 @@ public class SAXDocumentHandler extends DefaultHandler
      * Constructor.
      * @param xmlHandler a valid XMLHandler
      */
-    SAXDocumentHandler(XMLHandler xmlHandler)
+    public SAXDocumentHandler(XMLHandler xmlHandler)
     {
         this.xmlHandler = xmlHandler;
     }
@@ -93,7 +93,7 @@ public class SAXDocumentHandler extends DefaultHandler
                            String qName)
             throws SAXException
     {
-        if(stringBuffer == null)
+        if(stringBuffer.equals("") || stringBuffer == null)
             xmlHandler.tagEnd(qName);
         else
             xmlHandler.attribute(null, new String(stringBuffer));

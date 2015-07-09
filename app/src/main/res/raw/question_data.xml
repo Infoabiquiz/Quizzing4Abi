@@ -2,14 +2,237 @@
 <Data>
   <Category Text="Informatik">
     <SubCategory Text="Q11/1">
-      <Question Text="$pictureName.png">
-        <Answer Text="$picture4Answer.jpeg"/>
+      <Question Text="Welches Muster eignet sich am besten für eine Liste?" Difficulty="leicht">
+        <Answer Correct="true" Text="Kompositum"/>
+        <Answer Correct="false" Text="Vererbung"/>
+        <Answer Correct="false" Text="Feld"/>
       </Question>
-      <Question Text="Here goes the question text.">
-        <Answer Correct="false" Text="Here goes the answer text."/>
-        <Answer Correct="true" Text="This is a correct answer."/>
+      <Question Text="Was sind rekursive Methoden?" Difficulty="leicht">
+        <Answer Correct="false" Text="Eine Methode, die sich selber aufruft bis die Abbruchbedingung erreicht ist."/>
+        <Answer Correct="false" Text="Eine Methode, die nicht aufhört sich zur wiederholen"/>
+        <Answer Correct="false" Text="Eine Methode, die alle Attribute einer anderen Methode erbt"/>
+      </Question>
+      <Question Text="Wozu dienen Felder?" Difficulty="leicht">
+        <Answer Correct="true" Text="Zur Zusammenfassung mehrerer Objekte der gleichen Klasse oder Variablen gleichen Typs"/>
+        <Answer Correct="false" Text="Zur Kontrolle von Objekten gleicher Klassen in einer Liste"/>
+        <Answer Correct="false" Text="Zur Überwachung von allen an der Basisschnittstelle verbundenen Objekte der Klasse View"/>
+      </Question>
+      <Question Text="Welches Diagramm eignet sich besonders für die Darstellung eines Algorithmusablaufs nach Methodenaufruf?" Difficulty="mittel">
+        <Answer Correct="true" Text="Sequenzdiagramm"/>
+        <Answer Correct="false" Text="Klassenkarte"/>
+        <Answer Correct="false" Text="Objektdiagramm"/>
+      </Question>
+      <Question Text="Was ist kein Vorteil der Liste?" Difficulty="mittel">
+        <Answer Correct="true" Text="schnelleres Suchen"/>
+        <Answer Correct="false" Text="Wartbarkeit"/>
+        <Answer Correct="false" Text="Aufgabentrennung"/>
+      </Question>
+      <Question Text="Welche Anforderungen muss die Warteschlange nicht erfüllen?" Difficulty="mittel">
+        <Answer Correct="false" Text="Simples Einfügen und Löschen"/>
+        <Answer Correct="false" Text="unbeschränkte Anzahl an Objekten verwalten"/>
+        <Answer Correct="true" Text="Umsetzung der Anforderungen mit der höchsten Priorität zuerst"/>
+      </Question>
+    </SubCategory>
+    <SubCategory Text="Grundwissen">
+      <Question Text="Was versteht man unter einer Vererbung?" Difficulty="leicht">
+        <Answer Correct="false" Text="Unterklassen erben alle Methoden und Attribute der Oberklasse und sind unveränderlich"/>
+        <Answer Correct="true" Text="Neben den geerbten Methoden und Atrribute der Oberklasse, die Unterklasse kann zusätzlich neue A. und M. haben"/>
+        <Answer Correct="false" Text="Oberklasse erben alle Methoden und Attribute der Unterklasse"/>
+      </Question>
+      <Question Text="Wie werden Oberklasse und Unterklasse noch genannt?" Difficulty="leicht">
+        <Answer Correct="false" Text="Vererbender und Erbender"/>
+        <Answer Correct="false" Text="Spezialisierung und Generalisierung"/>
+        <Answer Correct="true" Text="Generalisierung und Spezialisierung"/>
+      </Question>
+      <Question Text="Was versteht man unter Assoziationen?" Difficulty="leicht">
+        <Answer Correct="false" Text="Gefühle"/>
+        <Answer Correct="false" Text="Erster Eindruck"/>
+        <Answer Correct="true" Text="Beziehung"/>
+      </Question>
+      <Question Text="Wie verweigert man das Zugriffsrecht auf Methoden oder Attribute?" Difficulty="leicht">
+        <Answer Correct="false" Text="private und public"/>
+        <Answer Correct="false" Text="public"/>
+        <Answer Correct="true" Text="private"/>
+      </Question>
+      <Question Text="Wie wird ein Feld mit 10 Elementen programmiert?" Difficulty="leicht">
+        <Answer Correct="true" Text="public int[9]zahlen;"/>
+        <Answer Correct="false" Text="public int[10]zahlen;"/>
+        <Answer Correct="false" Text="public String[10]zahlen;"/>
+      </Question>
+      <Question Text="Was ist ein Konstruktor?" Difficulty="leicht">
+        <Answer Correct="false" Text="Er gibt Befehle an andere Objekte"/>
+        <Answer Correct="false" Text="Er ist ein Attribut mit dem Namen der Klasse"/>
+        <Answer Correct="true" Text="Er ist eine Methode mit dem Namen der Klasse"/>
+      </Question>
+      <Question Text="Wann kann man nur double benutzen?" Difficulty="leicht">
+        <Answer Correct="true" Text="bei Dezimalzahlen"/>
+        <Answer Correct="false" Text="bei Wiederholungen"/>
+        <Answer Correct="false" Text="bei natürlichen Zahlen"/>
+      </Question>
+      <Question Text="Wie kann eine Bildschirmausgabe programmiert werden?" Difficulty="leicht">
+        <Answer Correct="false" Text="System.println.out()"/>
+        <Answer Correct="false" Text="Return"/>
+        <Answer Correct="true" Text="System.out.println()"/>
       </Question>
     </SubCategory>
   </Category>
-  <Category Text="Mathe"/>
+  <Category Text="Mathematik">
+    <SubCategory Text="Analysis">
+      <Question Text="Was sind gebrochen rationale Funktionen?" Difficulty="leicht">
+        <Answer Correct="false" Text="die e-Funktion"/>
+        <Answer Correct="false" Text="Funktionen mit dem x im Exponenten"/>
+        <Answer Correct="true" Text="Funktionen mit zwei Polynomen p(x) und q(x)"/>
+      </Question>
+      <Question Text="Die Nullstellen des Nenners sind..." Difficulty="leicht">
+        <Answer Correct="false" Text="die Nullstellen der Funktion"/>
+        <Answer Correct="true" Text="die Definitionslücken"/>
+        <Answer Correct="false" Text="der y-Achsenabschnitt"/>
+      </Question>
+      <Question Text="Eine schiefe Asymptote erhält man nur," Difficulty="mittel">
+        <Answer Correct="true" Text="Wenn der Zählergrad genau um 1 größer als der Nennergrad ist."/>
+        <Answer Correct="false" Text="Wenn der Zählergrad genau um 1 kleiner als der Nennergrad ist."/>
+        <Answer Correct="false" Text="Wenn der Zählergrad gleich groß wie der Nennergrad ist."/>
+      </Question>
+      <Question Text="Für die Größe des Steigungswinkels der Sekante gilt:" Difficulty="mittel">
+        <Answer Correct="true" Text="tan α = m"/>
+        <Answer Correct="false" Text="sin α = m"/>
+        <Answer Correct="false" Text="cos α = m"/>
+      </Question>
+      <Question Text="Wie kann man keine Ableitung machen?" Difficulty="mittel">
+        <Answer Correct="false" Text="h-Methode"/>
+        <Answer Correct="true" Text="Differenzenquotient"/>
+        <Answer Correct="false" Text="Differentialquotient"/>
+      </Question>
+      <Question Text="Was ist die Quotientenregel?" Difficulty="leicht">
+        <Answer Correct="false" Text="f‘(x)=[v‘(x)*u(x)-u‘(x)*v(x)]/[v(x)]²"/>
+        <Answer Correct="true" Text="f‘(x)= [v(x)*u‘(x)-u(x)*v‘(x)]/[v(x)]²"/>
+        <Answer Correct="false" Text="f‘(x)= [v(x)*u‘(x)-u(x)*v‘(x)]/[v‘(x)]²"/>
+      </Question>
+      <Question Text="Was ist die Potenzregel?" Difficulty="leicht">
+        <Answer Correct="false" Text="f´(x)=(n+1)*x^(n+1)"/>
+        <Answer Correct="false" Text="f´(x)=2n*x^(n+1)"/>
+        <Answer Correct="true" Text="f´(x)=n*x^(n-1)"/>
+      </Question>
+      <Question Text="Was ist die lokale Änderungsrate?" Difficulty="leicht">
+        <Answer Correct="true" Text="die Tangentensteigung"/>
+        <Answer Correct="false" Text="die Sekantensteigung"/>
+        <Answer Correct="false" Text="die mittlere Änderungsrate"/>
+      </Question>
+    </SubCategory>
+    <SubCategory Text="Geometrie"/>
+    <SubCategory Text="Stochastik"/>
+    <SubCategory Text="Grundwissen">
+      <Question Text="Mit welchen Rechengesetz kann man a*(b+c) zu ab+ac umformen?" Difficulty="leicht">
+        <Answer Correct="true" Text="Distributivgesetz"/>
+        <Answer Correct="false" text="Assoziativgesetz"/>
+        <Answer Correct="false" Text="Kommutativgesetz"/>
+      </Question>
+      <Question Text="Welche Aussage ist richtig? " Difficulty="leicht">
+        <Answer Correct="false" Text="•&#x9;Stufenwinkel sind nie gleich groß"/>
+        <Answer Correct="true" Text="Scheitelwinkel sind gleich groß"/>
+        <Answer Correct="false" Text="Wechselwinkel sind nicht gleich groß"/>
+      </Question>
+      <Question Text="Was besagt der Kongruenzsatz SsW?" Difficulty="leicht">
+        <Answer Correct="false" Text="Wenn Dreiecke in der Länge zweier Seiten und dem von diesen Seiten eingeschlossenen Winkel übereinstimmen, dann sind sie kongruent."/>
+        <ANswer Correct="false" Text="Wenn Dreiecke in der Länge einer Seite und zwei gleich liegenden Winkel übereinstimmen, dann sind sie kongruent."/>
+        <Answer Correct="true" Text="Wenn Dreiecke in der Länge zweier Seiten und dem Winkel übereinstimmen, der der größeren Seite gegenüberliegt, dann sind sie kongruent."/>
+      </Question>
+      <Question Text="Was sagt der Satz des Thales aus?" Difficulty="leicht">
+        <Answer Correct="true" Text="dass wenn C auf einen Kreis mit dem Durchmesser [AB] liegt, der Winkel ACB ein rechter Winkel ist"/>
+        <Answer Correct="false" Text="dass auf jeden Fall der Höhensatz gilt"/>
+        <Answer Correct="false" Text="dass die Länge [AB] immer den Radius der Kreises entspricht"/>
+      </Question>
+      <Question Text="Welche Aussage ist falsch?" Difficulty="leicht">
+        <Answer Correct="false" Text="Die Höhen eines Dreiecks sind die Lote von den Eckpunkten auf die gegenüberliegenden Seiten"/>
+        <Answer Correct="false" Text="Die Winkelhalbierende eines Dreiecks sind die Geraden, die seine Innenwinkel halbiert"/>
+        <Answer Correct="true" Text="Die Mittelsenkrechte eines Dreiecks sind die Geraden, die diagonal zu den Seiten durch den Mittelpunkt verlaufen"/>
+      </Question>
+      <Question Text="Wird eine Größe halbiert, verdoppelt… und führt dies zu einer Halbierung, Verdopplung… der anderen Größe, so heißen diese beiden Größen___?" Difficulty="leicht">
+        <Answer Correct="true" Text="direkt proportional zueinander"/>
+        <ANswer Correct="false" Text="indirekt proportional zueinander"/>
+        <Answer Correct="false" Text="produktgleich zueinander"/>
+      </Question>
+      <Question Text="Der Graph einer linearen Funktion ist___?" Difficulty="leicht">
+        <Answer Correct="false" Text="eine Hyperbel"/>
+        <Answer Correct="true" Text="eine Gerade"/>
+        <Answer Correct="false" Text="eine Parabel"/>
+      </Question>
+      <Question Text="Was verwendet man zur Lösung einer Ungleichung?" Difficulty="leicht">
+        <Answer Correct="true" Text="Äquivalenzumformung"/>
+        <Answer Correct="false" Text="Satz des Pythagoras"/>
+        <Answer Correct="false" Text="Kreisgleichung"/>
+      </Question>
+      <Question Text="Beim Lösen eines linearen Gleichungssystem mit zwei Unbekannten kann man was verwenden?" Difficulty="leicht">
+        <Answer Correct="true" Text="Gleichsetzungsverfahren"/>
+        <Answer Correct="false" Text="Newton-Verfahren"/>
+        <Answer Correct="false" Text="Über-Kreuz-Multiplizieren"/>
+      </Question>
+      <Question Text="Wie nennt man ein Zufallsexperiment  mit gleichen wahrscheinlichen Elementarereignissen?   " Difficulty="leicht">
+        <Answer Correct="true" Text="Laplace-Experiment"/>
+        <Answer Correct="false" Text="Ergebnis"/>
+        <Answer Correct="false" Text="Bedingte Wahrscheinlichkeit"/>
+      </Question>
+      <Question Text="Wann sind sich zwei Dreiecke nicht ähnlich?" Difficulty="leicht">
+        <Answer Correct="false" Text="Wenn sie in zwei Winkel übereinstimmen"/>
+        <Answer Correct="false" Text="Wenn sie in zwei Verhältnissen entsprechender Seitenlängen übereinstimmen"/>
+        <Answer Correct="true" Text="Wenn sie im Verhältnis zweier Seitenlängen und dem eingeschlossenen Winkel nicht übereinstimmen"/>
+      </Question>
+      <Question Text="Welcher Satz beschreibt: a²+b²=c² ?" Difficulty="leicht">
+        <Answer Correct="true" Text="Satz des Pythagoras"/>
+        <Answer Correct="false" Text="Satz des Thales"/>
+        <Answer Correct="false" Text="Strahlensatz"/>
+      </Question>
+      <Question Text="Welcher Satz beschreibt: a²=c*p bzw. b²=c*p ?" Difficulty="leicht">
+        <Answer Correct="false" Text="Höhensatz"/>
+        <Answer Correct="false" Text="Strahlensatz"/>
+        <Answer Correct="true" Text="Kathetensatz"/>
+      </Question>
+    </SubCategory>
+  </Category>
+  <Category Text="Geschichte">
+    <SubCategory Text="Grundwissen">
+      <Question Text="Wann ist der Tag der deutschen Einheit?" Difficulty="leicht">
+        <Answer Correct="false" Text="9. November"/>
+        <Answer Correct="false" Text="4. Juli"/>
+        <Answer Correct="false" Text="1. Mai"/>
+        <Answer Correct="true" Text="3. Oktober"/>
+      </Question>
+      <Question Text="Wer war der erste deutsche Bundeskanzler?" Difficulty="leicht">
+        <Answer Correct="false" Text="Willy Brandt"/>
+        <Answer Correct="false" Text="Otto von Bismark"/>
+        <Answer Correct="true" Text="Konrad Adenauer"/>
+        <Answer Correct="false" Text="Walter Ulbrecht"/>
+      </Question>
+      <Question Text="Wer ernannte Hitler zum Reichskanzler?" Difficulty="leicht">
+        <Answer Correct="true" Text="Paul von Hindenburg"/>
+        <Answer Correct="false" Text="Das deutsche Volk"/>
+        <Answer Correct="false" Text="Hitler selbst"/>
+        <Answer Correct="false" Text="Joseph Göbbels"/>
+      </Question>
+      <Question Text="Wie begann der zweite Weltkrieg?" Difficulty="leicht">
+        <Answer Correct="true" Text="Überfall Polens von Deutschland"/>
+        <Answer Correct="false" Text="Überfall Deutschlands auf Tschechien"/>
+        <Answer Correct="false" Text="Atombombe auf Hiroshima"/>
+        <Answer Correct="false" Text="Überfall Polens auf Deutschland"/>
+      </Question>
+    </SubCategory>
+  </Category>
+  <Category Text="Deutsch">
+    <SubCategory Text="10. Klasse">
+      <Question Text="In welcher Epoche wurde “Emilia Galotti” verfasst?" Difficulty="leicht">
+        <Answer Correct="false" Text="Romantik"/>
+        <Answer Correct="false" Text="Naturalismus"/>
+        <Answer Correct="true" Text="Aufklärung"/>
+        <Answer Correct="false" Text="Sturm und Drang"/>
+      </Question>
+    </SubCategory>
+    <SubCategory Text="Q11">
+      <Question Text="Was führte Faust zum Teufel?" Difficulty="leicht">
+        <Answer Correct="true" Text="Frust"/>
+        <Answer Correct="false" Text="Gretchen"/>
+        <Answer Correct="false" Text="Wagner"/>
+        <Answer Correct="false" Text="Dämon"/>
+      </Question>
+    </SubCategory>
+  </Category>
 </Data>
