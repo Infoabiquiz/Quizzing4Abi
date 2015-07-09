@@ -121,6 +121,9 @@ public class CategoryBuilder implements XMLHandler
     @Override
     public void attribute(String attributeName, String content)
     {
+        if(attributeName == null || attributeName.equals(""))
+            return;
+
         if(tagHierarchy.peek().equals("Category"))
         {
             if (attributeName.equals("Text"))
