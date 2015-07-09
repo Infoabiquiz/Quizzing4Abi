@@ -72,12 +72,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Mysteriöse Zahl :"
+        android:text="Anteil richtiger Antworten :"
         android:id="@+id/statistics_label_correctness"
         android:layout_above="@+id/statistics_label_timeplayed"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="63dp" />
+        android:layout_marginBottom="63dp"
+        android:layout_toLeftOf="@+id/textView2"
+        android:layout_toStartOf="@+id/textView2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -85,12 +87,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="placeholder  correctness"
         android:id="@+id/statistics_display_correctnessrate"
-        android:layout_alignBaseline="@+id/statistics_label_correctness"
-        android:layout_alignBottom="@+id/statistics_label_correctness"
-        android:layout_alignRight="@+id/statistics_display_timeplayed"
-        android:layout_alignEnd="@+id/statistics_display_timeplayed"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2" />
+        android:layout_alignTop="@+id/statistics_label_correctness"
+        android:layout_toRightOf="@+id/statistics_label_correctness"
+        android:layout_toEndOf="@+id/statistics_label_correctness" />
 
     <TextView
         android:layout_width="wrap_content"
