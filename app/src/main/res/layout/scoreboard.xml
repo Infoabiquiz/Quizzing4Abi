@@ -16,8 +16,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/scoreboard_icon_1"
-        android:background="@drawable/gearwheel"
-        android:layout_marginTop="56dp"
+        android:background="@drawable/first_place"
+        android:layout_marginTop="52dp"
         android:layout_below="@+id/scoreboard_podium"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/scoreboard_icon_2"
-        android:background="@drawable/gearwheel"
+        android:background="@drawable/second_place"
         android:layout_below="@+id/scoreboard_icon_1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/scoreboard_icon_3"
-        android:background="@drawable/gearwheel"
+        android:background="@drawable/third_place"
         android:layout_below="@+id/scoreboard_icon_2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
