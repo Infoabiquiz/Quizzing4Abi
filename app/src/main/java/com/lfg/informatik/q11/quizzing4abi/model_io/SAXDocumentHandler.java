@@ -93,7 +93,7 @@ public class SAXDocumentHandler extends DefaultHandler
                            String qName)
             throws SAXException
     {
-        if(stringBuffer == null)
+        if(stringBuffer == null || stringBuffer.toString().equals(""))
             xmlHandler.tagEnd(qName);
         else
             xmlHandler.attribute(null, new String(stringBuffer));
