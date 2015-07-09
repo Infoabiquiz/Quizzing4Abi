@@ -43,6 +43,7 @@ public class ActiveQuestionState extends GameState
         answer2 = answer.get(1);
         answer3 = answer.get(2);
         answer4 = answer.get(3);
+        this.active_question= acitve_question;
 
     }
 
@@ -60,53 +61,53 @@ public class ActiveQuestionState extends GameState
 
                 if (answer1.isCorrect())
                         {
-                            view R.id.active_question_answer1.setbackgroundcolor(Color.GREEN);
+                            active_question_answer1.setbackgroundcolor(Color.GREEN);
 
                         }
                 else
                         {
-                            view R.id.active_question_answer1.setbackgroundcolor (Color.RED);
+                            active_question_answer1.setbackgroundcolor (Color.RED);
                         }
-                // TODO: Add functionality
+
                 break;
             }
             case R.id.active_question_answer2:
             {
                 if (answer2.isCorrect())
                 {
-                    view R.id.active_question_answer2.setbackgroundcolor((Color.GREEN);
+                   active_question_answer2.setbackgroundcolor((Color.GREEN);
 
                 }
                 else
                 {
-                    view R.id.active_question_answer2.setbackgroundcolor(Color.RED);}
-                // TODO: Add functionality
+                   active_question_answer2.setbackgroundcolor(Color.RED);}
+
                 break;
             }
             case R.id.active_question_answer3:
             {
                 if (answer3.isCorrect())
                 {
-                    view R.id.active_question_answer3.setbackgroundcolor (Color.GREEN);
+                   active_question_answer3.setbackgroundcolor (Color.GREEN);
 
                 }
                 else
                 {
-                    view R.id.active_question_answer3.setbackgroundcolor (Color.RED);}
-                // TODO: Add functionality
+                   active_question_answer3.setbackgroundcolor (Color.RED);}
+
                 break;
             }
             case R.id.active_question_answer4:
             {
                 if (answer4.isCorrect())
                 {
-                    view R.id.active_question_answer4.setbackgroundcolor (Color.GREEN);
+                  active_question_answer4.setbackgroundcolor (Color.GREEN);
 
                 }
                 else
                 {
-                    view R.id.active_question_answer4.setbackgroundcolor (Color.RED);}
-                // TODO: Add functionality
+                   active_question_answer4.setbackgroundcolor (Color.RED);}
+
                 break;
             }
 
