@@ -28,8 +28,8 @@
         android:layout_below="@+id/game_properties2_choose" />
 
     <ImageButton
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/game_properties2_menu"
         android:background="@drawable/logo"
         android:focusableInTouchMode="false"
