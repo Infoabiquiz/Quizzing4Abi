@@ -34,9 +34,7 @@ public class Application
 
         FileIO.setMainActivity(mainActivity);
 
-
         currentAppState = new AppStartState(this);
-        int color = SettingsManager.getBackgroundColor();
         currentAppState = new MainMenuState(this);
     }
 
@@ -56,9 +54,15 @@ public class Application
     public void setLayout(int layoutID)
     {
         mainActivity.setContentView(layoutID);
+        updateBackgroundColor();
+    }
+
+    // TODO
+    public void updateBackgroundColor()
+    {
         int color = SettingsManager.getBackgroundColor();
-        mainActivity.getWindow().getDecorView()
-                .setBackgroundColor(color);
+        if(color != 0)
+            mainActivity.getWindow().getDecorView().setBackgroundColor(color);
     }
 
     /**
