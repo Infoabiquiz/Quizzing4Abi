@@ -19,6 +19,7 @@ import java.util.List;
 
 public class ActiveQuestionState extends GameState
 {
+    // TODO: Review
     private Question question;
     private AnsweredQuestion answeredquestion;
     private List<Answer> answer;
@@ -60,12 +61,12 @@ public class ActiveQuestionState extends GameState
 
                 if (answer1.isCorrect())
                         {
-                            view R.id.active_question_answer1.setbackgroundcolor(Color.GREEN);
+                           // view R.id.active_question_answer1.setbackgroundcolor(Color.GREEN);
 
                         }
                 else
                         {
-                            view R.id.active_question_answer1.setbackgroundcolor (Color.RED);
+                           // view R.id.active_question_answer1.setbackgroundcolor (Color.RED);
                         }
                 // TODO: Add functionality
                 break;
@@ -74,12 +75,13 @@ public class ActiveQuestionState extends GameState
             {
                 if (answer2.isCorrect())
                 {
-                    view R.id.active_question_answer2.setbackgroundcolor((Color.GREEN);
+                   // view R.id.active_question_answer2.setbackgroundcolor((Color.GREEN);
 
                 }
                 else
                 {
-                    view R.id.active_question_answer2.setbackgroundcolor(Color.RED);}
+                    //view R.id.active_question_answer2.setbackgroundcolor(Color.RED);
+                    }
                 // TODO: Add functionality
                 break;
             }
@@ -87,12 +89,14 @@ public class ActiveQuestionState extends GameState
             {
                 if (answer3.isCorrect())
                 {
-                    view R.id.active_question_answer3.setbackgroundcolor (Color.GREEN);
+                   // view R.id.active_question_answer3.setbackgroundcolor (Color.GREEN);
 
                 }
                 else
                 {
-                    view R.id.active_question_answer3.setbackgroundcolor (Color.RED);}
+                   // view R.id.active_question_answer3.setbackgroundcolor (Color.RED);
+
+                   }
                 // TODO: Add functionality
                 break;
             }
@@ -100,12 +104,13 @@ public class ActiveQuestionState extends GameState
             {
                 if (answer4.isCorrect())
                 {
-                    view R.id.active_question_answer4.setbackgroundcolor (Color.GREEN);
+                   // view R.id.active_question_answer4.setbackgroundcolor (Color.GREEN);
 
                 }
                 else
                 {
-                    view R.id.active_question_answer4.setbackgroundcolor (Color.RED);}
+                    //view R.id.active_question_answer4.setbackgroundcolor (Color.RED);
+                    }
                 // TODO: Add functionality
                 break;
             }

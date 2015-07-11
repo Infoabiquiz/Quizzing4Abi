@@ -77,13 +77,13 @@ public class Test
 
     public static void testWriter()
     {
-        SettingsManager.setBackgroundColor(Color.CYAN);
+        System.out.println("Background Color: " + SettingsManager.getBackgroundColor());
+
+        SettingsManager.setBackgroundColor(Color.RED);
 
         System.out.println("Background Color: " + SettingsManager.getBackgroundColor());
 
         SettingsManager.setBackgroundColor(Color.WHITE);
-
-        System.out.println("Background Color: " + SettingsManager.getBackgroundColor());
     }
 
     /**

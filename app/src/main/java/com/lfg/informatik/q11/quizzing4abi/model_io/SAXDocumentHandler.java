@@ -17,6 +17,8 @@ import javax.xml.parsers.SAXParserFactory;
  * Note: Maximum text-node size currently 256 characters!
  */
 
+// TODO: Filename is not accepted at runtime!!!
+
 public class SAXDocumentHandler extends DefaultHandler
 {
     private XMLHandler xmlHandler;

@@ -18,11 +18,19 @@ import javax.xml.transform.TransformerException;
 
 public class SettingsManager
 {
-    private static final String settingsFilename = "app\\src\\main\\res\\raw\\settings.xml";
+    private static String settingsFilename;
 
     private static int backgroundColor = 0xFFFFFFFF;
     private static boolean settingsLoaded = false;
 
+    /**
+     * The filename of the xml file has to be set before use!
+     * @param filename the filename of the settings xml
+     */
+    public static void setSettingsFilename(String filename)
+    {
+        SettingsManager.settingsFilename = filename;
+    }
     /**
      * Loads the settings, if they aren´t loaded, and returns the background color.
      * @return the background color or 0 if loading the color failed

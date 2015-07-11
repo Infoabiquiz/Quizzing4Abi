@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/main_menu_play"
-        android:background="@drawable/Playbutton_appMittel"
+        android:background="@drawable/playbutton_medium"
         android:layout_centerHorizontal="true"
         android:onClick="onClick"/>
 

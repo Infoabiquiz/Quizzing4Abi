@@ -1,9 +1,11 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
 import android.graphics.Color;
+import android.net.Uri;
 import android.view.View;
 import com.lfg.informatik.q11.quizzing4abi.app_states.AppStartState;
 import com.lfg.informatik.q11.quizzing4abi.app_states.AppState;
+import com.lfg.informatik.q11.quizzing4abi.app_states.MainMenuState;
 
 /**
  * Created by Adrian on 30.06.2015.
@@ -22,7 +24,14 @@ public class Application
    public Application(MainActivity mainActivity)
     {
         this.mainActivity = mainActivity;
-        new AppStartState(this); // current state assignment left out for bug prevention!
+
+        SettingsManager.setSettingsFilename(Uri.parse("android.resource://" +
+                "com/lfg/informatik/q11/quizzing4abi/res/raw/settings.xml").getPath());
+
+        SettingsManager.setBackgroundColor(Color.RED);
+
+        currentAppState = new AppStartState(this);
+        currentAppState = new MainMenuState(this);
     }
 
     /**
@@ -41,9 +50,9 @@ public class Application
     public void setLayout(int layoutID)
     {
         mainActivity.setContentView(layoutID);
-        int color = SettingsManager.getBackgroundColor();
+        /*int color = SettingsManager.getBackgroundColor();
         mainActivity.getWindow().getDecorView()
-                .setBackgroundColor(color);
+                .setBackgroundColor(color);*/
     }
 
     /**
