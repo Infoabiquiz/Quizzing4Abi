@@ -24,7 +24,8 @@
         android:background="#ff8b4513"
         android:layout_below="@+id/settings_text_backgroundcolor"
         android:layout_toRightOf="@+id/settings_pickcolor_white"
-        android:layout_toEndOf="@+id/settings_pickcolor_white"/>
+        android:layout_toEndOf="@+id/settings_pickcolor_white"
+        android:onClick="onClick"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -34,7 +35,8 @@
         android:background="#ff80f3ff"
         android:layout_below="@+id/settings_text_backgroundcolor"
         android:layout_toRightOf="@+id/settings_pickcolor_yellow"
-        android:layout_toEndOf="@+id/settings_pickcolor_yellow"/>
+        android:layout_toEndOf="@+id/settings_pickcolor_yellow"
+        android:onClick="onClick"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -44,7 +46,8 @@
         android:layout_below="@+id/settings_text_backgroundcolor"
         android:layout_toRightOf="@+id/settings_pickcolor_cyan"
         android:layout_toEndOf="@+id/settings_pickcolor_cyan"
-        android:background="@android:color/holo_purple" />
+        android:background="@android:color/holo_purple"
+        android:onClick="onClick"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -54,7 +57,8 @@
         android:background="@android:color/holo_orange_light"
         android:layout_alignTop="@+id/settings_pickcolor_green"
         android:layout_toRightOf="@+id/settings_pickcolor_green"
-        android:layout_toEndOf="@+id/settings_pickcolor_green"/>
+        android:layout_toEndOf="@+id/settings_pickcolor_green"
+        android:onClick="onClick"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -63,8 +67,9 @@
         android:id="@+id/settings_pickcolor_blue"
         android:layout_below="@+id/settings_text_backgroundcolor"
         android:layout_toRightOf="@+id/settings_pickcolor_orange"
-        android:layout_toEndOf="@+id/settings_pickcolor_orange"
-        android:background="@android:color/holo_blue_dark" />
+        android:background="@android:color/holo_blue_dark"
+        android:nestedScrollingEnabled="false"
+        android:onClick="onClick"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -74,7 +79,8 @@
         android:layout_alignTop="@+id/settings_pickcolor_blue"
         android:layout_toRightOf="@+id/settings_pickcolor_blue"
         android:layout_toEndOf="@+id/settings_pickcolor_blue"
-        android:background="@android:color/white" />
+        android:background="@android:color/white"
+        android:onClick="onClick"/>
 
     <ImageView
         android:layout_width="100dp"
@@ -83,6 +89,7 @@
         android:background="@drawable/logo"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="onClick"/>
 
 </RelativeLayout>

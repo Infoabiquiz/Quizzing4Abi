@@ -37,34 +37,45 @@ public class SettingsState extends AppState
 
         switch(view.getId())
         {
+            case R.id.settings_menu:
+            {
+                application.setState(new MainMenuState(application));
+                break;
+            }
             case R.id.settings_pickcolor_blue:
             {
                 SettingsManager.setBackgroundColor(Color.BLUE);
+                application.setLayout(R.layout.settings);
                 break;
             }
             case R.id.settings_pickcolor_cyan:
             {
                 SettingsManager.setBackgroundColor(Color.CYAN);
+                application.setLayout(R.layout.settings);
                 break;
             }
             case R.id.settings_pickcolor_white:
             {
                 SettingsManager.setBackgroundColor(Color.WHITE);
+                application.setLayout(R.layout.settings);
                 break;
             }
             case R.id.settings_pickcolor_red:
             {
                 SettingsManager.setBackgroundColor(Color.RED);
+                application.setLayout(R.layout.settings);
                 break;
             }
             case R.id.settings_pickcolor_green:
             {
                 SettingsManager.setBackgroundColor(Color.GREEN);
+                application.setLayout(R.layout.settings);
                 break;
             }
             case R.id.settings_pickcolor_yellow:
             {
                 SettingsManager.setBackgroundColor(Color.YELLOW);
+                application.setLayout(R.layout.settings);
                 break;
             }
         }

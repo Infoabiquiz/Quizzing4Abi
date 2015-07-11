@@ -5,6 +5,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -45,7 +46,22 @@ public class SAXDocumentHandler extends DefaultHandler
     {
         SAXParser saxParser = SAXParserFactory.newInstance().newSAXParser();
 
-        saxParser.parse(filename, this);
+        saxParser.parse(filename, this);// TODO: Changed
+    }
+
+    /**
+     * Starts parsing the input stream, which is containing the xml file.
+     * @param inputStream the input stream containing the xml file to parse
+     * @throws IOException
+     * @throws SAXException
+     * @throws ParserConfigurationException
+     */
+    public void parse(InputStream inputStream)
+            throws IOException, SAXException, ParserConfigurationException
+    {
+        SAXParser saxParser = SAXParserFactory.newInstance().newSAXParser();
+
+        saxParser.parse(inputStream, this);
     }
 
     /**

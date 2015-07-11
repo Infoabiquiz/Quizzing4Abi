@@ -1,11 +1,18 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
 import android.view.View;
 import com.lfg.informatik.q11.quizzing4abi.app_states.AppStartState;
 import com.lfg.informatik.q11.quizzing4abi.app_states.AppState;
 import com.lfg.informatik.q11.quizzing4abi.app_states.MainMenuState;
+import com.lfg.informatik.q11.quizzing4abi.model_io.FileIO;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
  * Created by Adrian on 30.06.2015.
@@ -25,12 +32,11 @@ public class Application
     {
         this.mainActivity = mainActivity;
 
-        SettingsManager.setSettingsFilename(Uri.parse("android.resource://" +
-                "com/lfg/informatik/q11/quizzing4abi/res/raw/settings.xml").getPath());
+        FileIO.setMainActivity(mainActivity);
 
-        SettingsManager.setBackgroundColor(Color.RED);
 
         currentAppState = new AppStartState(this);
+        int color = SettingsManager.getBackgroundColor();
         currentAppState = new MainMenuState(this);
     }
 
@@ -50,9 +56,9 @@ public class Application
     public void setLayout(int layoutID)
     {
         mainActivity.setContentView(layoutID);
-        /*int color = SettingsManager.getBackgroundColor();
+        int color = SettingsManager.getBackgroundColor();
         mainActivity.getWindow().getDecorView()
-                .setBackgroundColor(color);*/
+                .setBackgroundColor(color);
     }
 
     /**
