@@ -37,7 +37,7 @@ public class FileIO
     /**
      * Opens a file from the internal storage of the app.
      * @param filename name of the file + file extension (e.g. "test.xml")
-     * @return the InputStream balonging to the file.
+     * @return the InputStream belonging to the file. Don´t forget to close it after use!
      * @throws FileNotFoundException
      */
     public static InputStream openInputFile(String filename) throws FileNotFoundException
@@ -68,19 +68,23 @@ public class FileIO
     }
 
     // TODO
-    public static void closeStraem(Closeable stream)
+    public static boolean closeStream(Closeable stream)
     {
         if(stream != null)
         {
             try
             {
                 stream.close();
+                return true;
             }
             catch (IOException e)
             {
                 ExceptionHandler.showAlertDialog("Closing stream failed. Error: "
                         + e.getMessage());
+                return false;
             }
         }
+
+        return false;
     }
 }

@@ -30,7 +30,6 @@ public class AppStartState extends AppState
         application.setLayout(R.layout.app_start);
 
         // TODO: Write copy function raw to internal storage
-        // TODO: Atm the version/date/hash of the raw files are ignored!
 
         if(!FileIO.checkFileExistence("settings.xml"))
         {
@@ -49,7 +48,7 @@ public class AppStartState extends AppState
             }
             finally
             {
-                FileIO.closeStraem(rawSettings);
+                FileIO.closeStream(rawSettings);
             }
 
             try
@@ -63,7 +62,7 @@ public class AppStartState extends AppState
             }
             finally
             {
-                FileIO.closeStraem(internalSettings);
+                FileIO.closeStream(internalSettings);
             }
         }
     }

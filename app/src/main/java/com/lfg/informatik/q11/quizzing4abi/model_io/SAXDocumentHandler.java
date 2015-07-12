@@ -18,8 +18,6 @@ import javax.xml.parsers.SAXParserFactory;
  * Note: Maximum text-node size currently 256 characters!
  */
 
-// TODO: Filename is not accepted at runtime!!!
-
 public class SAXDocumentHandler extends DefaultHandler
 {
     private XMLHandler xmlHandler;
@@ -36,6 +34,7 @@ public class SAXDocumentHandler extends DefaultHandler
 
     /**
      * Starts parsing of the xml file, events are forwarded to the xmlHandler.
+     * Note: filenames are not accepted at runtime! Use InputStream instead.
      * @param filename name of the xml file containing the question data
      * @throws SAXException
      * @throws ParserConfigurationException
@@ -46,7 +45,7 @@ public class SAXDocumentHandler extends DefaultHandler
     {
         SAXParser saxParser = SAXParserFactory.newInstance().newSAXParser();
 
-        saxParser.parse(filename, this);// TODO: Changed
+        saxParser.parse(filename, this);
     }
 
     /**

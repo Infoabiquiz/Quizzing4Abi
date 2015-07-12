@@ -7,7 +7,6 @@ import com.lfg.informatik.q11.quizzing4abi.model_io.XMLWriter;
 
 import org.xml.sax.SAXException;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -55,7 +54,7 @@ public class SettingsManager
             }
             finally
             {
-                FileIO.closeStraem(inputStream);
+                FileIO.closeStream(inputStream);
             }
         }
 
@@ -89,7 +88,7 @@ public class SettingsManager
             ExceptionHandler.showAlertDialog("Saving settings failed. Error: " + e.getMessage());
             return false;
         }
-        catch (FileNotFoundException e)
+        catch(FileNotFoundException e)
         {
             ExceptionHandler.showAlertDialog("Opening the settings file failed. Error: "
                     + e.getMessage());
@@ -97,7 +96,7 @@ public class SettingsManager
         }
         finally
         {
-            FileIO.closeStraem(outputStream);
+            FileIO.closeStream(outputStream);
         }
 
         return true;

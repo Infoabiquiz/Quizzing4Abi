@@ -15,7 +15,7 @@ import javax.xml.parsers.ParserConfigurationException;
  * Provides reading and writing access to all game statistics and stores them.
  */
 
-public class StatisticsManager
+public class StatisticsManager // TODO: Change to Streams
 {
     private static final String statisticsFilename = "app\\src\\main\\res\\raw\\statistics.xml";
 
