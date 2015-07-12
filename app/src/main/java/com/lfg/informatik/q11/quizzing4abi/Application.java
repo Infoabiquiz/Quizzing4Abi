@@ -51,7 +51,9 @@ public class Application
         updateBackgroundColor();
     }
 
-    // TODO
+    /**
+     * Updates the background color of the current layout.
+     */
     public void updateBackgroundColor()
     {
         int color = SettingsManager.getBackgroundColor();
