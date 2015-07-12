@@ -33,8 +33,6 @@ public class SettingsState extends AppState
     @Override
     public void onClick(View view)
     {
-        // TODO: Add functionality
-
         switch(view.getId())
         {
             case R.id.settings_menu:

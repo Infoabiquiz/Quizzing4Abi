@@ -47,6 +47,10 @@ public class AppStartState extends AppState
                         + e.getMessage());
                 return;
             }
+            finally
+            {
+                FileIO.closeStraem(rawSettings);
+            }
 
             try
             {
@@ -56,6 +60,10 @@ public class AppStartState extends AppState
             {
                 ExceptionHandler.showAlertDialog("Failed writing to internal Error: "
                         + e.getMessage());
+            }
+            finally
+            {
+                FileIO.closeStraem(internalSettings);
             }
         }
     }

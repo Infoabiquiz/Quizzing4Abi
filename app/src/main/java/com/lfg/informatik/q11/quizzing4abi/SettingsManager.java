@@ -53,18 +53,9 @@ public class SettingsManager
                         + e.getMessage());
                 return 0;
             }
-            finally // TODO: Very ugly stream closing... java < C++
+            finally
             {
-                if(inputStream != null)
-                    try
-                    {
-                        inputStream.close();
-                    }
-                    catch (IOException e)
-                    {
-                        ExceptionHandler.showAlertDialog("Closing input stream failed. Error: "
-                                + e.getMessage());
-                    }
+                FileIO.closeStraem(inputStream);
             }
         }
 
@@ -106,16 +97,7 @@ public class SettingsManager
         }
         finally
         {
-            if(outputStream != null)
-                try
-                {
-                    outputStream.close();
-                }
-                catch (IOException e)
-                {
-                    ExceptionHandler.showAlertDialog("Closing output stream failed. Error: "
-                            + e.getMessage());
-                }
+            FileIO.closeStraem(outputStream);
         }
 
         return true;

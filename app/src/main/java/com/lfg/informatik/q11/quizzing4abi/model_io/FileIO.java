@@ -2,8 +2,10 @@ package com.lfg.informatik.q11.quizzing4abi.model_io;
 
 import android.content.Context;
 
+import com.lfg.informatik.q11.quizzing4abi.ExceptionHandler;
 import com.lfg.informatik.q11.quizzing4abi.MainActivity;
 
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -63,5 +65,22 @@ public class FileIO
 
         while((read = in.read(buffer)) != -1)
             out.write(buffer, 0, read);
+    }
+
+    // TODO
+    public static void closeStraem(Closeable stream)
+    {
+        if(stream != null)
+        {
+            try
+            {
+                stream.close();
+            }
+            catch (IOException e)
+            {
+                ExceptionHandler.showAlertDialog("Closing stream failed. Error: "
+                        + e.getMessage());
+            }
+        }
     }
 }

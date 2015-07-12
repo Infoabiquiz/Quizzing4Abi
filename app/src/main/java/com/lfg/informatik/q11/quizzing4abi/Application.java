@@ -1,18 +1,10 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.net.Uri;
 import android.view.View;
 import com.lfg.informatik.q11.quizzing4abi.app_states.AppStartState;
 import com.lfg.informatik.q11.quizzing4abi.app_states.AppState;
 import com.lfg.informatik.q11.quizzing4abi.app_states.MainMenuState;
 import com.lfg.informatik.q11.quizzing4abi.model_io.FileIO;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 
 /**
  * Created by Adrian on 30.06.2015.
