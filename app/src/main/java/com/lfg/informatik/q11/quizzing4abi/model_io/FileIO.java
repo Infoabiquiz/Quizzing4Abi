@@ -15,7 +15,7 @@ import java.io.OutputStream;
 /**
  * Created by Chris on 11.07.2015.
  * Provides reading and writing access to the internal storage of the app.
- * Is is also possible to read raw resources.
+ * It is also possible to read raw resources or to use the utility stream functions.
  * Note: Before usage the MainActivity has to be set!
  */
 
@@ -23,12 +23,20 @@ public class FileIO
 {
     private static MainActivity mainActivity = null;
 
+    /**
+     * Sets the context that holds the internal storage and the resources.
+     * @param mainActivity a valid MainActivity
+     */
     public static void setMainActivity(MainActivity mainActivity)
     {
         FileIO.mainActivity = mainActivity;
     }
 
-    // TODO
+    /**
+     * Checks if a file exists in the internal storage of the app.
+     * @param filename the filename + file extensions
+     * @return true if the file exists
+     */
     public static boolean checkFileExistence(String filename)
     {
         File file = mainActivity.getFileStreamPath(filename);
@@ -46,19 +54,34 @@ public class FileIO
         return mainActivity.openFileInput(filename);
     }
 
-    // TODO
+    /**
+     * Opens a file from the internal storage of the app.
+     * @param filename name of the file + file extension (e.g. "test.xml")
+     * @return the OutputStream belonging to the file. Don´t forget to close it after use!
+     * @throws FileNotFoundException
+     */
     public static OutputStream openOutputFile(String filename) throws FileNotFoundException
     {
         return mainActivity.openFileOutput(filename, Context.MODE_PRIVATE);
     }
 
-    // TODO
+    /**
+     * Opens a raw resource.
+     * @param rawID the id of the raw resource
+     * @return the InputStream belonging to the resource. Don´t forget to close it after use!
+     */
     public static InputStream openRawResource(int rawID)
     {
         return mainActivity.getResources().openRawResource(rawID);
     }
 
-    // TODO
+    /**
+     * Converts an InputStream to an OutputStream.
+     * (writes the input stream into the output stream)
+     * @param in a valid InputStream
+     * @param out a valid OutputStream
+     * @throws IOException
+     */
     public static void inputToOutput(InputStream in, OutputStream out) throws IOException
     {
         byte[] buffer = new byte[1024];
@@ -68,7 +91,11 @@ public class FileIO
             out.write(buffer, 0, read);
     }
 
-    // TODO
+    /**
+     * Closes a stream if isn´t null.
+     * @param stream an Input- / or OutputStream
+     * @return true if the stream has been closed
+     */
     public static boolean closeStream(Closeable stream)
     {
         if(stream != null)

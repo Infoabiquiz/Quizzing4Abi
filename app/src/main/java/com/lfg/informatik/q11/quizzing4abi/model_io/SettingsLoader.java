@@ -8,7 +8,7 @@ package com.lfg.informatik.q11.quizzing4abi.model_io;
 public class SettingsLoader implements XMLHandler
 {
     private String currentTag;
-    private String backgroundColor;
+    private String backgroundColor = "#FFFFFFFF";
 
     /**
      * After the loading process has finished, this method returns the background color.
