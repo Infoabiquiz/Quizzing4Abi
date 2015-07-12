@@ -16,6 +16,7 @@ import java.io.OutputStream;
  * Created by Chris on 11.07.2015.
  * Provides reading and writing access to the internal storage of the app.
  * Is is also possible to read raw resources.
+ * Note: Before usage the MainActivity has to be set!
  */
 
 public class FileIO

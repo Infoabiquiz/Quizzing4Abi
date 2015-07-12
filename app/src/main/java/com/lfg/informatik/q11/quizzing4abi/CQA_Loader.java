@@ -2,12 +2,14 @@ package com.lfg.informatik.q11.quizzing4abi;
 
 import com.lfg.informatik.q11.quizzing4abi.model_io.CategoryBuilder;
 import com.lfg.informatik.q11.quizzing4abi.model_io.CategoryNameLoader;
+import com.lfg.informatik.q11.quizzing4abi.model_io.FileIO;
 import com.lfg.informatik.q11.quizzing4abi.model_io.SAXDocumentHandler;
 import com.lfg.informatik.q11.quizzing4abi.model_io.SubCategoryBuilder;
 import com.lfg.informatik.q11.quizzing4abi.model_io.SubCategoryNameLoader;
 
 import org.xml.sax.SAXException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -17,11 +19,8 @@ import javax.xml.parsers.ParserConfigurationException;
  * process of the Categories, SubCategories, Questions and Answers.
  */
 
-public class CQA_Loader
+public class CQA_Loader // TODO: Simplify parsing code into function
 {
-    private static final String questionDataFilename =
-            "app\\src\\main\\res\\raw\\question_data.xml";
-
     /**
      * Loads all or just required Categories.
      * @param requiredCategories list of names of specific required Categories or null
@@ -32,9 +31,10 @@ public class CQA_Loader
         CategoryBuilder categoryBuilder = new CategoryBuilder(requiredCategories);
         SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(categoryBuilder);
 
+        InputStream rawQuestionData = FileIO.openRawResource(R.raw.question_data);
         try
         {
-            saxDocumentHandler.parse(questionDataFilename);
+            saxDocumentHandler.parse(rawQuestionData);
         }
         catch (SAXException | IOException | ParserConfigurationException e)
         {
@@ -42,6 +42,10 @@ public class CQA_Loader
             + e.getMessage());
 
             return null;
+        }
+        finally
+        {
+            FileIO.closeStream(rawQuestionData);
         }
 
         return categoryBuilder.takeBuiltCategories();
@@ -60,9 +64,10 @@ public class CQA_Loader
                 requiredSubCategories);
         SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(subCategoryBuilder);
 
+        InputStream rawQuestionData = FileIO.openRawResource(R.raw.question_data);
         try
         {
-            saxDocumentHandler.parse(questionDataFilename);
+            saxDocumentHandler.parse(rawQuestionData);
         }
         catch (SAXException | IOException | ParserConfigurationException e)
         {
@@ -70,6 +75,10 @@ public class CQA_Loader
                     + e.getMessage());
 
             return null;
+        }
+        finally
+        {
+            FileIO.closeStream(rawQuestionData);
         }
 
         return subCategoryBuilder.takeBuiltSubCategories();
@@ -84,9 +93,10 @@ public class CQA_Loader
         CategoryNameLoader categoryNameLoader = new CategoryNameLoader();
         SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(categoryNameLoader);
 
+        InputStream rawQuestionData = FileIO.openRawResource(R.raw.question_data);
         try
         {
-            saxDocumentHandler.parse(questionDataFilename);
+            saxDocumentHandler.parse(rawQuestionData);
         }
         catch (SAXException | IOException | ParserConfigurationException e)
         {
@@ -94,6 +104,10 @@ public class CQA_Loader
                     + e.getMessage());
 
             return null;
+        }
+        finally
+        {
+            FileIO.closeStream(rawQuestionData);
         }
 
         return categoryNameLoader.takeLoadedCategoryNames();
@@ -109,9 +123,10 @@ public class CQA_Loader
         SubCategoryNameLoader subCategoryNameLoader = new SubCategoryNameLoader(categoryName);
         SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(subCategoryNameLoader);
 
+        InputStream rawQuestionData = FileIO.openRawResource(R.raw.question_data);
         try
         {
-            saxDocumentHandler.parse(questionDataFilename);
+            saxDocumentHandler.parse(rawQuestionData);
         }
         catch (SAXException | IOException | ParserConfigurationException e)
         {
@@ -119,6 +134,10 @@ public class CQA_Loader
                     + e.getMessage());
 
             return null;
+        }
+        finally
+        {
+            FileIO.closeStream(rawQuestionData);
         }
 
         return subCategoryNameLoader.takeLoadedSubCategoryNames();

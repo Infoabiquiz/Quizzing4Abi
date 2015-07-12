@@ -15,6 +15,8 @@ import java.util.Locale;
  */
 
 public class Test
+// TODO: Tests will only be possible while the app is running
+// TODO: -> Integrate Test class into the Application
 {
     /**
      * Test main
