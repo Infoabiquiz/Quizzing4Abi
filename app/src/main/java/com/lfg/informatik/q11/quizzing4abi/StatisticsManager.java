@@ -50,4 +50,6 @@ public class StatisticsManager // TODO: Change to Streams
     }
 
     // TODO: Implement add method
+
+    // TODO: Implement delete method
 }

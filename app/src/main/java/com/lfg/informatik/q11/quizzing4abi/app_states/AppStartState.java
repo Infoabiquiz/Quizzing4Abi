@@ -20,7 +20,7 @@ import java.io.OutputStream;
 public class AppStartState extends AppState
 {
     /**
-     * Constructor.
+     * Constructor. Creates relevant internal storage files if they do not exist.
      * @param application a valid Application
      */
     public AppStartState(Application application)
@@ -35,34 +35,44 @@ public class AppStartState extends AppState
         {
             InputStream rawSettings = FileIO.openRawResource(R.raw.settings);
 
-            OutputStream internalSettings;
+            OutputStream internalSettings = null;
             try
             {
                 internalSettings = FileIO.openOutputFile("settings.xml");
+                FileIO.inputToOutput(rawSettings, internalSettings);
             }
-            catch (FileNotFoundException e)
+            catch (IOException e)
             {
-                ExceptionHandler.showAlertDialog("Internal settings not found. Error: "
+                ExceptionHandler.showAlertDialog("Internal settings could not be created. Error: "
                         + e.getMessage());
                 return;
             }
             finally
             {
                 FileIO.closeStream(rawSettings);
+                FileIO.closeStream(internalSettings);
             }
+        }
 
+        if(!FileIO.checkFileExistence("statistics.xml"))
+        {
+            InputStream rawSettings = FileIO.openRawResource(R.raw.statistics);
+
+            OutputStream internalStatistics = null;
             try
             {
-                FileIO.inputToOutput(rawSettings, internalSettings);
+                internalStatistics = FileIO.openOutputFile("statistics.xml");
+                FileIO.inputToOutput(rawSettings, internalStatistics);
             }
             catch (IOException e)
             {
-                ExceptionHandler.showAlertDialog("Failed writing to internal Error: "
+                ExceptionHandler.showAlertDialog("Internal statistics could not be created. Error: "
                         + e.getMessage());
             }
             finally
             {
-                FileIO.closeStream(internalSettings);
+                FileIO.closeStream(rawSettings);
+                FileIO.closeStream(internalStatistics);
             }
         }
     }
