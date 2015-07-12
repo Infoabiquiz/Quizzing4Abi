@@ -56,6 +56,23 @@ public class ActiveQuestionState extends GameState
         {
             case R.id.active_question_answer1:
             {
+                Answer answer = currentQuestion.getAnswers().get(0);
+                if(answer.isCorrect())
+                {
+                    ((Button)view).setBackgroundColor(Color.GREEN);
+                }
+                else
+                {
+                    ((Button)view).setBackgroundColor(Color.RED);
+                    // Color the right one orange.
+                }
+
+                gameData.addAnsweredQuestions(new AnsweredQuestion(currentQuestion, true, 0));
+
+                // Wait for user
+
+                // application.setState(new ActiveQuestionState(application, gameData));
+
                 // TODO: Add functionality
                 break;
             }
