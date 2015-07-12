@@ -1,6 +1,8 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
 import android.view.View;
+import android.widget.Button;
+
 import com.lfg.informatik.q11.quizzing4abi.app_states.AppStartState;
 import com.lfg.informatik.q11.quizzing4abi.app_states.AppState;
 import com.lfg.informatik.q11.quizzing4abi.app_states.MainMenuState;
@@ -78,5 +80,14 @@ public class Application
     public void onClick(View view)
     {
         currentAppState.onClick(view);
+    }
+
+    /**
+     * Creates a new button. The configuration has to be done by the caller.
+     * @return a new Button
+     */
+    public Button createNewButton()
+    {
+        return new Button(mainActivity);
     }
 }
