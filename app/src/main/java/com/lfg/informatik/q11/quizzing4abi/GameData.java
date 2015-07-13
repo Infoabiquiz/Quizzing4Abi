@@ -48,6 +48,29 @@ public class GameData
     }
 
     /**
+     * Returns the Category and SubCategory name of that SubCategory the question is part of.
+     * In the format: "CategoryName - SubCategoryName".
+     * @param question the question to search the name for
+     * @return the Cat and subCat name of that Question or "" if matches found
+     */
+    public String getCategoryNameOf(Question question)
+    {
+        for(Category category : categories)
+        {
+            for(SubCategory subCategory : category.getSubCategories())
+            {
+                if(subCategory.getQuestions().contains(question))
+                {
+                    return category.getCategoryName() + " - "
+                            + subCategory.getSubCategoryName();
+                }
+            }
+        }
+
+        return "";
+    }
+
+    /**
      * Adds an AnsweredQuestion to the answeredQuestion history.
      * @param answeredQuestion the just answered question
      */
