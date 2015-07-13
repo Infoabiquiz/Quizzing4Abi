@@ -82,44 +82,39 @@ public class ActiveQuestionState extends GameState
         {
             case R.id.active_question_answer1:
             {
-                boolean correctAnswered = currentQuestion.getAnswers().get(0).isCorrect();
-                colorButtons((Button) view, correctAnswered);
-                // TODO: Add duration
-                gameData.addAnsweredQuestions(new AnsweredQuestion(currentQuestion,
-                        correctAnswered, 0));
-
-                // TODO: Wait for user
-
-                // TODO: application.setState(new ActiveQuestionState(application, gameData));
+                handleChosenAnswer((Button)view, 0);
                 break;
             }
             case R.id.active_question_answer2:
             {
-                boolean correctAnswered = currentQuestion.getAnswers().get(1).isCorrect();
-                colorButtons((Button)view, correctAnswered);
-                // TODO: Add duration
-                gameData.addAnsweredQuestions(new AnsweredQuestion(currentQuestion,
-                        correctAnswered, 0));
-
-                // TODO: Wait for user
-
-                // TODO: application.setState(new ActiveQuestionState(application, gameData));
+                handleChosenAnswer((Button)view, 1);
                 break;
             }
             case R.id.active_question_answer3:
             {
-                boolean correctAnswered = currentQuestion.getAnswers().get(2).isCorrect();
-                colorButtons((Button)view, correctAnswered);
-                // TODO: Add duration
-                gameData.addAnsweredQuestions(new AnsweredQuestion(currentQuestion,
-                        correctAnswered, 0));
-
-                // TODO: Wait for user
-
-                // TODO: application.setState(new ActiveQuestionState(application, gameData));
+                handleChosenAnswer((Button)view, 2);
                 break;
             }
         }
+    }
+
+    /**
+     * Gets called if the user chooses any Answer (presses the button).
+     * Colors the buttons and adds the currentQuestion to the answered Questions.
+     * @param chosenAnswer the pressed button
+     * @param answerIndex the index of this button (starting with 0)
+     */
+    private void handleChosenAnswer(Button chosenAnswer, int answerIndex)
+    {
+        boolean correctAnswered = currentQuestion.getAnswers().get(answerIndex).isCorrect();
+        colorButtons(chosenAnswer, correctAnswered);
+        // TODO: Add duration
+        gameData.addAnsweredQuestions(new AnsweredQuestion(currentQuestion,
+                correctAnswered, 0));
+
+        // TODO: Wait for user
+
+        // TODO: application.setState(new ActiveQuestionState(application, gameData));
     }
 
     /**
