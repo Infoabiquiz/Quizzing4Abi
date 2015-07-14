@@ -2,7 +2,9 @@ package com.lfg.informatik.q11.quizzing4abi.app_states;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.lfg.informatik.q11.quizzing4abi.Application;
 import com.lfg.informatik.q11.quizzing4abi.CQA_Loader;
@@ -43,15 +45,19 @@ public class GameProperties2State extends GameState implements View.OnClickListe
                 return;
             }
 
+            LinearLayout buttonList = (LinearLayout)application
+                    .getViewByID(R.id.game_properties2_list);
+
             // For each SubCategory, add a button to the view
             // and create the SelectableCategory list.
             for(String subCategoryName : subCategoryNames)
             {
-                ListView listView = (ListView)application.getViewByID(R.id.game_properties2_list);
                 Button button = application.createNewButton();
                 button.setText(categoryName + " - " + subCategoryName);
                 button.setOnClickListener(this);
-                listView.addFooterView(button);
+
+                buttonList.addView(button, LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT);
 
                 selectableSubCategories.add(new SelectableCategory(categoryName,
                         subCategoryName, button));
