@@ -57,5 +57,13 @@ public class GameProperties2State extends GameState
     public void onClick(View view)
     {
         // TODO: Add functionality
+        switch(view.getId())
+        {
+            case R.id.game_properties2_menu:
+            {
+                application.setState(new MainMenuState(application));
+                //return
+                break;
+            }
     }
 }
