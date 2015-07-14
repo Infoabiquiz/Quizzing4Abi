@@ -20,7 +20,8 @@ public class SelectableCategory
      * @param subCategoryName the subCategory name
      * @param correspondingButton the button which shows the names
      */
-    public SelectableCategory(String categoryName, String subCategoryName, Button correspondingButton)
+    public SelectableCategory(String categoryName, String subCategoryName,
+                              Button correspondingButton)
     {
         this.categoryName = categoryName;
         this.subCategoryName = subCategoryName;

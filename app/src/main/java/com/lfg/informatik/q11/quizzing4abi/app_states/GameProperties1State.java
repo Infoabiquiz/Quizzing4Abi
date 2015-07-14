@@ -18,7 +18,7 @@ import java.util.List;
  * from which the user chooses from.
  */
 
-public class GameProperties1State extends GameState
+public class GameProperties1State extends GameState implements View.OnClickListener
 {
     private List<SelectableCategory> selectableCategories;
 
@@ -47,6 +47,8 @@ public class GameProperties1State extends GameState
             ListView listView = (ListView)application.getViewByID(R.id.game_properties1_list);
             Button button = application.createNewButton();
             button.setText(categoryName);
+            button.setOnClickListener(this);
+
             listView.addFooterView(button);
 
             selectableCategories.add(new SelectableCategory(categoryName, button));

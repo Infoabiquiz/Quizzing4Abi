@@ -18,7 +18,7 @@ import java.util.List;
  * chosen Categories, from which the user chooses from.
  */
 
-public class GameProperties2State extends GameState
+public class GameProperties2State extends GameState implements View.OnClickListener
 {
     private List<SelectableCategory> selectableSubCategories;
 
@@ -50,6 +50,7 @@ public class GameProperties2State extends GameState
                 ListView listView = (ListView)application.getViewByID(R.id.game_properties2_list);
                 Button button = application.createNewButton();
                 button.setText(categoryName + " - " + subCategoryName);
+                button.setOnClickListener(this);
                 listView.addFooterView(button);
 
                 selectableSubCategories.add(new SelectableCategory(categoryName,
