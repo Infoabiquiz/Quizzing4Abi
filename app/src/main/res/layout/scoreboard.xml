@@ -10,7 +10,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="46dp"
-        android:background="@drawable/podium" />
+        android:background="@drawable/podium"
+        android:onClick="onClick" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -20,7 +21,8 @@
         android:layout_marginTop="52dp"
         android:layout_below="@+id/scoreboard_podium"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="onClick" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -29,7 +31,8 @@
         android:background="@drawable/second_place"
         android:layout_below="@+id/scoreboard_icon_1"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="onClick" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -38,7 +41,8 @@
         android:background="@drawable/third_place"
         android:layout_below="@+id/scoreboard_icon_2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="onClick" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -48,7 +52,8 @@
         android:id="@+id/scoreboard_first"
         android:layout_alignTop="@+id/scoreboard_icon_1"
         android:layout_toRightOf="@+id/scoreboard_icon_1"
-        android:layout_toEndOf="@+id/scoreboard_icon_1" />
+        android:layout_toEndOf="@+id/scoreboard_icon_1"
+        android:onClick="onClick" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -58,7 +63,8 @@
         android:id="@+id/scoreboard_second"
         android:layout_below="@+id/scoreboard_icon_1"
         android:layout_toRightOf="@+id/scoreboard_icon_1"
-        android:layout_toEndOf="@+id/scoreboard_icon_1" />
+        android:layout_toEndOf="@+id/scoreboard_icon_1"
+        android:onClick="onClick" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -68,7 +74,8 @@
         android:id="@+id/scoreboard_third"
         android:layout_below="@+id/scoreboard_icon_2"
         android:layout_toRightOf="@+id/scoreboard_icon_2"
-        android:layout_toEndOf="@+id/scoreboard_icon_2" />
+        android:layout_toEndOf="@+id/scoreboard_icon_2"
+        android:onClick="onClick" />
 
     <ImageButton
         android:layout_width="100dp"
