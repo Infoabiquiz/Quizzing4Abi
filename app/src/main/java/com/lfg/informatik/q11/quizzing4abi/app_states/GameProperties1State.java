@@ -34,5 +34,11 @@ public class GameProperties1State extends GameState
     public void onClick(View view)
     {
         // TODO: Add functionality
+
+        if(view.getId() == R.id.game_properties1_menu)
+        {
+            application.setState(new MainMenuState(application));
+            //return;
+        }
     }
 }

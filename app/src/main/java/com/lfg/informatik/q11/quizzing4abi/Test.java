@@ -15,13 +15,15 @@ import java.util.Locale;
  */
 
 public class Test
+// TODO: Tests will only be possible while the app is running
+// TODO: -> Integrate Test class into the Application
 {
     /**
      * Test main
      */
     public static void main(String args[])
     {
-        testCQA();
+        testWriter();
     }
 
     /**
@@ -77,13 +79,13 @@ public class Test
 
     public static void testWriter()
     {
-        SettingsManager.setBackgroundColor(Color.CYAN);
+        System.out.println("Background Color: " + SettingsManager.getBackgroundColor());
+
+        SettingsManager.setBackgroundColor(Color.RED);
 
         System.out.println("Background Color: " + SettingsManager.getBackgroundColor());
 
         SettingsManager.setBackgroundColor(Color.WHITE);
-
-        System.out.println("Background Color: " + SettingsManager.getBackgroundColor());
     }
 
     /**

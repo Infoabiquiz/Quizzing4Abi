@@ -42,11 +42,9 @@ public class ExceptionHandler
      */
     public static void showAlertDialog(String message)
     {
-        if(context == null)
-        {
-            System.out.println(message);
-        }
-        else
+        System.out.println(message);
+
+        if (context != null)
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setMessage(message);

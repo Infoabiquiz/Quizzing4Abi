@@ -6,20 +6,11 @@
     android:id="@+id/main_menu_relative_layout"
     >
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:id="@+id/main_menu_logo"
-        android:background="@drawable/logo"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/main_menu_play"
-        android:background="@drawable/play"
-        android:layout_below="@+id/main_menu_logo"
+        android:background="@drawable/playbutton_medium"
         android:layout_centerHorizontal="true"
         android:onClick="onClick"/>
 
@@ -28,10 +19,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/main_menu_scoreboard"
         android:background="@drawable/podium"
-        android:layout_below="@+id/main_menu_play"
-        android:layout_toLeftOf="@+id/main_menu_play"
-        android:layout_toStartOf="@+id/main_menu_play"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/main_menu_play"
+        android:layout_alignStart="@+id/main_menu_play" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -40,8 +31,9 @@
         android:background="@drawable/speaker"
         android:layout_alignTop="@+id/main_menu_scoreboard"
         android:layout_toRightOf="@+id/main_menu_play"
-        android:layout_toEndOf="@+id/main_menu_play"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:layout_alignRight="@+id/main_menu_play"
+        android:layout_alignEnd="@+id/main_menu_play" />
 
     <ImageButton
         android:layout_width="100dp"
@@ -49,9 +41,8 @@
         android:id="@+id/main_menu_statistics"
         android:background="@drawable/statistics"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/main_menu_logo"
-        android:layout_alignStart="@+id/main_menu_logo"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:layout_width="wrap_content"

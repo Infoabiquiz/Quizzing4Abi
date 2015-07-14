@@ -4,6 +4,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import java.io.File;
+import java.io.OutputStream;
 import java.util.Stack;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -86,11 +87,11 @@ public class XMLWriter
     }
 
     /**
-     * Saves the generated document to the xml file specified by filename.
-     * @param filename filename of the target xml file
+     * Saves the generated document to the xml file specified by the output stream.
+     * @param outputStream output stream of the target xml file
      * @throws TransformerException
      */
-    public void saveTo(String filename) throws TransformerException
+    public void saveTo(OutputStream outputStream) throws TransformerException
     {
         generateLastClosingTags();
 
@@ -102,7 +103,7 @@ public class XMLWriter
         doc.setXmlStandalone(true);
 
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(new File(filename));
+        StreamResult result = new StreamResult(outputStream);
 
         transformer.transform(source, result);
     }

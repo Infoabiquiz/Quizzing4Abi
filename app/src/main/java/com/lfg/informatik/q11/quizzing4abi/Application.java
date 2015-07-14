@@ -1,8 +1,14 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
 import android.view.View;
+import android.widget.Button;
+
 import com.lfg.informatik.q11.quizzing4abi.app_states.AppStartState;
 import com.lfg.informatik.q11.quizzing4abi.app_states.AppState;
+import com.lfg.informatik.q11.quizzing4abi.app_states.MainMenuState;
+import com.lfg.informatik.q11.quizzing4abi.model_io.FileIO;
+
+import java.util.List;
 
 /**
  * Created by Adrian on 30.06.2015.
@@ -21,7 +27,11 @@ public class Application
    public Application(MainActivity mainActivity)
     {
         this.mainActivity = mainActivity;
-        new AppStartState(this); // current state assignment left out for bug prevention!
+
+        FileIO.setMainActivity(mainActivity);
+
+        currentAppState = new AppStartState(this);
+        currentAppState = new MainMenuState(this);
     }
 
     /**
@@ -40,8 +50,17 @@ public class Application
     public void setLayout(int layoutID)
     {
         mainActivity.setContentView(layoutID);
-        mainActivity.findViewById(layoutID).setBackgroundColor(
-                SettingsManager.getBackgroundColor());
+        updateBackgroundColor();
+    }
+
+    /**
+     * Updates the background color of the current layout.
+     */
+    public void updateBackgroundColor()
+    {
+        int color = SettingsManager.getBackgroundColor();
+        if(color != 0)
+            mainActivity.getWindow().getDecorView().setBackgroundColor(color);
     }
 
     /**
@@ -61,5 +80,14 @@ public class Application
     public void onClick(View view)
     {
         currentAppState.onClick(view);
+    }
+
+    /**
+     * Creates a new button. The configuration has to be done by the caller.
+     * @return a new Button
+     */
+    public Button createNewButton()
+    {
+        return new Button(mainActivity);
     }
 }

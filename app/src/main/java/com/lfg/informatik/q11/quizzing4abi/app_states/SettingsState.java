@@ -33,38 +33,47 @@ public class SettingsState extends AppState
     @Override
     public void onClick(View view)
     {
-        // TODO: Add functionality
-
         switch(view.getId())
         {
+            case R.id.settings_menu:
+            {
+                application.setState(new MainMenuState(application));
+                break;
+            }
             case R.id.settings_pickcolor_blue:
             {
                 SettingsManager.setBackgroundColor(Color.BLUE);
+                application.updateBackgroundColor();
                 break;
             }
             case R.id.settings_pickcolor_cyan:
             {
                 SettingsManager.setBackgroundColor(Color.CYAN);
+                application.updateBackgroundColor();
                 break;
             }
             case R.id.settings_pickcolor_white:
             {
                 SettingsManager.setBackgroundColor(Color.WHITE);
+                application.updateBackgroundColor();
                 break;
             }
             case R.id.settings_pickcolor_red:
             {
                 SettingsManager.setBackgroundColor(Color.RED);
+                application.updateBackgroundColor();
                 break;
             }
             case R.id.settings_pickcolor_green:
             {
                 SettingsManager.setBackgroundColor(Color.GREEN);
+                application.updateBackgroundColor();
                 break;
             }
             case R.id.settings_pickcolor_yellow:
             {
                 SettingsManager.setBackgroundColor(Color.YELLOW);
+                application.updateBackgroundColor();
                 break;
             }
         }

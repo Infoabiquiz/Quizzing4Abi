@@ -29,6 +29,7 @@ public class SubCategoryBuilder implements XMLHandler
     private String currentQuestion;
     private String currentAnswer;
     private boolean currentCorrectness;
+    private int currentDifficulty;
 
     private String categoryName;
     private List<String> requiredSubCategories;
@@ -100,7 +101,7 @@ public class SubCategoryBuilder implements XMLHandler
         }
         else if(tagName.equals("Question"))
         {
-            tempQuestionList.add(new Question(currentQuestion, tempAnswerList));
+            tempQuestionList.add(new Question(currentQuestion, tempAnswerList, currentDifficulty));
             tempAnswerList = new LinkedList<>();
         }
         else if(tagName.equals("Answer"))
@@ -142,6 +143,21 @@ public class SubCategoryBuilder implements XMLHandler
         {
             if (attributeName.equals("Text"))
                 currentQuestion = content;
+            else if(attributeName.equals("Difficulty"))
+            {
+                switch (content)
+                {
+                    case "leicht":
+                        currentDifficulty = 1;
+                        break;
+                    case "mittel":
+                        currentDifficulty = 2;
+                        break;
+                    case "schwer":
+                        currentDifficulty = 3;
+                        break;
+                }
+            }
         }
         else if(tagHierarchy.peek().equals("Answer"))
         {

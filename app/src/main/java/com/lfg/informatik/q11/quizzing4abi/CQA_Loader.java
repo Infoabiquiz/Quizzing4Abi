@@ -2,12 +2,14 @@ package com.lfg.informatik.q11.quizzing4abi;
 
 import com.lfg.informatik.q11.quizzing4abi.model_io.CategoryBuilder;
 import com.lfg.informatik.q11.quizzing4abi.model_io.CategoryNameLoader;
+import com.lfg.informatik.q11.quizzing4abi.model_io.FileIO;
 import com.lfg.informatik.q11.quizzing4abi.model_io.SAXDocumentHandler;
 import com.lfg.informatik.q11.quizzing4abi.model_io.SubCategoryBuilder;
 import com.lfg.informatik.q11.quizzing4abi.model_io.SubCategoryNameLoader;
 
 import org.xml.sax.SAXException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -19,22 +21,19 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class CQA_Loader
 {
-    private static final String questionDataFilename =
-            "app\\src\\main\\res\\raw\\question_data.xml";
-
     /**
      * Loads all or just required Categories.
      * @param requiredCategories list of names of specific required Categories or null
      * @return List of loaded Categories or null if loading failed
      */
-    static public List<Category> loadCategories(List<String> requiredCategories)
+    public static List<Category> loadCategories(List<String> requiredCategories)
     {
         CategoryBuilder categoryBuilder = new CategoryBuilder(requiredCategories);
         SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(categoryBuilder);
 
         try
         {
-            saxDocumentHandler.parse(questionDataFilename);
+            parseQuestionData(saxDocumentHandler);
         }
         catch (SAXException | IOException | ParserConfigurationException e)
         {
@@ -53,7 +52,7 @@ public class CQA_Loader
      * @param requiredSubCategories list of names of required SubCategories or null
      * @return List of loaded SubCategories or null if loading failed
      */
-    static public List<SubCategory> loadSubCategories(String categoryName,
+    public static List<SubCategory> loadSubCategories(String categoryName,
                                                       List<String> requiredSubCategories)
     {
         SubCategoryBuilder subCategoryBuilder = new SubCategoryBuilder(categoryName,
@@ -62,7 +61,7 @@ public class CQA_Loader
 
         try
         {
-            saxDocumentHandler.parse(questionDataFilename);
+            parseQuestionData(saxDocumentHandler);
         }
         catch (SAXException | IOException | ParserConfigurationException e)
         {
@@ -79,14 +78,14 @@ public class CQA_Loader
      * Loads and returns all names of the available Categories.
      * @return List of all available Category names or null if loading failed
      */
-    static public List<String> getAllCategoryNames()
+    public static List<String> getAllCategoryNames()
     {
         CategoryNameLoader categoryNameLoader = new CategoryNameLoader();
         SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(categoryNameLoader);
 
         try
         {
-            saxDocumentHandler.parse(questionDataFilename);
+            parseQuestionData(saxDocumentHandler);
         }
         catch (SAXException | IOException | ParserConfigurationException e)
         {
@@ -104,14 +103,14 @@ public class CQA_Loader
      * @param categoryName name of the Category containing the required SubCategories
      * @return List of all available SubCategory names or null if loading failed
      */
-    static public List<String> getAllSubCategoryNames(String categoryName)
+    public static List<String> getAllSubCategoryNames(String categoryName)
     {
         SubCategoryNameLoader subCategoryNameLoader = new SubCategoryNameLoader(categoryName);
         SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(subCategoryNameLoader);
 
         try
         {
-            saxDocumentHandler.parse(questionDataFilename);
+            parseQuestionData(saxDocumentHandler);
         }
         catch (SAXException | IOException | ParserConfigurationException e)
         {
@@ -122,5 +121,27 @@ public class CQA_Loader
         }
 
         return subCategoryNameLoader.takeLoadedSubCategoryNames();
+    }
+
+    /**
+     * Loads the question data xml raw file as stream
+     * and parses it with the given SAXDocumentHandler.
+     * @param saxDocumentHandler a valid SAXDocumentHandler
+     * @throws ParserConfigurationException
+     * @throws SAXException
+     * @throws IOException
+     */
+    private static void parseQuestionData(SAXDocumentHandler saxDocumentHandler)
+            throws ParserConfigurationException, SAXException, IOException
+    {
+        InputStream rawQuestionData = FileIO.openRawResource(R.raw.question_data);
+        try
+        {
+            saxDocumentHandler.parse(rawQuestionData);
+        }
+        finally
+        {
+            FileIO.closeStream(rawQuestionData);
+        }
     }
 }

@@ -1,12 +1,16 @@
 package com.lfg.informatik.q11.quizzing4abi;
 
+import com.lfg.informatik.q11.quizzing4abi.model_io.FileIO;
 import com.lfg.informatik.q11.quizzing4abi.model_io.SAXDocumentHandler;
 import com.lfg.informatik.q11.quizzing4abi.model_io.SettingsLoader;
 import com.lfg.informatik.q11.quizzing4abi.model_io.XMLWriter;
 
 import org.xml.sax.SAXException;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -18,8 +22,6 @@ import javax.xml.transform.TransformerException;
 
 public class SettingsManager
 {
-    private static final String settingsFilename = "app\\src\\main\\res\\raw\\settings.xml";
-
     private static int backgroundColor = 0xFFFFFFFF;
     private static boolean settingsLoaded = false;
 
@@ -29,14 +31,16 @@ public class SettingsManager
      */
     public static int getBackgroundColor()
     {
-        if(!settingsLoaded)
+        if(!settingsLoaded && FileIO.checkFileExistence("settings.xml"))
         {
+            InputStream inputStream = null;
             try
             {
                 SettingsLoader settingsLoader = new SettingsLoader();
                 SAXDocumentHandler saxDocumentHandler = new SAXDocumentHandler(settingsLoader);
 
-                saxDocumentHandler.parse(settingsFilename);
+                inputStream = FileIO.openInputFile("settings.xml");
+                saxDocumentHandler.parse(inputStream);
 
                 backgroundColor = settingsLoader.getBackgroundColor();
 
@@ -47,6 +51,10 @@ public class SettingsManager
                 ExceptionHandler.showAlertDialog("Loading settings failed. Error: "
                         + e.getMessage());
                 return 0;
+            }
+            finally
+            {
+                FileIO.closeStream(inputStream);
             }
         }
 
@@ -60,6 +68,7 @@ public class SettingsManager
      */
     public static boolean setBackgroundColor(int backgroundColor)
     {
+        OutputStream outputStream = null;
         try
         {
             XMLWriter xmlWriter = new XMLWriter();
@@ -69,7 +78,8 @@ public class SettingsManager
 
             xmlWriter.setAttribute(null, '#' + Integer.toHexString(backgroundColor).toUpperCase());
 
-            xmlWriter.saveTo(settingsFilename);
+            outputStream = FileIO.openOutputFile("settings.xml");
+            xmlWriter.saveTo(outputStream);
 
             SettingsManager.backgroundColor = backgroundColor;
         }
@@ -77,6 +87,16 @@ public class SettingsManager
         {
             ExceptionHandler.showAlertDialog("Saving settings failed. Error: " + e.getMessage());
             return false;
+        }
+        catch(FileNotFoundException e)
+        {
+            ExceptionHandler.showAlertDialog("Opening the settings file failed. Error: "
+                    + e.getMessage());
+            return false;
+        }
+        finally
+        {
+            FileIO.closeStream(outputStream);
         }
 
         return true;

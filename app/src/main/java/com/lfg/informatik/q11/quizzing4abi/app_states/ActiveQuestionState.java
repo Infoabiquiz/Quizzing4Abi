@@ -2,6 +2,8 @@ package com.lfg.informatik.q11.quizzing4abi.app_states;
 
 import android.graphics.Color;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.lfg.informatik.q11.quizzing4abi.Answer;
 import com.lfg.informatik.q11.quizzing4abi.AnsweredQuestion;
@@ -10,7 +12,9 @@ import com.lfg.informatik.q11.quizzing4abi.GameData;
 import com.lfg.informatik.q11.quizzing4abi.Question;
 import com.lfg.informatik.q11.quizzing4abi.R;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Chris on 30.06.2015.
@@ -19,32 +23,52 @@ import java.util.List;
 
 public class ActiveQuestionState extends GameState
 {
-    private Question question;
-    private AnsweredQuestion answeredquestion;
-    private List<Answer> answer;
-    private Answer answer1;
-    private Answer answer2;
-    private Answer answer3;
-    private Answer answer4;
-    private GameData gamedata;
+    // TODO: Review
+    private GameData gameData;
+
+    private Question currentQuestion;
+    private Map<Button, Boolean> buttonCorrectness;
+
     /**
      * Constructor.
      * @param application a valid Application
      */
-
-    public ActiveQuestionState(Application application, List<Answer> answer)
+    public ActiveQuestionState(Application application, GameData gameData)
     {
         super(application);
-        this.answer=answer;
-        application.setLayout(R.layout.active_question);
-        question=gamedata.getRandomUnansweredQuestion();
-        answer = question.getAnswers();
-        answer1 = answer.get(0);
-        answer2 = answer.get(1);
-        answer3 = answer.get(2);
-        answer4 = answer.get(3);
-        this.active_question= acitve_question;
 
+        this.gameData = gameData;
+
+        currentQuestion = gameData.getRandomUnansweredQuestion();
+
+        application.setLayout(R.layout.active_question);
+
+        // Mark each button right or false, so it is easier to evaluate the chosen answer.
+        buttonCorrectness = new HashMap<>();
+        buttonCorrectness.put((Button)application.getViewByID(R.id.active_question_answer1),
+                currentQuestion.getAnswers().get(0).isCorrect());
+        buttonCorrectness.put((Button)application.getViewByID(R.id.active_question_answer2),
+                currentQuestion.getAnswers().get(1).isCorrect());
+        buttonCorrectness.put((Button)application.getViewByID(R.id.active_question_answer3),
+                currentQuestion.getAnswers().get(2).isCorrect());
+
+        // Set the Question text.
+        ((TextView)application.getViewByID(R.id.active_question_question))
+                .setText(currentQuestion.getQuestionText());
+
+        // Set the Answer texts.
+        int i = 0;
+        for(Button button : buttonCorrectness.keySet())
+        {
+            button.setText(currentQuestion.getAnswers().get(i).getAnswersText());
+            ++i;
+        }
+
+        // Set Category and SubCategory name.
+        ((TextView)application.getViewByID(R.id.active_question_category))
+                .setText(gameData.getCategoryNameOf(currentQuestion));
+
+        // TODO: Set difficulty
     }
 
     /**
@@ -58,59 +82,63 @@ public class ActiveQuestionState extends GameState
         {
             case R.id.active_question_answer1:
             {
-
-                if (answer1.isCorrect())
-                        {
-                            active_question_answer1.setbackgroundcolor(Color.GREEN);
-
-                        }
-                else
-                        {
-                            active_question_answer1.setbackgroundcolor (Color.RED);
-                        }
-
+                handleChosenAnswer((Button)view, 0);
                 break;
             }
             case R.id.active_question_answer2:
             {
-                if (answer2.isCorrect())
-                {
-                   active_question_answer2.setbackgroundcolor((Color.GREEN);
-
-                }
-                else
-                {
-                   active_question_answer2.setbackgroundcolor(Color.RED);}
-
+                handleChosenAnswer((Button)view, 1);
                 break;
             }
             case R.id.active_question_answer3:
             {
-                if (answer3.isCorrect())
-                {
-                   active_question_answer3.setbackgroundcolor (Color.GREEN);
-
-                }
-                else
-                {
-                   active_question_answer3.setbackgroundcolor (Color.RED);}
-
+                handleChosenAnswer((Button)view, 2);
                 break;
             }
-            case R.id.active_question_answer4:
+        }
+    }
+
+    /**
+     * Gets called if the user chooses any Answer (presses the button).
+     * Colors the buttons and adds the currentQuestion to the answered Questions.
+     * @param chosenAnswer the pressed button
+     * @param answerIndex the index of this button (starting with 0)
+     */
+    private void handleChosenAnswer(Button chosenAnswer, int answerIndex)
+    {
+        boolean correctAnswered = currentQuestion.getAnswers().get(answerIndex).isCorrect();
+        colorButtons(chosenAnswer, correctAnswered);
+        // TODO: Add duration
+        gameData.addAnsweredQuestions(new AnsweredQuestion(currentQuestion,
+                correctAnswered, 0));
+
+        // TODO: Wait for user
+
+        // TODO: application.setState(new ActiveQuestionState(application, gameData));
+    }
+
+    /**
+     * Colors the answer buttons in this way:
+     * -correctly answered = answered button gets colored green
+     * -wrongly answered = answered button gets colored red
+     *                     and the correct button gets colored yellow
+     * @param pressedButton the answer button pressed by the user
+     * @param correctAnswered true if answered correctly
+     */
+    private void colorButtons(Button pressedButton, boolean correctAnswered)
+    {
+        if(correctAnswered)
+        {
+            pressedButton.setBackgroundColor(Color.GREEN);
+        }
+        else
+        {
+            pressedButton.setBackgroundColor(Color.RED);
+            for(Button button : buttonCorrectness.keySet())
             {
-                if (answer4.isCorrect())
-                {
-                  active_question_answer4.setbackgroundcolor (Color.GREEN);
-
-                }
-                else
-                {
-                   active_question_answer4.setbackgroundcolor (Color.RED);}
-
-                break;
+                if(buttonCorrectness.get(button))
+                    button.setBackgroundColor(Color.YELLOW);
             }
-
         }
     }
 }
