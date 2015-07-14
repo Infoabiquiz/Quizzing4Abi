@@ -23,7 +23,6 @@ import java.util.Map;
 
 public class ActiveQuestionState extends GameState
 {
-    // TODO: Review
     private GameData gameData;
 
     private Question currentQuestion;
@@ -40,6 +39,10 @@ public class ActiveQuestionState extends GameState
         this.gameData = gameData;
 
         currentQuestion = gameData.getRandomUnansweredQuestion();
+        if(currentQuestion == null)
+        {
+            application.setState(new GameResultsState(application));
+        }
 
         application.setLayout(R.layout.active_question);
 
@@ -95,6 +98,14 @@ public class ActiveQuestionState extends GameState
                 handleChosenAnswer((Button)view, 2);
                 break;
             }
+            case R.id.main_menu_relative_layout:
+            {
+                if(currentQuestion == null)
+                {
+                    application.setState(new ActiveQuestionState(application, gameData));
+                }
+                break;
+            }
         }
     }
 
@@ -112,9 +123,7 @@ public class ActiveQuestionState extends GameState
         gameData.addAnsweredQuestions(new AnsweredQuestion(currentQuestion,
                 correctAnswered, 0));
 
-        // TODO: Wait for user
-
-        // TODO: application.setState(new ActiveQuestionState(application, gameData));
+        currentQuestion = null;
     }
 
     /**

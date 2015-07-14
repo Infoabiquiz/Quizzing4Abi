@@ -25,32 +25,22 @@
         android:layout_alignStart="@+id/main_menu_play" />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/main_menu_speaker"
-        android:background="@drawable/speaker"
-        android:layout_alignTop="@+id/main_menu_scoreboard"
-        android:layout_toRightOf="@+id/main_menu_play"
-        android:onClick="onClick"
-        android:layout_alignRight="@+id/main_menu_play"
-        android:layout_alignEnd="@+id/main_menu_play" />
-
-    <ImageButton
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:id="@+id/main_menu_statistics"
         android:background="@drawable/statistics"
-        android:layout_alignParentBottom="true"
         android:onClick="onClick"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/main_menu_scoreboard"
+        android:layout_alignStart="@+id/main_menu_scoreboard" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/main_menu_settings"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/main_menu_speaker"
-        android:layout_alignStart="@+id/main_menu_speaker"
         android:background="@drawable/gearwheel"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
