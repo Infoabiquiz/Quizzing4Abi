@@ -7,7 +7,9 @@ import android.widget.ListView;
 import com.lfg.informatik.q11.quizzing4abi.Application;
 import com.lfg.informatik.q11.quizzing4abi.CQA_Loader;
 import com.lfg.informatik.q11.quizzing4abi.R;
+import com.lfg.informatik.q11.quizzing4abi.SelectableCategory;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -18,6 +20,8 @@ import java.util.List;
 
 public class GameProperties2State extends GameState
 {
+    private List<SelectableCategory> selectableSubCategories;
+
     /**
      * Constructor.
      * @param application a valid Application
@@ -28,23 +32,28 @@ public class GameProperties2State extends GameState
 
         application.setLayout(R.layout.game_properties2);
 
+        selectableSubCategories = new LinkedList<>();
+
         for(String categoryName : chosenCategories)
         {
-            List<String> subCategories = CQA_Loader.getAllSubCategoryNames(categoryName);
-            if(subCategories == null)
+            List<String> subCategoryNames = CQA_Loader.getAllSubCategoryNames(categoryName);
+            if(subCategoryNames == null)
             {
                 application.setState(new MainMenuState(application));
                 return;
             }
 
-            for(String subCategoryName : subCategories)
+            // For each SubCategory, add a button to the view
+            // and create the SelectableCategory list.
+            for(String subCategoryName : subCategoryNames)
             {
                 ListView listView = (ListView)application.getViewByID(R.id.game_properties2_list);
                 Button button = application.createNewButton();
                 button.setText(categoryName + " - " + subCategoryName);
                 listView.addFooterView(button);
 
-                // TODO: New class for temporary saving the category names and the buttons
+                selectableSubCategories.add(new SelectableCategory(categoryName,
+                        subCategoryName, button));
             }
         }
     }
@@ -62,8 +71,8 @@ public class GameProperties2State extends GameState
             case R.id.game_properties2_menu:
             {
                 application.setState(new MainMenuState(application));
-                //return
                 break;
             }
+        }
     }
 }
