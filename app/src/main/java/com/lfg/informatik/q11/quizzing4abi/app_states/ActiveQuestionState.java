@@ -21,6 +21,8 @@ import java.util.Map;
 
 public class ActiveQuestionState extends GameState
 {
+    private static int maxAskedQuestions = 5;
+
     private GameData gameData;
 
     private Question currentQuestion;
@@ -106,11 +108,10 @@ public class ActiveQuestionState extends GameState
             }
             case R.id.active_question_menu:
             {
+                // TODO: Show game results screen before
                 application.setState(new MainMenuState(application));
                 break;
             }
-
-            // TODO: Add counter for answered questions to end the game after that
         }
     }
 
@@ -133,6 +134,10 @@ public class ActiveQuestionState extends GameState
 
         currentQuestion = null;
         application.getViewByID(R.id.active_question_continue).setVisibility(View.VISIBLE);
+
+        // End game if max Asked Questions are reached.
+        if(gameData.getAnsweredQuestions().size() >= maxAskedQuestions)
+            application.setState(new GameResultsState(application));
     }
 
     /**

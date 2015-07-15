@@ -79,7 +79,8 @@ public class GameProperties1State extends GameState implements View.OnClickListe
                 List<String> chosenCategories = new ArrayList<>();
                 for(SelectableCategory selectableCategory : selectableCategories)
                 {
-                    if((boolean)selectableCategory.getCorrespondingButton().getTag())
+                    Object tag = selectableCategory.getCorrespondingButton().getTag();
+                    if(tag != null && tag == true)
                         chosenCategories.add(selectableCategory.getCategoryName());
                 }
 
@@ -94,7 +95,7 @@ public class GameProperties1State extends GameState implements View.OnClickListe
             Button button = selectableCategory.getCorrespondingButton();
             if(button == view)
             {
-                if(button.getTag() == null || !(boolean)button.getTag())
+                if(button.getTag() == null || button.getTag() == false)
                 {
                     button.getBackground().setColorFilter(Color.CYAN, PorterDuff.Mode.MULTIPLY);
                     button.setTag(true);

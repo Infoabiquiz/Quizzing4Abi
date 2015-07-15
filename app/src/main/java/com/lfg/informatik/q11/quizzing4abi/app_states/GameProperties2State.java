@@ -98,7 +98,8 @@ public class GameProperties2State extends GameState implements View.OnClickListe
                 for(SelectableCategory selectableSubCategory : selectableSubCategories)
                 {
                     // if the button is selected
-                    if((boolean)selectableSubCategory.getCorrespondingButton().getTag())
+                    Object tag = selectableSubCategory.getCorrespondingButton().getTag();
+                    if(tag != null && tag == true)
                     {
                         // more than 1 subCategory of a Category chosen
                         if(currentCategory.equals(selectableSubCategory.getCategoryName()))
@@ -143,7 +144,7 @@ public class GameProperties2State extends GameState implements View.OnClickListe
             Button button = selectableSubCategory.getCorrespondingButton();
             if(button == view)
             {
-                if(button.getTag() == null || !(boolean)button.getTag())
+                if(button.getTag() == null || button.getTag() == false)
                 {
                     button.getBackground().setColorFilter(Color.CYAN, PorterDuff.Mode.MULTIPLY);
                     button.setTag(true);
