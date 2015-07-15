@@ -103,7 +103,11 @@ public class ActiveQuestionState extends GameState
             }
             case R.id.active_question_continue:
             {
-                application.setState(new ActiveQuestionState(application, gameData));
+                // End game if max Asked Questions are reached.
+                if(gameData.getAnsweredQuestions().size() >= maxAskedQuestions)
+                    application.setState(new GameResultsState(application));
+                else
+                    application.setState(new ActiveQuestionState(application, gameData));
                 break;
             }
             case R.id.active_question_menu:
@@ -134,10 +138,6 @@ public class ActiveQuestionState extends GameState
 
         currentQuestion = null;
         application.getViewByID(R.id.active_question_continue).setVisibility(View.VISIBLE);
-
-        // End game if max Asked Questions are reached.
-        if(gameData.getAnsweredQuestions().size() >= maxAskedQuestions)
-            application.setState(new GameResultsState(application));
     }
 
     /**
