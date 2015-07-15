@@ -2,12 +2,9 @@ package com.lfg.informatik.q11.quizzing4abi.app_states;
 
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
 
 import com.lfg.informatik.q11.quizzing4abi.Application;
 import com.lfg.informatik.q11.quizzing4abi.CQA_Loader;
