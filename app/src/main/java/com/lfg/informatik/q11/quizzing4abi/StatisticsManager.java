@@ -62,11 +62,19 @@ public class StatisticsManager
         return allGameStatistics;
     }
 
-    // TODO
+    /**
+     * Adds a new GameStatistics to the list of all game statistics and saves them to the
+     * statistics.xml file.
+     * @param gameStatistics a valid GameStatistics
+     * @return true if writing was successful
+     */
     public static boolean addGameStatistics(GameStatistics gameStatistics)
     {
-        // Load the statistics if they are not loaded yet.
         if(gameStatistics == null)
+            throw new IllegalArgumentException("GameStatistics must not be null!");
+
+        // Load the statistics if they are not loaded yet.
+        if(allGameStatistics == null)
             getAllGameStatistics();
 
         OutputStream outputStream = null;
