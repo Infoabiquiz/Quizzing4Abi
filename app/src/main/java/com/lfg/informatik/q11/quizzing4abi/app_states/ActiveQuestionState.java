@@ -112,8 +112,10 @@ public class ActiveQuestionState extends GameState
             }
             case R.id.active_question_menu:
             {
-                // TODO: Show game results screen before
-                application.setState(new MainMenuState(application));
+                if(gameData.getAnsweredQuestions().size() > 0)
+                    application.setState(new GameResultsState(application));
+                else
+                    application.setState(new MainMenuState(application));
                 break;
             }
         }
