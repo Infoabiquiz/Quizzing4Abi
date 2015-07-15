@@ -1,5 +1,7 @@
 package com.lfg.informatik.q11.quizzing4abi.app_states;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -8,9 +10,13 @@ import android.widget.RelativeLayout;
 
 import com.lfg.informatik.q11.quizzing4abi.Application;
 import com.lfg.informatik.q11.quizzing4abi.CQA_Loader;
+import com.lfg.informatik.q11.quizzing4abi.Category;
+import com.lfg.informatik.q11.quizzing4abi.GameData;
 import com.lfg.informatik.q11.quizzing4abi.R;
 import com.lfg.informatik.q11.quizzing4abi.SelectableCategory;
+import com.lfg.informatik.q11.quizzing4abi.SubCategory;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -72,13 +78,83 @@ public class GameProperties2State extends GameState implements View.OnClickListe
     @Override
     public void onClick(View view)
     {
-        // TODO: Add functionality
         switch(view.getId())
         {
             case R.id.game_properties2_menu:
             {
                 application.setState(new MainMenuState(application));
-                break;
+                return;
+            }
+            case R.id.game_properties2_ok:
+            {
+                List<Category> categories = new LinkedList<>();
+
+                String currentCategory = "";
+                List<String> chosenSubCategories = new ArrayList<>();
+
+                // TODO: Make a function for this
+                //// Load all required Categories:
+                // for each selectable button
+                for(SelectableCategory selectableSubCategory : selectableSubCategories)
+                {
+                    // if the button is selected
+                    if(selectableSubCategory.getCorrespondingButton().getTag() == true)
+                    {
+                        // more than 1 subCategory of a Category chosen
+                        if(currentCategory.equals(selectableSubCategory.getCategoryName()))
+                        {
+                            chosenSubCategories.add(selectableSubCategory.getSubCategoryName());
+                        }
+                        else // new Category begins
+                        {
+                            // process the SubCategories for the current Category
+                            if(chosenSubCategories.size() > 0)
+                            {
+                                List<SubCategory> subCategories = CQA_Loader
+                                        .loadSubCategories(currentCategory, chosenSubCategories);
+                                categories.add(new Category(currentCategory, subCategories));
+                                chosenSubCategories.clear();
+                            }
+
+                            // set the current Category and add the current subCategory
+                            currentCategory = selectableSubCategory.getCategoryName();
+                            chosenSubCategories.add(selectableSubCategory.getSubCategoryName());
+                        }
+                    }
+                }
+                // process the SubCategories for the last Category
+                if(chosenSubCategories.size() > 0)
+                {
+                    List<SubCategory> subCategories = CQA_Loader
+                            .loadSubCategories(currentCategory, chosenSubCategories);
+                    categories.add(new Category(currentCategory, subCategories));
+                    chosenSubCategories.clear();
+                }
+
+                application.setState(new ActiveQuestionState(application,
+                        new GameData(categories)));
+                return;
+            }
+        }
+
+        // Color and tag the clicked button to mark it as chosen or not chosen.
+        for(SelectableCategory selectableSubCategory : selectableSubCategories)
+        {
+            Button button = selectableSubCategory.getCorrespondingButton();
+            if(button == view)
+            {
+                if(button.getTag() == null || button.getTag() == false)
+                {
+                    button.getBackground().setColorFilter(Color.CYAN, PorterDuff.Mode.MULTIPLY);
+                    button.setTag(true);
+                }
+                else
+                {
+                    button.getBackground().clearColorFilter();
+                    button.setTag(false);
+                }
+
+                return;
             }
         }
     }
