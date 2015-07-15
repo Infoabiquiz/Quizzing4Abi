@@ -7,7 +7,6 @@ import com.lfg.informatik.q11.quizzing4abi.model_io.XMLWriter;
 
 import org.xml.sax.SAXException;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
