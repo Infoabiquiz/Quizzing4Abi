@@ -5,15 +5,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.lfg.informatik.q11.quizzing4abi.Answer;
 import com.lfg.informatik.q11.quizzing4abi.AnsweredQuestion;
 import com.lfg.informatik.q11.quizzing4abi.Application;
 import com.lfg.informatik.q11.quizzing4abi.GameData;
 import com.lfg.informatik.q11.quizzing4abi.Question;
 import com.lfg.informatik.q11.quizzing4abi.R;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -47,7 +45,7 @@ public class ActiveQuestionState extends GameState
         application.setLayout(R.layout.active_question);
 
         // Mark each button right or false, so it is easier to evaluate the chosen answer.
-        buttonCorrectness = new HashMap<>();
+        buttonCorrectness = new LinkedHashMap<>();
         buttonCorrectness.put((Button)application.getViewByID(R.id.active_question_answer1),
                 currentQuestion.getAnswers().get(0).isCorrect());
         buttonCorrectness.put((Button)application.getViewByID(R.id.active_question_answer2),
@@ -81,6 +79,9 @@ public class ActiveQuestionState extends GameState
     @Override
     public void onClick(View view)
     {
+        // TODO: Question "Was sind rekursive Methoden" is buggy (no true)
+        // - Feld mit 10 Elemtenten falsch
+
         switch(view.getId())
         {
             case R.id.active_question_answer1:
@@ -98,14 +99,18 @@ public class ActiveQuestionState extends GameState
                 handleChosenAnswer((Button)view, 2);
                 break;
             }
-            case R.id.main_menu_relative_layout:
+            case R.id.active_question_continue:
             {
-                if(currentQuestion == null)
-                {
-                    application.setState(new ActiveQuestionState(application, gameData));
-                }
+                application.setState(new ActiveQuestionState(application, gameData));
                 break;
             }
+            case R.id.active_question_menu:
+            {
+                application.setState(new MainMenuState(application));
+                break;
+            }
+
+            // TODO: Add counter for answered questions to end the game after that
         }
     }
 
@@ -117,6 +122,9 @@ public class ActiveQuestionState extends GameState
      */
     private void handleChosenAnswer(Button chosenAnswer, int answerIndex)
     {
+        if(currentQuestion == null)
+            return;
+
         boolean correctAnswered = currentQuestion.getAnswers().get(answerIndex).isCorrect();
         colorButtons(chosenAnswer, correctAnswered);
         // TODO: Add duration
@@ -124,6 +132,7 @@ public class ActiveQuestionState extends GameState
                 correctAnswered, 0));
 
         currentQuestion = null;
+        application.getViewByID(R.id.active_question_continue).setVisibility(View.VISIBLE);
     }
 
     /**

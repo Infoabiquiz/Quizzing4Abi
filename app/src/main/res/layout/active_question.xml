@@ -14,18 +14,25 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:layout_toStartOf="@+id/active_question_continue"
+        android:layout_alignRight="@+id/active_question_continue"
+        android:layout_alignEnd="@+id/active_question_continue"
+        android:layout_alignBottom="@+id/active_question_menu"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/active_question_question"
+        android:onClick="onClick"
+        android:layout_below="@+id/active_question_menu"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/active_question_answer1"
-        android:layout_below="@+id/active_question_category"
-        android:onClick="onClick" />
+        android:layout_marginTop="55dp"
+        android:layout_alignRight="@+id/active_question_menu"
+        android:layout_alignEnd="@+id/active_question_menu"
+        android:layout_above="@+id/active_question_continue"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -47,33 +54,30 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/active_question_answer3"
+        android:onClick="onClick"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/active_question_menu"
         android:layout_alignEnd="@+id/active_question_menu"
-        android:layout_toRightOf="@+id/active_question_question"
-        android:layout_toEndOf="@+id/active_question_question"
-        android:onClick="onClick" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/active_question_difficulty"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="onClick" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton2"
-        android:layout_above="@+id/active_question_answer1"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:layout_below="@+id/active_question_menu"
+        android:layout_alignLeft="@+id/active_question_menu"
+        android:layout_alignStart="@+id/active_question_menu"
+        android:layout_alignRight="@+id/active_question_menu"
+        android:layout_alignEnd="@+id/active_question_menu"/>
 
     <ImageView
         android:layout_width="100dp"
@@ -83,16 +87,17 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:contentDescription="toMainMenu"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WEITER"
+        android:text="Weiter"
         android:id="@+id/active_question_continue"
-        android:layout_below="@+id/active_question_difficulty"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:layout_above="@+id/active_question_answer1"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
 
 </RelativeLayout>
