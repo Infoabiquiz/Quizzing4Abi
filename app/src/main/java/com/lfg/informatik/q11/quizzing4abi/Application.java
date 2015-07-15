@@ -75,11 +75,19 @@ public class Application
 
     /**
      * Forwards user click events to the current app state.
+     * Catches all exceptions and shows an alert dialog.
      * @param view the click source (e.g. android button)
      */
     public void onClick(View view)
     {
-        currentAppState.onClick(view);
+        try
+        {
+            currentAppState.onClick(view);
+        }
+        catch (Exception e)
+        {
+            ExceptionHandler.showAlertDialog("onClick exception. Error: " + e.getMessage());
+        }
     }
 
     /**

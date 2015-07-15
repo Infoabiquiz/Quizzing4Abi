@@ -34,7 +34,6 @@ public class MainMenuState extends AppState
             case R.id.main_menu_play:
             {
                 application.setState(new GameProperties1State(application));
-                break;
             }
             case R.id.main_menu_scoreboard:
             {
