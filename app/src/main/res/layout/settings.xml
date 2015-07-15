@@ -11,7 +11,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Hintergrundfarbe"
         android:id="@+id/settings_text_backgroundcolor"
-        android:onClick="onClick"
         android:layout_above="@+id/settings_pickcolor_cyan"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

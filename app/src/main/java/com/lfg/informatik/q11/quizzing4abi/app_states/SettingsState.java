@@ -9,7 +9,7 @@ import com.lfg.informatik.q11.quizzing4abi.R;
 import com.lfg.informatik.q11.quizzing4abi.SettingsManager;
 
 /**
- * Created by Dominik on 02.07.2015.
+ * Created by Dominik and Tung on 02.07.2015.
  * The state of the Settings window / user preferences.
  */
 
@@ -25,18 +25,17 @@ public class SettingsState extends AppState
 
         application.setLayout(R.layout.settings);
 
-        // TODO: Set buttons background color
-        ((Button)application.getViewByID(R.id.settings_pickcolor_blue))
+        application.getViewByID(R.id.settings_pickcolor_blue)
                 .setBackgroundColor(Color.BLUE);
-        ((Button)application.getViewByID(R.id.settings_pickcolor_cyan))
+        application.getViewByID(R.id.settings_pickcolor_cyan)
                 .setBackgroundColor(Color.CYAN);
-        ((Button)application.getViewByID(R.id.settings_pickcolor_green))
+        application.getViewByID(R.id.settings_pickcolor_green)
                 .setBackgroundColor(Color.GREEN);
-        ((Button)application.getViewByID(R.id.settings_pickcolor_yellow))
+        application.getViewByID(R.id.settings_pickcolor_yellow)
                 .setBackgroundColor(Color.YELLOW);
-        ((Button)application.getViewByID(R.id.settings_pickcolor_red))
+        application.getViewByID(R.id.settings_pickcolor_red)
                 .setBackgroundColor(Color.RED);
-        ((Button)application.getViewByID(R.id.settings_pickcolor_white))
+        application.getViewByID(R.id.settings_pickcolor_white)
                 .setBackgroundColor(Color.WHITE);
     }
 
