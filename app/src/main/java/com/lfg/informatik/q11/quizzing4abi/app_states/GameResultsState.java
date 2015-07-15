@@ -31,7 +31,14 @@ public class GameResultsState extends GameState
     @Override
     public void onClick(View view)
     {
-        // TODO: Add functionality
+        switch (view.getId())
+        {
+            case R.id.game_results_menu:
+            {
+                application.setState(new MainMenuState(application));
+                break;
+            }
+        }
     }
 }
 
