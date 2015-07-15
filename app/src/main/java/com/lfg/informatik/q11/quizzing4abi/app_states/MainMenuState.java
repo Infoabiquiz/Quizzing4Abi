@@ -48,7 +48,7 @@ public class MainMenuState extends AppState
             }
             case R.id.main_menu_statistics:
             {
-                application.setState(new ScoreboardState(application));
+                application.setState(new StatisticsState(application));
                 break;
             }
         }
