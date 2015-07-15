@@ -2,6 +2,7 @@ package com.lfg.informatik.q11.quizzing4abi.app_states;
 
 import android.view.View;
 import com.lfg.informatik.q11.quizzing4abi.Application;
+import com.lfg.informatik.q11.quizzing4abi.R;
 
 /**
  * Created by Adrian on 05.07.2015.
@@ -18,7 +19,9 @@ public class GameResultsState extends GameState
     {
         super(application);
 
-        // TODO: Add layout for this: application.setLayout(R.layout.);
+        application.setLayout(R.layout.game_results);
+
+        // TODO
     }
 
     /**
