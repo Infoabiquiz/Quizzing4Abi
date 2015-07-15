@@ -2,6 +2,8 @@ package com.lfg.informatik.q11.quizzing4abi.app_states;
 
 import android.graphics.Color;
 import android.view.View;
+import android.widget.Button;
+
 import com.lfg.informatik.q11.quizzing4abi.Application;
 import com.lfg.informatik.q11.quizzing4abi.R;
 import com.lfg.informatik.q11.quizzing4abi.SettingsManager;
@@ -24,6 +26,18 @@ public class SettingsState extends AppState
         application.setLayout(R.layout.settings);
 
         // TODO: Set buttons background color
+        ((Button)application.getViewByID(R.id.settings_pickcolor_blue))
+                .setBackgroundColor(Color.BLUE);
+        ((Button)application.getViewByID(R.id.settings_pickcolor_cyan))
+                .setBackgroundColor(Color.CYAN);
+        ((Button)application.getViewByID(R.id.settings_pickcolor_green))
+                .setBackgroundColor(Color.GREEN);
+        ((Button)application.getViewByID(R.id.settings_pickcolor_yellow))
+                .setBackgroundColor(Color.YELLOW);
+        ((Button)application.getViewByID(R.id.settings_pickcolor_red))
+                .setBackgroundColor(Color.RED);
+        ((Button)application.getViewByID(R.id.settings_pickcolor_white))
+                .setBackgroundColor(Color.WHITE);
     }
 
     /**
