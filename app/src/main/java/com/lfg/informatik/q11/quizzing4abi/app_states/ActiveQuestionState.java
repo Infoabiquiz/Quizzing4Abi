@@ -41,7 +41,8 @@ public class ActiveQuestionState extends GameState
         currentQuestion = gameData.getRandomUnansweredQuestion();
         if(currentQuestion == null)
         {
-            application.setState(new GameResultsState(application));
+            application.setState(new GameResultsState(application,
+                    gameData.getAnsweredQuestions()));
         }
 
         application.setLayout(R.layout.active_question);
@@ -105,7 +106,8 @@ public class ActiveQuestionState extends GameState
             {
                 // End game if max Asked Questions are reached.
                 if(gameData.getAnsweredQuestions().size() >= maxAskedQuestions)
-                    application.setState(new GameResultsState(application));
+                    application.setState(new GameResultsState(application,
+                            gameData.getAnsweredQuestions()));
                 else
                     application.setState(new ActiveQuestionState(application, gameData));
                 break;
@@ -113,7 +115,8 @@ public class ActiveQuestionState extends GameState
             case R.id.active_question_menu:
             {
                 if(gameData.getAnsweredQuestions().size() > 0)
-                    application.setState(new GameResultsState(application));
+                    application.setState(new GameResultsState(application,
+                            gameData.getAnsweredQuestions()));
                 else
                     application.setState(new MainMenuState(application));
                 break;
