@@ -138,5 +138,40 @@ public class StatisticsManager
         return true;
     }
 
-    // TODO: Implement delete method
+    /**
+     * Deletes all game statistics from the internal storage irreversible.
+     * @return true if deleting was successful
+     */
+    public static boolean deleteAllStatistics()
+    {
+        OutputStream outputStream = null;
+        try
+        {
+            XMLWriter xmlWriter = new XMLWriter();
+
+            xmlWriter.elementBegin("Statistics");
+
+            outputStream = FileIO.openOutputFile("statistics.xml");
+            xmlWriter.saveTo(outputStream);
+
+            allGameStatistics.clear();
+        }
+        catch (ParserConfigurationException | TransformerException e)
+        {
+            ExceptionHandler.showAlertDialog("Deleting statistics failed. Error: " + e.getMessage());
+            return false;
+        }
+        catch (FileNotFoundException e)
+        {
+            ExceptionHandler.showAlertDialog("Opening the statistics file failed. " +
+                    "Error: " + e.getMessage());
+            return false;
+        }
+        finally
+        {
+            FileIO.closeStream(outputStream);
+        }
+
+        return true;
+    }
 }
