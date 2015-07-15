@@ -39,19 +39,25 @@ public class SelectableCategory
         this.correspondingButton = correspondingButton;
     }
 
-    // Returns name of category
+    /**
+     * @return the Category name
+     */
     public String getCategoryName()
     {
         return categoryName;
     }
 
-    // Returns name of subcategory
+    /**
+     * @return the name of the SubCategory
+     */
     public String getSubCategoryName()
     {
         return subCategoryName;
     }
 
-    // returns Button for category
+    /**
+     * @return the button showing the category name(s)
+     */
     public Button getCorrespondingButton()
     {
         return correspondingButton;
