@@ -10,9 +10,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/main_menu_play"
-        android:background="@drawable/playbutton_medium"
+        android:background="@drawable/Playbutton_app"
+        android:onClick="onClick"
+        android:layout_above="@+id/main_menu_statistics"
         android:layout_centerHorizontal="true"
-        android:onClick="onClick"/>
+        android:layout_marginBottom="88dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -20,9 +22,9 @@
         android:id="@+id/main_menu_scoreboard"
         android:background="@drawable/podium"
         android:onClick="onClick"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/main_menu_play"
-        android:layout_alignStart="@+id/main_menu_play" />
+        android:layout_alignBottom="@+id/main_menu_statistics"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageButton
         android:layout_width="100dp"
@@ -30,9 +32,9 @@
         android:id="@+id/main_menu_statistics"
         android:background="@drawable/statistics"
         android:onClick="onClick"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/main_menu_scoreboard"
-        android:layout_alignStart="@+id/main_menu_scoreboard" />
+        android:layout_alignTop="@+id/main_menu_settings"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -41,6 +43,6 @@
         android:background="@drawable/gearwheel"
         android:onClick="onClick"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="77dp" />
 </RelativeLayout>
