@@ -22,7 +22,7 @@
         android:id="@+id/main_menu_scoreboard"
         android:background="@drawable/podium"
         android:onClick="onClick"
-        android:layout_alignBottom="@+id/main_menu_statistics"
+        android:layout_alignBottom="@+id/main_menu_settings"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

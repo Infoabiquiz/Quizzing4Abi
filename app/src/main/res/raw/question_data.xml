@@ -193,7 +193,6 @@
     <SubCategory Text="Grundwissen">
       <Question Text="Wann ist der Tag der deutschen Einheit?" Difficulty="leicht">
         <Answer Correct="false" Text="9. November"/>
-        <Answer Correct="false" Text="4. Juli"/>
         <Answer Correct="false" Text="1. Mai"/>
         <Answer Correct="true" Text="3. Oktober"/>
       </Question>
