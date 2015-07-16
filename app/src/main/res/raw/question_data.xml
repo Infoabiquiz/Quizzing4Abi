@@ -8,7 +8,7 @@
         <Answer Correct="false" Text="Feld"/>
       </Question>
       <Question Text="Was sind rekursive Methoden?" Difficulty="leicht">
-        <Answer Correct="false" Text="Eine Methode, die sich selber aufruft bis die Abbruchbedingung erreicht ist."/>
+        <Answer Correct="true" Text="Eine Methode, die sich selber aufruft bis die Abbruchbedingung erreicht ist."/>
         <Answer Correct="false" Text="Eine Methode, die nicht aufhört sich zur wiederholen"/>
         <Answer Correct="false" Text="Eine Methode, die alle Attribute einer anderen Methode erbt"/>
       </Question>
