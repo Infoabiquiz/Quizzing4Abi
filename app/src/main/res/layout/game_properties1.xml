@@ -8,7 +8,7 @@
         android:layout_width="235dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Fach/Fächer Auswählen"
+        android:text="Fach/Fächer auswählen"
         android:id="@+id/game_properties1_choose"
         android:textSize="40dp"
         android:layout_alignParentLeft="true"
@@ -42,10 +42,10 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/game_properties1_list"
         android:layout_below="@+id/game_properties1_ok"
-        android:layout_alignRight="@+id/game_properties1_menu"
-        android:layout_alignEnd="@+id/game_properties1_menu"
-        android:id="@+id/game_properties1_list">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
     </LinearLayout>
 
 </RelativeLayout>

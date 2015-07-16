@@ -8,13 +8,12 @@
         android:layout_width="236dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Themenbereiche Auswählen :"
+        android:text="Kategorie(n) auswählen:"
         android:id="@+id/game_properties2_choose"
         android:textSize="40dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="0dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageButton
         android:layout_width="100dp"
@@ -36,14 +35,26 @@
         android:layout_centerHorizontal="true"
         android:onClick="onClick"/>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
         android:layout_below="@+id/game_properties2_ok"
-        android:layout_alignRight="@+id/game_properties2_menu"
-        android:layout_alignEnd="@+id/game_properties2_menu"
-        android:id="@+id/game_properties2_list">
-    </LinearLayout>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="100dp"
+            android:id="@+id/game_properties2_list"
+            android:layout_below="@+id/game_properties2_ok"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"></LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
